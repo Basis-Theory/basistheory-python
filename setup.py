@@ -42,5 +42,9 @@ setup(
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
     long_description=long_description,
-    long_description_content_type="text/markdown"
+    long_description_content_type="text/markdown",
+    project_urls={
+      "Documentation": "https://docs.basistheory.com/",
+      "Source Code": "https://github.com/Basis-Theory/basistheory-python",
+    }
 )
