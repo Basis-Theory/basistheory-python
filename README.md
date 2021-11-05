@@ -96,3 +96,42 @@ with basistheory.ApiClient(configuration) as api_client:
     # Create a token client w/ global configuration for all requests
     token_client = tokens_api.TokensApi(api_client)
 ```
+
+### Getting Started
+
+Quick example creating a token and then retrieving it decrypted.
+
+```python
+import uuid
+import basistheory
+from pprint import pprint
+from basistheory.api import tokens_api
+from basistheory.model.token import Token
+from basistheory.request_options import RequestOptions
+
+# Defining client wide api_key
+configuration = basistheory.Configuration(
+    api_key = "API KEY"
+)
+
+with basistheory.ApiClient(configuration) as api_client:
+    # Create an instance of the tokens API client
+    token_client = tokens_api.TokensApi(api_client)
+
+    # Setting a correlation Id
+    request_options = RequestOptions(correlation_id=uuid.uuid4().__str__())
+
+    # Token request object
+    token = Token(type="token", data="My Secret Data")
+
+    try:
+        # Creating the token
+        created_token = token_client.create(token=token, request_options=request_options)
+        pprint(created_token)
+
+        # Retrieving it decrypted
+        decrypted_token = token_client.get_decrypted(id=created_token.id)
+        pprint(decrypted_token)
+    except basistheory.ApiException as e:
+        print("Exception when calling TokensApi: %s\n" % e)
+```
