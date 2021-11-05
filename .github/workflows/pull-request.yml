@@ -1,0 +1,35 @@
+name: Pull Request
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: "Checkout repo"
+        uses: actions/checkout@v2
+      
+      # Set up Python 3
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      
+      - name: "Upgrade pip"
+        run: python3 -m pip install --upgrade pip
+      
+      - name: "Install base dependencies"
+        run: python3 -m pip install setuptools wheel
+      
+      - name: "Install additional dependencies"
+        run: if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      
+      - name: "Install the package"
+        run: python3 setup.py install
+
+      # TODO: TESTS
+
+      - name: "Build"
+        run: python3 setup.py sdist bdist_wheel
