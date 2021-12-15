@@ -34,3 +34,4 @@ git_push.sh
 .travis.yml
 .gitlab-ci.yml
 .github/*
+basistheory/model/token.py
