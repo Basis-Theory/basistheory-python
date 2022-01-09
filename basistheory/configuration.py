@@ -390,7 +390,7 @@ conf = basistheory.Configuration(
             auth['apiKey'] = {
                 'type': 'api_key',
                 'in': 'header',
-                'key': 'X-API-KEY',
+                'key': 'BT-API-KEY',
                 'value': self.get_api_key_with_prefix(
                     'apiKey',
                 ),

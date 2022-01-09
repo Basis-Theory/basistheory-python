@@ -69,7 +69,7 @@ Class | Method | HTTP request
 ### Per-request configuration
 
 All of the client methods accept an optional `RequestOptions` object.<br>This is
-used if you want to set a [correlation ID](https://docs.basistheory.com/api-reference/?shell#request-correlation) or if you want to set a per-request [`X-API-KEY`](https://docs.basistheory.com/api-reference/?shell#authentication)
+used if you want to set a [correlation ID](https://docs.basistheory.com/api-reference/?shell#request-correlation) or if you want to set a per-request [`BT-API-KEY`](https://docs.basistheory.com/api-reference/?shell#authentication)
 
 ```python
 import uuid
@@ -81,7 +81,7 @@ request_options = RequestOptions(api_key="API KEY", correlation_id=uuid.uuid4())
 
 ### Client Configuration
 
-Each Api client can be configured to use a custom API url and client-wide [`X-API-KEY`](https://docs.basistheory.com/api-reference/?shell#authentication).
+Each Api client can be configured to use a custom API url and client-wide [`BT-API-KEY`](https://docs.basistheory.com/api-reference/?shell#authentication).
 
 ```python
 import basistheory
