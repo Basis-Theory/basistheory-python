@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.0 (2022-01-10)
+### Feature
+* Upgrade to use BT-API-KEY auth header ([#3](https://github.com/Basis-Theory/basistheory-python/issues/3)) ([`8ae0529`](https://github.com/Basis-Theory/basistheory-python/commit/8ae0529a497ba3be34e9e2ba111d38434ae5c68c))
+
 ## v0.1.2 (2021-12-15)
 ### Fix
 * Add privacy object to token model ([#2](https://github.com/Basis-Theory/basistheory-python/issues/2)) ([`6aeab98`](https://github.com/Basis-Theory/basistheory-python/commit/6aeab98e2768b8140e46394d4d86e4bc4837a9b8))
