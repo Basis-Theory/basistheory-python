@@ -273,8 +273,7 @@ Name | Type | Description
 ------------- | ------------- | -------------
  **id** | **[str]**|
  **type** | **[str]**|
- **children** | **bool**|
- **children_type** | **[str]**|
+ **metadata** | **{str: (str,)}**|
  **page** | **int**|
  **size** | **int**|
 
