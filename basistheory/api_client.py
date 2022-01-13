@@ -503,7 +503,7 @@ class ApiClient(object):
                 if collection_format == 'multi':
                     new_params.extend((k, value) for value in v)
                 else:
-                    if collection_format == 'nested':
+                    if collection_format == 'dict':
                         new_params.extend((f'{k}.{inner_k}', inner_v) for inner_k, inner_v in v.items())
                     if collection_format == 'ssv':
                         delimiter = ' '
