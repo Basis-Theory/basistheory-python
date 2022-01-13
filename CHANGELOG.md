@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.0 (2022-01-13)
+### Feature
+* Add metadata query param to list tokens, remove unsupported params ([#4](https://github.com/Basis-Theory/basistheory-python/issues/4)) ([`ce4b2e9`](https://github.com/Basis-Theory/basistheory-python/commit/ce4b2e908fbf86543c5cdbc7bae3780e13e3397a))
+
 ## v0.2.0 (2022-01-10)
 ### Feature
 * Upgrade to use BT-API-KEY auth header ([#3](https://github.com/Basis-Theory/basistheory-python/issues/3)) ([`8ae0529`](https://github.com/Basis-Theory/basistheory-python/commit/8ae0529a497ba3be34e9e2ba111d38434ae5c68c))
