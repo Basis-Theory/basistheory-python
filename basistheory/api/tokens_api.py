@@ -281,8 +281,7 @@ class TokensApi(object):
                 'all': [
                     'id',
                     'type',
-                    'children',
-                    'children_type',
+                    'metadata',
                     'page',
                     'size',
                 ],
@@ -304,10 +303,8 @@ class TokensApi(object):
                         ([str],),
                     'type':
                         ([str],),
-                    'children':
-                        (bool,),
-                    'children_type':
-                        ([str],),
+                    'metadata':
+                        ({str: (str,)},),
                     'page':
                         (int,),
                     'size':
@@ -316,23 +313,21 @@ class TokensApi(object):
                 'attribute_map': {
                     'id': 'id',
                     'type': 'type',
-                    'children': 'children',
-                    'children_type': 'children_type',
+                    'metadata': 'metadata',
                     'page': 'page',
                     'size': 'size',
                 },
                 'location_map': {
                     'id': 'query',
                     'type': 'query',
-                    'children': 'query',
-                    'children_type': 'query',
+                    'metadata': 'query',
                     'page': 'query',
                     'size': 'query',
                 },
                 'collection_format_map': {
                     'id': 'multi',
                     'type': 'multi',
-                    'children_type': 'multi',
+                    'metadata': 'dict',
                 }
             },
             headers_map={
@@ -717,8 +712,7 @@ class TokensApi(object):
         Keyword Args:
             id ([str]): [optional]
             type ([str]): [optional]
-            children (bool): [optional]
-            children_type ([str]): [optional]
+            metadata ({str: (str,)}): [optional]
             page (int): [optional]
             size (int): [optional]
             request_options(RequestOptions): [optional]
