@@ -327,6 +327,7 @@ class TokensApi(object):
                 'collection_format_map': {
                     'id': 'multi',
                     'type': 'multi',
+                    'metadata': 'nested',
                 }
             },
             headers_map={
