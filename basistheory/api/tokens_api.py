@@ -25,7 +25,7 @@ from basistheory.model_utils import (  # noqa: F401
 from basistheory.model.basis_theory_error import BasisTheoryError
 from basistheory.model.paginated_token_list import PaginatedTokenList
 from basistheory.model.token import Token
-from basistheory.model.token import TokenSearchRequest
+from basistheory.model.token_search_request import TokenSearchRequest
 
 
 class TokensApi(object):
@@ -452,9 +452,7 @@ class TokensApi(object):
                 'attribute_map': {
                 },
                 'location_map': {
-                    'query': 'body',
-                    'page': 'body',
-                    'size': 'body',
+                    'search': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -894,7 +892,7 @@ class TokensApi(object):
         search,
         **kwargs,
     ):
-        """create  # noqa: E501
+        """search  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
