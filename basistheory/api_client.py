@@ -8,14 +8,18 @@
 """
 
 
+from cProfile import run
+from curses.panel import version
 import json
 import atexit
 import mimetypes
 from multiprocessing.pool import ThreadPool
 import io
 import os
+from platform import platform
 import re
 import typing
+import pkg_resources
 from urllib.parse import quote
 from urllib3.fields import RequestField
 
@@ -63,7 +67,7 @@ class ApiClient(object):
 
     _pool = None
 
-    def __init__(self, configuration=None, header_name=None, header_value=None,
+    def __init__(self, configuration=None, app_info=None, header_name=None, header_value=None,
                  cookie=None, pool_threads=1):
         if configuration is None:
             configuration = Configuration.get_default_copy()
@@ -76,7 +80,13 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenAPI-Generator/1.0.0-alpha/python'
+        self.user_agent = 'basistheory-python/' + self.get_version()
+        if app_info is not None:
+            self.user_agent += ' ({name}; {version}; {url})'.format(name = app_info.get('name', ''), version = app_info.get('version', ''), url = app_info.get('url', ''))
+        # Set BT-User-Agent header.
+        self.default_headers['BT-CLIENT-USER-AGENT'] = self.build_client_user_agent_header(app_info)
+
+
 
     def __enter__(self):
         return self
@@ -113,6 +123,42 @@ class ApiClient(object):
 
     def set_default_header(self, header_name, header_value):
         self.default_headers[header_name] = header_value
+
+    def build_client_user_agent_header(self, app_info=None):
+        header = {
+            "client": "basistheory-python",
+            "client_version": self.get_version(),
+            "os_version": self.get_os(),
+            "runtime_version": self.get_runtime()
+        }
+
+        if app_info is not None:
+            header["application"] = app_info
+        
+        return json.dumps(header)
+
+    @staticmethod
+    def get_version():
+        try:
+            return pkg_resources.require('basistheory')[0].version
+        except:
+            return "unknown"
+    
+    @staticmethod
+    def get_os():
+        try:
+            return platform.platform()
+        except:
+            return "unknown"
+    
+    @staticmethod
+    def get_runtime():
+        try:
+            return platform.python_version()
+        except:
+            return "unknown"
+
+
 
     def __call_api(
         self,
