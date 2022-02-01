@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.0 (2022-02-01)
+### Feature
+* Add token search ([#5](https://github.com/Basis-Theory/basistheory-python/issues/5)) ([`bdd6972`](https://github.com/Basis-Theory/basistheory-python/commit/bdd6972e5745a7c1f5d2ddb8fbc804d490b01b3f))
+
 ## v0.3.0 (2022-01-13)
 ### Feature
 * Add metadata query param to list tokens, remove unsupported params ([#4](https://github.com/Basis-Theory/basistheory-python/issues/4)) ([`ce4b2e9`](https://github.com/Basis-Theory/basistheory-python/commit/ce4b2e908fbf86543c5cdbc7bae3780e13e3397a))
