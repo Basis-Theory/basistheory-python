@@ -16,3 +16,4 @@ from basistheory.model.paginated_token_list import PaginatedTokenList
 from basistheory.model.pagination import Pagination
 from basistheory.model.token import Token
 from basistheory.model.privacy import Privacy
+from basistheory.model.token_search_request import TokenSearchRequest
