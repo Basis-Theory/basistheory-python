@@ -10,7 +10,6 @@
 
 import re  # noqa: F401
 import sys
-from basistheory.model.privacy import Privacy  # noqa: F401
 
 from basistheory.model_utils import (  # noqa: F401
     ApiTypeError,

@@ -51,11 +51,10 @@ class AtomicCardsApi(object):
             },
             params_map={
                 'all': [
-                    'card',
-                    'metadata',
+                    'atomic_card',
                     'request_options'
                 ],
-                'required': ['card'],
+                'required': [],
                 'nullable': [
                 ],
                 'enum': [
@@ -69,19 +68,15 @@ class AtomicCardsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'card':
-                        (Card,),
-                    'metadata':
-                        ({str: (str,)},)
+                    'atomic_card':
+                        (AtomicCard,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'card': 'body',
-                    'metadata': 'body'
+                    'atomic_card': 'body',
                 },
                 'collection_format_map': {
-                    'metadata': 'dict'
                 }
             },
             headers_map={
@@ -255,7 +250,7 @@ class AtomicCardsApi(object):
         
     def create(
         self,
-        card,
+        atomic_card,
         **kwargs,
     ):
         """create  # noqa: E501
@@ -267,7 +262,7 @@ class AtomicCardsApi(object):
         >>> result = thread.get()
 
         Args:
-            card (Card): Atomic card to create
+            atomic_card (AtomicCard): Atomic card to create
 
         Keyword Args:
             request_options(RequestOptions): [optional]
@@ -319,8 +314,8 @@ class AtomicCardsApi(object):
             '_check_return_type', True
         )
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['card'] = \
-            card
+        kwargs['atomic_card'] = \
+            atomic_card
         return self.create_endpoint.call_with_http_info(**kwargs)
 
     def delete(
