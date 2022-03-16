@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.5.0 (2022-02-02)
+### Feature
+* Add user-agent headers to api client ([#6](https://github.com/Basis-Theory/basistheory-python/issues/6)) ([`475be60`](https://github.com/Basis-Theory/basistheory-python/commit/475be60e978afcd33b5d339cb6c9f99f29a7e91a))
+
 ## v0.4.0 (2022-02-01)
 ### Feature
 * Add token search ([#5](https://github.com/Basis-Theory/basistheory-python/issues/5)) ([`bdd6972`](https://github.com/Basis-Theory/basistheory-python/commit/bdd6972e5745a7c1f5d2ddb8fbc804d490b01b3f))
