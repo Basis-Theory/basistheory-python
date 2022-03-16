@@ -16,3 +16,4 @@
 # Import APIs into API package:
 from basistheory.api.tokens_api import TokensApi
 from basistheory.api.atomic_cards_api import AtomicCardsApi
+from basistheory.api.atomic_banks_api import AtomicBanksApi

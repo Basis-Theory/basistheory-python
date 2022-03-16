@@ -20,3 +20,6 @@ from basistheory.model.token_search_request import TokenSearchRequest
 from basistheory.model.card import Card
 from basistheory.model.atomic_card import AtomicCard
 from basistheory.model.paginated_atomic_card_list import PaginatedAtomicCardList
+from basistheory.model.atomic_bank import AtomicBank
+from basistheory.model.bank import Bank
+from basistheory.model.paginated_atomic_bank_list import PaginatedAtomicBankList
