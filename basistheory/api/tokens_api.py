@@ -19,13 +19,14 @@ from basistheory.model_utils import (  # noqa: F401
     datetime,
     file_type,
     none_type,
-    validate_and_convert_types,
-    set_request_options
+    validate_and_convert_types
 )
-from basistheory.model.basis_theory_error import BasisTheoryError
-from basistheory.model.paginated_token_list import PaginatedTokenList
-from basistheory.model.token import Token
-from basistheory.model.token_search_request import TokenSearchRequest
+from basistheory.model.create_token_request import CreateTokenRequest
+from basistheory.model.create_token_response import CreateTokenResponse
+from basistheory.model.problem_details import ProblemDetails
+from basistheory.model.search_tokens_request import SearchTokensRequest
+from basistheory.model.token_model import TokenModel
+from basistheory.model.token_model_paginated_list import TokenModelPaginatedList
 
 
 class TokensApi(object):
@@ -41,7 +42,7 @@ class TokensApi(object):
         self.api_client = api_client
         self.create_endpoint = _Endpoint(
             settings={
-                'response_type': (Token,),
+                'response_type': (CreateTokenResponse,),
                 'auth': [
                     'apiKey'
                 ],
@@ -52,8 +53,7 @@ class TokensApi(object):
             },
             params_map={
                 'all': [
-                    'token',
-                    'request_options'
+                    'create_token_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -69,13 +69,13 @@ class TokensApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'token':
-                        (Token,),
+                    'create_token_request':
+                        (CreateTokenRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'token': 'body',
+                    'create_token_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -137,7 +137,9 @@ class TokensApi(object):
                 'accept': [
                     'text/plain',
                     'application/json',
-                    'text/json'
+                    'text/json',
+                    'application/xml',
+                    'text/xml'
                 ],
                 'content_type': [],
             },
@@ -145,7 +147,7 @@ class TokensApi(object):
         )
         self.get_by_id_endpoint = _Endpoint(
             settings={
-                'response_type': (Token,),
+                'response_type': (TokenModel,),
                 'auth': [
                     'apiKey'
                 ],
@@ -157,8 +159,6 @@ class TokensApi(object):
             params_map={
                 'all': [
                     'id',
-                    'children',
-                    'children_type',
                 ],
                 'required': [
                     'id',
@@ -178,23 +178,14 @@ class TokensApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'children':
-                        (bool,),
-                    'children_type':
-                        ([str],),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'children': 'children',
-                    'children_type': 'children_type',
                 },
                 'location_map': {
                     'id': 'path',
-                    'children': 'query',
-                    'children_type': 'query',
                 },
                 'collection_format_map': {
-                    'children_type': 'multi',
                 }
             },
             headers_map={
@@ -207,7 +198,7 @@ class TokensApi(object):
         )
         self.get_decrypted_endpoint = _Endpoint(
             settings={
-                'response_type': (Token,),
+                'response_type': (TokenModel,),
                 'auth': [
                     'apiKey'
                 ],
@@ -219,8 +210,6 @@ class TokensApi(object):
             params_map={
                 'all': [
                     'id',
-                    'children',
-                    'children_type',
                 ],
                 'required': [
                     'id',
@@ -240,23 +229,14 @@ class TokensApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'children':
-                        (bool,),
-                    'children_type':
-                        ([str],),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'children': 'children',
-                    'children_type': 'children_type',
                 },
                 'location_map': {
                     'id': 'path',
-                    'children': 'query',
-                    'children_type': 'query',
                 },
                 'collection_format_map': {
-                    'children_type': 'multi',
                 }
             },
             headers_map={
@@ -269,7 +249,7 @@ class TokensApi(object):
         )
         self.list_endpoint = _Endpoint(
             settings={
-                'response_type': (PaginatedTokenList,),
+                'response_type': (TokenModelPaginatedList,),
                 'auth': [
                     'apiKey'
                 ],
@@ -280,8 +260,8 @@ class TokensApi(object):
             },
             params_map={
                 'all': [
-                    'id',
                     'type',
+                    'id',
                     'metadata',
                     'page',
                     'size',
@@ -300,35 +280,34 @@ class TokensApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'id':
-                        ([str],),
                     'type':
                         ([str],),
+                    'id':
+                        ([str],),
                     'metadata':
-                        ({str: (str,)},),
+                        ({str: (str, none_type)},),
                     'page':
                         (int,),
                     'size':
                         (int,),
                 },
                 'attribute_map': {
-                    'id': 'id',
                     'type': 'type',
+                    'id': 'id',
                     'metadata': 'metadata',
                     'page': 'page',
                     'size': 'size',
                 },
                 'location_map': {
-                    'id': 'query',
                     'type': 'query',
+                    'id': 'query',
                     'metadata': 'query',
                     'page': 'query',
                     'size': 'query',
                 },
                 'collection_format_map': {
-                    'id': 'multi',
                     'type': 'multi',
-                    'metadata': 'dict',
+                    'id': 'multi',
                 }
             },
             headers_map={
@@ -341,7 +320,7 @@ class TokensApi(object):
         )
         self.list_decrypted_endpoint = _Endpoint(
             settings={
-                'response_type': (PaginatedTokenList,),
+                'response_type': (TokenModelPaginatedList,),
                 'auth': [
                     'apiKey'
                 ],
@@ -353,9 +332,6 @@ class TokensApi(object):
             params_map={
                 'all': [
                     'id',
-                    'children',
-                    'children_type',
-                    'decrypt_type',
                     'page',
                     'size',
                 ],
@@ -375,12 +351,6 @@ class TokensApi(object):
                 'openapi_types': {
                     'id':
                         ([str],),
-                    'children':
-                        (bool,),
-                    'children_type':
-                        ([str],),
-                    'decrypt_type':
-                        ([str],),
                     'page':
                         (int,),
                     'size':
@@ -388,24 +358,16 @@ class TokensApi(object):
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'children': 'children',
-                    'children_type': 'children_type',
-                    'decrypt_type': 'decrypt_type',
                     'page': 'page',
                     'size': 'size',
                 },
                 'location_map': {
                     'id': 'query',
-                    'children': 'query',
-                    'children_type': 'query',
-                    'decrypt_type': 'query',
                     'page': 'query',
                     'size': 'query',
                 },
                 'collection_format_map': {
                     'id': 'multi',
-                    'children_type': 'multi',
-                    'decrypt_type': 'multi',
                 }
             },
             headers_map={
@@ -418,7 +380,7 @@ class TokensApi(object):
         )
         self.search_endpoint = _Endpoint(
             settings={
-                'response_type': (PaginatedTokenList,),
+                'response_type': (TokenModelPaginatedList,),
                 'auth': [
                     'apiKey'
                 ],
@@ -429,8 +391,7 @@ class TokensApi(object):
             },
             params_map={
                 'all': [
-                    'search',
-                    'request_options'
+                    'search_tokens_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -446,13 +407,13 @@ class TokensApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'search':
-                        (TokenSearchRequest,),
+                    'search_tokens_request':
+                        (SearchTokensRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'search': 'body',
+                    'search_tokens_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -470,8 +431,7 @@ class TokensApi(object):
 
     def create(
         self,
-        token,
-        **kwargs,
+        **kwargs
     ):
         """create  # noqa: E501
 
@@ -481,11 +441,9 @@ class TokensApi(object):
         >>> thread = api.create(async_req=True)
         >>> result = thread.get()
 
-        Args:
-            token (Token): token to create
 
         Keyword Args:
-            request_options(RequestOptions): [optional]
+            create_token_request (CreateTokenRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -501,19 +459,23 @@ class TokensApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
             async_req (bool): execute request asynchronously
 
         Returns:
-            Token
+            CreateTokenResponse
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        if kwargs.get('request_options'):
-            set_request_options(kwargs.pop('request_options'), self)
-
         kwargs['async_req'] = kwargs.get(
             'async_req', False
         )
@@ -532,9 +494,12 @@ class TokensApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['token'] = \
-            token
         return self.create_endpoint.call_with_http_info(**kwargs)
 
     def delete(
@@ -551,10 +516,9 @@ class TokensApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): id for the token to delete
+            id (str):
 
         Keyword Args:
-            request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -570,6 +534,13 @@ class TokensApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
@@ -580,9 +551,6 @@ class TokensApi(object):
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        if kwargs.get('request_options'):
-            set_request_options(kwargs.pop('request_options'), self)
-
         kwargs['async_req'] = kwargs.get(
             'async_req', False
         )
@@ -601,6 +569,11 @@ class TokensApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
@@ -620,12 +593,9 @@ class TokensApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): id for the token
+            id (str):
 
         Keyword Args:
-            children (bool): [optional]
-            children_type ([str]): [optional]
-            request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -641,19 +611,23 @@ class TokensApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
             async_req (bool): execute request asynchronously
 
         Returns:
-            Token
+            TokenModel
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        if kwargs.get('request_options'):
-            set_request_options(kwargs.pop('request_options'), self)
-
         kwargs['async_req'] = kwargs.get(
             'async_req', False
         )
@@ -672,6 +646,11 @@ class TokensApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
@@ -691,12 +670,9 @@ class TokensApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): id for the token
+            id (str):
 
         Keyword Args:
-            children (bool): [optional]
-            children_type ([str]): [optional]
-            request_options (RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -712,19 +688,23 @@ class TokensApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
             async_req (bool): execute request asynchronously
 
         Returns:
-            Token
+            TokenModel
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        if kwargs.get('request_options'):
-            set_request_options(kwargs.pop('request_options'), self)
-
         kwargs['async_req'] = kwargs.get(
             'async_req', False
         )
@@ -743,6 +723,11 @@ class TokensApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['id'] = \
             id
@@ -750,7 +735,7 @@ class TokensApi(object):
 
     def list(
         self,
-        **kwargs,
+        **kwargs
     ):
         """list  # noqa: E501
 
@@ -762,12 +747,11 @@ class TokensApi(object):
 
 
         Keyword Args:
-            id ([str]): [optional]
             type ([str]): [optional]
-            metadata ({str: (str,)}): [optional]
+            id ([str]): [optional]
+            metadata ({str: (str, none_type)}): [optional]
             page (int): [optional]
             size (int): [optional]
-            request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -783,19 +767,23 @@ class TokensApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
             async_req (bool): execute request asynchronously
 
         Returns:
-            PaginatedTokenList
+            TokenModelPaginatedList
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        if kwargs.get('request_options'):
-            set_request_options(kwargs.pop('request_options'), self)
-
         kwargs['async_req'] = kwargs.get(
             'async_req', False
         )
@@ -814,6 +802,11 @@ class TokensApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.list_endpoint.call_with_http_info(**kwargs)
 
@@ -832,12 +825,8 @@ class TokensApi(object):
 
         Keyword Args:
             id ([str]): [optional]
-            children (bool): [optional]
-            children_type ([str]): [optional]
-            decrypt_type ([str]): [optional]
             page (int): [optional]
             size (int): [optional]
-            request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -853,19 +842,23 @@ class TokensApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
             async_req (bool): execute request asynchronously
 
         Returns:
-            PaginatedTokenList
+            TokenModelPaginatedList
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        if kwargs.get('request_options'):
-            set_request_options(kwargs.pop('request_options'), self)
-
         kwargs['async_req'] = kwargs.get(
             'async_req', False
         )
@@ -884,13 +877,17 @@ class TokensApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.list_decrypted_endpoint.call_with_http_info(**kwargs)
 
     def search(
         self,
-        search,
-        **kwargs,
+        **kwargs
     ):
         """search  # noqa: E501
 
@@ -900,11 +897,9 @@ class TokensApi(object):
         >>> thread = api.search(async_req=True)
         >>> result = thread.get()
 
-        Args:
-            search (TokenSearchRequest): token search request
 
         Keyword Args:
-            request_options(RequestOptions): [optional]
+            search_tokens_request (SearchTokensRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -920,19 +915,23 @@ class TokensApi(object):
             _check_return_type (bool): specifies if type checking
                 should be done one the data received from the server.
                 Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
             _host_index (int/None): specifies the index of the server
                 that we want to use.
                 Default is read from the configuration.
             async_req (bool): execute request asynchronously
 
         Returns:
-            PaginatedTokenList
+            TokenModelPaginatedList
                 If the method is called asynchronously, returns the request
                 thread.
         """
-        if kwargs.get('request_options'):
-            set_request_options(kwargs.pop('request_options'), self)
-
         kwargs['async_req'] = kwargs.get(
             'async_req', False
         )
@@ -951,8 +950,11 @@ class TokensApi(object):
         kwargs['_check_return_type'] = kwargs.get(
             '_check_return_type', True
         )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['search'] = \
-            search
         return self.search_endpoint.call_with_http_info(**kwargs)
 
