@@ -206,6 +206,7 @@ class TokensApi(object):
                 'collection_format_map': {
                     'type': 'multi',
                     'id': 'multi',
+                    'metadata': 'dict',
                 }
             },
             headers_map={
