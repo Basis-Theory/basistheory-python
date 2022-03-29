@@ -3,7 +3,6 @@ basistheory/api/__init__.py
 basistheory/api/applications_api.py
 basistheory/api/atomic_banks_api.py
 basistheory/api/atomic_cards_api.py
-basistheory/api/cards_api.py
 basistheory/api/logs_api.py
 basistheory/api/permissions_api.py
 basistheory/api/reactor_formulas_api.py
@@ -79,7 +78,6 @@ test/test_atomic_cards_api.py
 test/test_atomic_react_request.py
 test/test_bank.py
 test/test_card.py
-test/test_cards_api.py
 test/test_create_application_request.py
 test/test_create_atomic_bank_request.py
 test/test_create_atomic_card_request.py
