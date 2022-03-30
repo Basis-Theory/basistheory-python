@@ -1,5 +1,7 @@
 # Basis Theory Python SDK
 
+[![Verify](https://github.com/Basis-Theory/basistheory-python/actions/workflows/release.yml/badge.svg)](https://github.com/Basis-Theory/basistheory-python/actions/workflows/release.yml)
+
 The [Basis Theory](https://basistheory.com/) Python SDK for Python >=3.7
 
 ## Installation
