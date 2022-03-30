@@ -9,7 +9,7 @@
 
 
 import re  # noqa: F401
-import sys
+import sys  # noqa: F401
 
 from basistheory.model_utils import (  # noqa: F401
     ApiTypeError,
@@ -24,8 +24,8 @@ from basistheory.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from basistheory.exceptions import ApiAttributeError
 
 
@@ -81,11 +81,11 @@ class AtomicBank(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'tenant_id': (str,),  # noqa: E501
-            'type': (str,),  # noqa: E501
+            'tenant_id': (str, none_type,),  # noqa: E501
             'bank': (Bank,),  # noqa: E501
-            'fingerprint': (str, ),  # noqa: E501
-            'metadata': ({str: (str,)},),  # noqa: E501
+            'type': (str, none_type,),  # noqa: E501
+            'fingerprint': (str, none_type,),  # noqa: E501
+            'metadata': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'created_by': (str, none_type,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'modified_by': (str, none_type,),  # noqa: E501
@@ -100,8 +100,8 @@ class AtomicBank(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'tenant_id': 'tenant_id',  # noqa: E501
-        'type': 'type',  # noqa: E501
         'bank': 'bank',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'fingerprint': 'fingerprint',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
@@ -118,7 +118,7 @@ class AtomicBank(ModelNormal):
     @classmethod
     @convert_js_args_to_python_args
     def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """AtomicBank
+        """AtomicBank - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -152,11 +152,11 @@ class AtomicBank(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            tenant_id (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
+            tenant_id (str, none_type): [optional]  # noqa: E501
             bank (Bank): [optional]  # noqa: E501
-            fingerprint (str): [optional]  # noqa: E501
-            metadata ({str: (str,)}): [optional]  # noqa: E501          
+            type (str, none_type): [optional]  # noqa: E501
+            fingerprint (str, none_type): [optional]  # noqa: E501
+            metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
             modified_by (str, none_type): [optional]  # noqa: E501
@@ -164,7 +164,7 @@ class AtomicBank(ModelNormal):
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -172,14 +172,18 @@ class AtomicBank(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -209,7 +213,7 @@ class AtomicBank(ModelNormal):
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
-        """AtomicCard
+        """AtomicBank - a model defined in OpenAPI
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -243,11 +247,11 @@ class AtomicBank(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            tenant_id (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
-            card (Card): [optional]  # noqa: E501
-            fingerprint (str): [optional]  # noqa: E501
-            metadata ({str: (str,)}): [optional]  # noqa: E501          
+            tenant_id (str, none_type): [optional]  # noqa: E501
+            bank (Bank): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
+            fingerprint (str, none_type): [optional]  # noqa: E501
+            metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
             modified_by (str, none_type): [optional]  # noqa: E501
@@ -261,14 +265,18 @@ class AtomicBank(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
