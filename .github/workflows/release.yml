@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: "Checkout repo"
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.SEMANTIC_RELEASE_PAT }}
       
       # Set up Python 3
       - uses: actions/setup-python@v2
@@ -28,8 +30,6 @@ jobs:
       
       - name: "Install the package"
         run: python3 setup.py install
-
-      # TODO: TESTS
 
       - name: "Build"
         run: python3 setup.py sdist bdist_wheel

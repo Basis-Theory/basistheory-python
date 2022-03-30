@@ -2,8 +2,6 @@
 
 The [Basis Theory](https://basistheory.com/) Python SDK for Python >=3.7
 
-:warning: **This SDK is currently in alpha state and is subject to changes.**
-
 ## Installation
 
 ### pip install
@@ -40,7 +38,6 @@ import basistheory
 
 ## Documentation
 
-:warning: **Documentation is currently in alpha and is subject to changes.**<br>
 If you need any assistance, please contact support@basistheory.com at this time.
 
 ### Client Methods

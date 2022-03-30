@@ -29,7 +29,5 @@ jobs:
       - name: "Install the package"
         run: python3 setup.py install
 
-      # TODO: TESTS
-
       - name: "Build"
         run: python3 setup.py sdist bdist_wheel
