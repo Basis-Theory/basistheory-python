@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.6.0 (2022-03-30)
+### Feature
+* Add all endpoints ([`f2ea9fe`](https://github.com/Basis-Theory/basistheory-python/commit/f2ea9fec2576b27ffb067b080a4ab116c2a4ccfe))
+
 ## v0.5.0 (2022-02-02)
 ### Feature
 * Add user-agent headers to api client ([#6](https://github.com/Basis-Theory/basistheory-python/issues/6)) ([`475be60`](https://github.com/Basis-Theory/basistheory-python/commit/475be60e978afcd33b5d339cb6c9f99f29a7e91a))
