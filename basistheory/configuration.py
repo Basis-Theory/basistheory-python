@@ -112,7 +112,7 @@ conf = basistheory.Configuration(
                  ):
         """Constructor
         """
-        self._base_path = "httsp://api.basistheory.com" if host is None else host
+        self._base_path = "https://api.basistheory.com" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -130,7 +130,7 @@ conf = basistheory.Configuration(
         self.access_token = access_token
         self.api_key = {}
         if api_key:
-            self.api_key = api_key
+            self.api_key = {'apiKey': api_key}
         """dict to store API key(s)
         """
         self.api_key_prefix = {}
@@ -389,13 +389,13 @@ conf = basistheory.Configuration(
         :return: The Auth Settings information dict.
         """
         auth = {}
-        if 'ApiKey' in self.api_key:
-            auth['ApiKey'] = {
+        if 'apiKey' in self.api_key:
+            auth['apiKey'] = {
                 'type': 'api_key',
                 'in': 'header',
                 'key': 'BT-API-KEY',
                 'value': self.get_api_key_with_prefix(
-                    'ApiKey',
+                    'apiKey',
                 ),
             }
         return auth

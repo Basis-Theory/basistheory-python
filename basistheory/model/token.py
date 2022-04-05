@@ -9,8 +9,7 @@
 
 
 import re  # noqa: F401
-import sys
-from basistheory.model.privacy import Privacy  # noqa: F401
+import sys  # noqa: F401
 
 from basistheory.model_utils import (  # noqa: F401
     ApiTypeError,
@@ -25,15 +24,15 @@ from basistheory.model_utils import (  # noqa: F401
     file_type,
     none_type,
     validate_get_composed_info,
+    OpenApiModel
 )
-from ..model_utils import OpenApiModel
 from basistheory.exceptions import ApiAttributeError
 
 
 def lazy_import():
     from basistheory.model.encryption_metadata import EncryptionMetadata
-    globals()['EncryptionMetadata'] = EncryptionMetadata
     from basistheory.model.privacy import Privacy
+    globals()['EncryptionMetadata'] = EncryptionMetadata
     globals()['Privacy'] = Privacy
 
 
@@ -84,18 +83,17 @@ class Token(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'type': (str,),  # noqa: E501
+            'type': (str, none_type,),  # noqa: E501
             'tenant_id': (str,),  # noqa: E501
             'data': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'metadata': ({str: (str,)},),  # noqa: E501
+            'metadata': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'encryption': (EncryptionMetadata,),  # noqa: E501
             'created_by': (str, none_type,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'modified_by': (str, none_type,),  # noqa: E501
             'modified_at': (datetime, none_type,),  # noqa: E501
-            'children': ([Token],),  # noqa: E501
-            'fingerprint': (str,),  # noqa: E501
-            'privacy': (Privacy,), # noqa: $501
+            'fingerprint': (str, none_type,),  # noqa: E501
+            'privacy': (Privacy,),  # noqa: E501
         }
 
     @cached_property
@@ -114,9 +112,8 @@ class Token(ModelNormal):
         'created_at': 'created_at',  # noqa: E501
         'modified_by': 'modified_by',  # noqa: E501
         'modified_at': 'modified_at',  # noqa: E501
-        'children': 'children',  # noqa: E501
         'fingerprint': 'fingerprint',  # noqa: E501
-        'privacy': 'privacy', # noqa: E501
+        'privacy': 'privacy',  # noqa: E501
     }
 
     read_only_vars = {
@@ -161,21 +158,21 @@ class Token(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
             tenant_id (str): [optional]  # noqa: E501
             data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            metadata ({str: (str,)}): [optional]  # noqa: E501
+            metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             encryption (EncryptionMetadata): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
             modified_by (str, none_type): [optional]  # noqa: E501
             modified_at (datetime, none_type): [optional]  # noqa: E501
-            children ([Token]): [optional]  # noqa: E501
-            fingerprint (str): [optional]  # noqa: E501
+            fingerprint (str, none_type): [optional]  # noqa: E501
+            privacy (Privacy): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', True)
         _path_to_item = kwargs.pop('_path_to_item', ())
         _configuration = kwargs.pop('_configuration', None)
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
@@ -183,14 +180,18 @@ class Token(ModelNormal):
         self = super(OpenApiModel, cls).__new__(cls)
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
@@ -254,17 +255,17 @@ class Token(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
-            type (str): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
             tenant_id (str): [optional]  # noqa: E501
             data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            metadata ({str: (str,)}): [optional]  # noqa: E501
+            metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             encryption (EncryptionMetadata): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
             modified_by (str, none_type): [optional]  # noqa: E501
             modified_at (datetime, none_type): [optional]  # noqa: E501
-            children ([Token]): [optional]  # noqa: E501
-            fingerprint (str): [optional]  # noqa: E501
+            fingerprint (str, none_type): [optional]  # noqa: E501
+            privacy (Privacy): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -274,14 +275,18 @@ class Token(ModelNormal):
         _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
 
         if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
+            for arg in args:
+                if isinstance(arg, dict):
+                    kwargs.update(arg)
+                else:
+                    raise ApiTypeError(
+                        "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                            args,
+                            self.__class__.__name__,
+                        ),
+                        path_to_item=_path_to_item,
+                        valid_classes=(self.__class__,),
+                    )
 
         self._data_store = {}
         self._check_type = _check_type
