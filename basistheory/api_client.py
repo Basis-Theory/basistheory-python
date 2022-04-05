@@ -63,7 +63,7 @@ class ApiClient(object):
 
     _pool = None
 
-    def __init__(self, configuration=None, header_name=None, header_value=None,
+    def __init__(self, configuration=None, app_info=None, header_name=None, header_value=None,
                  cookie=None, pool_threads=1):
         if configuration is None:
             configuration = Configuration.get_default_copy()
