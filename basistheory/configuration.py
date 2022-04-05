@@ -389,8 +389,8 @@ conf = basistheory.Configuration(
         :return: The Auth Settings information dict.
         """
         auth = {}
-        if 'ApiKey' in self.api_key:
-            auth['ApiKey'] = {
+        if 'apiKey' in self.api_key:
+            auth['apiKey'] = {
                 'type': 'api_key',
                 'in': 'header',
                 'key': 'BT-API-KEY',
