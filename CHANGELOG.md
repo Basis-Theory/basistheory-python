@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.6.1 (2022-04-05)
+### Fix
+* Update model_utils and api_client ([#12](https://github.com/Basis-Theory/basistheory-python/issues/12)) ([`4fa6a6e`](https://github.com/Basis-Theory/basistheory-python/commit/4fa6a6e31ac9e2366190286151515205b527c722))
+
 ## v0.6.0 (2022-03-30)
 ### Feature
 * Add all endpoints ([`f2ea9fe`](https://github.com/Basis-Theory/basistheory-python/commit/f2ea9fec2576b27ffb067b080a4ab116c2a4ccfe))
