@@ -33,3 +33,6 @@ git_push.sh
 .travis.yml
 .gitlab-ci.yml
 .github/*
+
+# Adding this for now as methods were renamed to match other SDKs
+basistheory/api/tenants_apy.py
