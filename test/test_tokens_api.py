@@ -41,24 +41,11 @@ class TestTokensApi(unittest.TestCase):
         """
         pass
 
-    def test_get_decrypted(self):
-        """Test case for get_decrypted
-
-        """
-        pass
-
     def test_list(self):
         """Test case for list
 
         """
         pass
-
-    def test_list_decrypted(self):
-        """Test case for list_decrypted
-
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()
