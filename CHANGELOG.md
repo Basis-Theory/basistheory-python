@@ -2,6 +2,14 @@
 
 <!--next-version-placeholder-->
 
+## v0.8.0 (2022-04-07)
+### Feature
+* Add user management methods to tenants client ([#13](https://github.com/Basis-Theory/basistheory-python/issues/13)) ([`a220db8`](https://github.com/Basis-Theory/basistheory-python/commit/a220db83cdcfe65745ef40810f868c52fefe082b))
+
+## v0.7.0 (2022-04-07)
+### Feature
+* Removing atomic endpoints ([#14](https://github.com/Basis-Theory/basistheory-python/issues/14)) ([`a3379c2`](https://github.com/Basis-Theory/basistheory-python/commit/a3379c2f1658cd0f7f53f14b24f36d7cb2947695))
+
 ## v0.6.1 (2022-04-05)
 ### Fix
 * Update model_utils and api_client ([#12](https://github.com/Basis-Theory/basistheory-python/issues/12)) ([`4fa6a6e`](https://github.com/Basis-Theory/basistheory-python/commit/4fa6a6e31ac9e2366190286151515205b527c722))

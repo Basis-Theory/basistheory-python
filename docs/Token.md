@@ -15,6 +15,6 @@ Name | Type | Description |
 **modified_by** | **str, none_type** | (Optional) The Application ID which last modified the token
 **modified_at** | **datetime, none_type** | (Optional) Last modified date of the token in ISO 8601 format
 **children** | [**[Token]**](Token.md) | Array of child tokens where this token is the parent in an association
-**fingerprint** | **str** | Uniquely identifies the contents of this token. Fingerprints are only available for Atomic Card and Atomic Bank token types.
+**fingerprint** | **str** | Uniquely identifies the contents of this token. Fingerprints are only available for Card and Bank token types.
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
