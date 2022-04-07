@@ -35,4 +35,4 @@ git_push.sh
 .github/*
 
 # Adding this for now as methods were renamed to match other SDKs
-basistheory/api/tenants_apy.py
+basistheory/api/tenants_api.py

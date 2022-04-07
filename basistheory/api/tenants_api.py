@@ -1005,7 +1005,7 @@ class TenantsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.update_endpoint.call_with_http_info(**kwargs)
 
-    def create_invitations(
+    def create_invitation(
         self,
         **kwargs
     ):
@@ -1082,17 +1082,17 @@ class TenantsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.tenant_invitations_create_endpoint.call_with_http_info(**kwargs)
 
-    def delete_invitations(
+    def delete_invitation(
         self,
         invitation_id,
         **kwargs
     ):
-        """delete_invitations  # noqa: E501
+        """delete_invitation  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_invitations(invitation_id, async_req=True)
+        >>> thread = api.delete_invitation(invitation_id, async_req=True)
         >>> result = thread.get()
 
         Args:
