@@ -51,9 +51,7 @@ Class | Method | HTTP request
 *TokensApi* | [**create**](docs/TokensApi.md#create) | **POST** /tokens
 *TokensApi* | [**delete**](docs/TokensApi.md#delete) | **DELETE** /tokens/{id}
 *TokensApi* | [**get_by_id**](docs/TokensApi.md#get_by_id) | **GET** /tokens/{id}
-*TokensApi* | [**get_decrypted**](docs/TokensApi.md#get_decrypted) | **GET** /tokens/{id}/decrypt
 *TokensApi* | [**list**](docs/TokensApi.md#list) | **GET** /tokens
-*TokensApi* | [**list_decrypted**](docs/TokensApi.md#list_decrypted) | **GET** /tokens/decrypt
 
 ### Models
 
@@ -128,8 +126,8 @@ with basistheory.ApiClient(configuration) as api_client:
         created_token = token_client.create(token=token, request_options=request_options)
         pprint(created_token)
 
-        # Retrieving it decrypted
-        decrypted_token = token_client.get_decrypted(id=created_token.id)
+        # Retrieving it decrypted (requires read permission on the token type classification and impact level)
+        decrypted_token = token_client.get_by_id(id=created_token.id)
         pprint(decrypted_token)
     except basistheory.ApiException as e:
         print("Exception when calling TokensApi: %s\n" % e)
