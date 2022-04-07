@@ -20,6 +20,7 @@ basistheory/model/application_paginated_list.py
 basistheory/model/create_application_request.py
 basistheory/model/create_reactor_formula_request.py
 basistheory/model/create_reactor_request.py
+basistheory/model/create_tenant_invitation_request.py
 basistheory/model/create_token_request.py
 basistheory/model/create_token_response.py
 basistheory/model/encryption_key.py
@@ -40,6 +41,11 @@ basistheory/model/reactor_formula_request_parameter.py
 basistheory/model/reactor_paginated_list.py
 basistheory/model/search_tokens_request.py
 basistheory/model/tenant.py
+basistheory/model/tenant_invitation_response.py
+basistheory/model/tenant_invitation_response_paginated_list.py
+basistheory/model/tenant_invitation_status.py
+basistheory/model/tenant_member_response.py
+basistheory/model/tenant_member_response_paginated_list.py
 basistheory/model/tenant_usage_report.py
 basistheory/model/token.py
 basistheory/model/token_metrics.py
@@ -49,6 +55,7 @@ basistheory/model/update_application_request.py
 basistheory/model/update_reactor_formula_request.py
 basistheory/model/update_reactor_request.py
 basistheory/model/update_tenant_request.py
+basistheory/model/user.py
 basistheory/model/validation_problem_details.py
 basistheory/model_utils.py
 basistheory/models/__init__.py
