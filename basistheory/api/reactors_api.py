@@ -807,17 +807,17 @@ class ReactorsApi(object):
             id
         return self.reactors_delete_endpoint.call_with_http_info(**kwargs)
 
-    def reactors_update(
+    def update(
         self,
         id,
         **kwargs
     ):
-        """reactors_update  # noqa: E501
+        """update  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.reactors_update(id, async_req=True)
+        >>> thread = api.update(id, async_req=True)
         >>> result = thread.get()
 
         Args:
