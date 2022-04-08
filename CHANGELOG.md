@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.8.1 (2022-04-08)
+### Fix
+* Fixes generated code issues ([#16](https://github.com/Basis-Theory/basistheory-python/issues/16)) ([`ab58a2d`](https://github.com/Basis-Theory/basistheory-python/commit/ab58a2deac2acf52667d0c6833f6e62cf1091b54))
+
 ## v0.8.0 (2022-04-07)
 ### Feature
 * Add user management methods to tenants client ([#13](https://github.com/Basis-Theory/basistheory-python/issues/13)) ([`a220db8`](https://github.com/Basis-Theory/basistheory-python/commit/a220db83cdcfe65745ef40810f868c52fefe082b))
