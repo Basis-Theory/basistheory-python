@@ -38,7 +38,7 @@ class TokenizeApi(object):
         self.api_client = api_client
         self.tokenize_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
                 'auth': [
                     'apiKey'
                 ],

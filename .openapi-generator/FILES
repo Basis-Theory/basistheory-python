@@ -7,7 +7,6 @@ basistheory/api/permissions_api.py
 basistheory/api/reactor_formulas_api.py
 basistheory/api/reactors_api.py
 basistheory/api/tenants_api.py
-basistheory/api/token_children_api.py
 basistheory/api/tokenize_api.py
 basistheory/api/tokens_api.py
 basistheory/api_client.py
