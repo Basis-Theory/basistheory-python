@@ -103,7 +103,7 @@ import uuid
 import basistheory
 from pprint import pprint
 from basistheory.api import tokens_api
-from basistheory.model.token import Token
+from basistheory.model.create_token_request import CreateTokenRequest
 from basistheory.request_options import RequestOptions
 
 # Defining client wide api_key
@@ -119,11 +119,11 @@ with basistheory.ApiClient(configuration) as api_client:
     request_options = RequestOptions(correlation_id=uuid.uuid4().__str__())
 
     # Token request object
-    token = Token(type="token", data="My Secret Data")
+    request = CreateTokenRequest(type="token", data="My Secret Data")
 
     try:
         # Creating the token
-        created_token = token_client.create(token=token, request_options=request_options)
+        created_token = token_client.create(create_token_request=request, request_options=request_options)
         pprint(created_token)
 
         # Retrieving it decrypted (requires read permission on the token type classification and impact level)
