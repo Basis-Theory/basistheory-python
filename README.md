@@ -96,7 +96,7 @@ with basistheory.ApiClient(configuration) as api_client:
 
 ### Getting Started
 
-Quick example creating a token and then retrieving it decrypted.
+Quick example creating a token and then retrieving it.
 
 ```python
 import uuid
@@ -126,9 +126,9 @@ with basistheory.ApiClient(configuration) as api_client:
         created_token = token_client.create(create_token_request=request, request_options=request_options)
         pprint(created_token)
 
-        # Retrieving it decrypted (requires read permission on the token type classification and impact level)
-        decrypted_token = token_client.get_by_id(id=created_token.id)
-        pprint(decrypted_token)
+        # Retrieving it (requires read permission on the token type classification and impact level)
+        retrieved_token = token_client.get_by_id(id=created_token.id)
+        pprint(retrieved_token)
     except basistheory.ApiException as e:
         print("Exception when calling TokensApi: %s\n" % e)
 ```
