@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.9.0 (2022-05-12)
+### Feature
+* Removes get_decrypted and list_decrypted from tokens api ([#20](https://github.com/Basis-Theory/basistheory-python/issues/20)) ([`3457005`](https://github.com/Basis-Theory/basistheory-python/commit/345700544ef928102ccada1ea336c54a5260b54c))
+
 ## v0.8.1 (2022-04-08)
 ### Fix
 * Fixes generated code issues ([#16](https://github.com/Basis-Theory/basistheory-python/issues/16)) ([`ab58a2d`](https://github.com/Basis-Theory/basistheory-python/commit/ab58a2deac2acf52667d0c6833f6e62cf1091b54))
