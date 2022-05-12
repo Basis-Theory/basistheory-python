@@ -5,7 +5,6 @@
 The [Basis Theory](https://basistheory.com/) Python SDK for Python >=3.7
 
 ## Installation
-
 ### pip install
 
 From the git repository
