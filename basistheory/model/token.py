@@ -94,6 +94,7 @@ class Token(ModelNormal):
             'modified_at': (datetime, none_type,),  # noqa: E501
             'fingerprint': (str, none_type,),  # noqa: E501
             'privacy': (Privacy,),  # noqa: E501
+            'search_indexes': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -114,6 +115,7 @@ class Token(ModelNormal):
         'modified_at': 'modified_at',  # noqa: E501
         'fingerprint': 'fingerprint',  # noqa: E501
         'privacy': 'privacy',  # noqa: E501
+        'search_indexes': 'search_indexes',  # noqa: E501
     }
 
     read_only_vars = {
@@ -169,6 +171,7 @@ class Token(ModelNormal):
             modified_at (datetime, none_type): [optional]  # noqa: E501
             fingerprint (str, none_type): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501
+            search_indexes ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -266,6 +269,7 @@ class Token(ModelNormal):
             modified_at (datetime, none_type): [optional]  # noqa: E501
             fingerprint (str, none_type): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501
+            search_indexes ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

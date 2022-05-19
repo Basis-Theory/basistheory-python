@@ -87,6 +87,7 @@ class CreateTokenRequest(ModelNormal):
             'encryption': (EncryptionMetadata,),  # noqa: E501
             'privacy': (Privacy,),  # noqa: E501
             'metadata': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'search_indexes': ([str], none_type,), #noqa: E501
         }
 
     @cached_property
@@ -100,6 +101,7 @@ class CreateTokenRequest(ModelNormal):
         'encryption': 'encryption',  # noqa: E501
         'privacy': 'privacy',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
+        'search_indexes': 'search_indexes',  #noqa: E501
     }
 
     read_only_vars = {
@@ -148,6 +150,7 @@ class CreateTokenRequest(ModelNormal):
             encryption (EncryptionMetadata): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            search_indexes ([str], none_type): [optional] #noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -238,6 +241,7 @@ class CreateTokenRequest(ModelNormal):
             encryption (EncryptionMetadata): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            search_indexes ([str], none_type): [optional] #noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

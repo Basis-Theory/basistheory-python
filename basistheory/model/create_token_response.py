@@ -91,6 +91,7 @@ class CreateTokenResponse(ModelNormal):
             'created_at': (datetime, none_type,),  # noqa: E501
             'modified_by': (str, none_type,),  # noqa: E501
             'modified_at': (datetime, none_type,),  # noqa: E501
+            'search_indexes': ([str], none_type,), #noqa: E501
         }
 
     @cached_property
@@ -110,6 +111,7 @@ class CreateTokenResponse(ModelNormal):
         'created_at': 'created_at',  # noqa: E501
         'modified_by': 'modified_by',  # noqa: E501
         'modified_at': 'modified_at',  # noqa: E501
+        'search_indexes': 'search_indexes',  #noqa: E501
     }
 
     read_only_vars = {
@@ -164,6 +166,7 @@ class CreateTokenResponse(ModelNormal):
             created_at (datetime, none_type): [optional]  # noqa: E501
             modified_by (str, none_type): [optional]  # noqa: E501
             modified_at (datetime, none_type): [optional]  # noqa: E501
+            search_indexes ([str], none_type): [optional] #noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -260,6 +263,7 @@ class CreateTokenResponse(ModelNormal):
             created_at (datetime, none_type): [optional]  # noqa: E501
             modified_by (str, none_type): [optional]  # noqa: E501
             modified_at (datetime, none_type): [optional]  # noqa: E501
+            search_indexes ([str], none_type): [optional] #noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
