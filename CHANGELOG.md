@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.9.1 (2022-05-20)
+### Fix
+* Fix so the sdk doesnt thrown when a request returns new props ([#22](https://github.com/Basis-Theory/basistheory-python/issues/22)) ([`9c2c107`](https://github.com/Basis-Theory/basistheory-python/commit/9c2c107e8585846f933e8055cb1a3553889b8fd0))
+
 ## v0.9.0 (2022-05-12)
 ### Feature
 * Removes get_decrypted and list_decrypted from tokens api ([#20](https://github.com/Basis-Theory/basistheory-python/issues/20)) ([`3457005`](https://github.com/Basis-Theory/basistheory-python/commit/345700544ef928102ccada1ea336c54a5260b54c))
