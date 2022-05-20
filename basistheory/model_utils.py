@@ -131,11 +131,7 @@ class OpenApiModel(object):
         if name in self.openapi_types:
             required_types_mixed = self.openapi_types[name]
         elif self.additional_properties_type is None:
-            raise ApiAttributeError(
-                "{0} has no attribute '{1}'".format(
-                    type(self).__name__, name),
-                path_to_item
-            )
+            return # ignore new properties as we don't know the correct type to deserialize
         elif self.additional_properties_type is not None:
             required_types_mixed = self.additional_properties_type
 
