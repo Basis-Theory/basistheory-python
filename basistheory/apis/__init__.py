@@ -15,6 +15,8 @@
 
 # Import APIs into API package:
 from basistheory.api.applications_api import ApplicationsApi
+from basistheory.api.banks_api import BanksApi
+from basistheory.api.cards_api import CardsApi
 from basistheory.api.logs_api import LogsApi
 from basistheory.api.permissions_api import PermissionsApi
 from basistheory.api.reactor_formulas_api import ReactorFormulasApi
