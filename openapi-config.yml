@@ -3,3 +3,4 @@ templateDir: /local/templates
 files:
   request_options.mustache:
     destinationFilename: request_options.py
+    folder: basistheory
