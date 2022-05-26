@@ -1,5 +1,6 @@
 from datetime import datetime
 from http import HTTPStatus
+import os
 import uuid
 import basistheory
 import pytest
@@ -75,11 +76,11 @@ def setup():
 
     configuration = basistheory.Configuration(
       host = "https://api-dev.basistheory.com",
-      api_key = "key_dev_SRrj1yD7hWeovAxowdGMKG"
+      api_key = os.environ.get('BT_MANAGEMENT_API_KEY')
     ) 
     server_to_server_configuration = basistheory.Configuration(
       host = "https://api-dev.basistheory.com",
-      api_key = "key_dev_49BYxz3yrohtEUMrW5owQb"
+      api_key = os.environ.get('BT_API_KEY')
     ) 
     request_options = RequestOptions(api_key=configuration.api_key["apiKey"], correlation_id=uuid.uuid4().__str__())
     api_client = basistheory.ApiClient(configuration)
@@ -94,7 +95,7 @@ def setup():
     request = CreateReactorRequest(
         name="My Reactor",
         configuration={
-            "SERVICE_API_KEY": "key_abcd134"
+            "SERVICE_API_KEY": "test"
         },
         formula=reactor_formula
     )

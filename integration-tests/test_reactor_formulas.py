@@ -1,5 +1,6 @@
 from datetime import datetime
 from http import HTTPStatus
+import os
 import uuid
 import basistheory
 import pytest
@@ -63,7 +64,7 @@ def setup():
 
     configuration = basistheory.Configuration(
       host = "https://api-dev.basistheory.com",
-      api_key = "key_dev_SRrj1yD7hWeovAxowdGMKG"
+      api_key = os.environ.get('BT_MANAGEMENT_API_KEY')
     ) 
     request_options = RequestOptions(api_key=configuration.api_key["apiKey"], correlation_id=uuid.uuid4().__str__())
     api_client = basistheory.ApiClient(configuration)

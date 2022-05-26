@@ -35,6 +35,5 @@ jobs:
       - name: "Integration Tests"
         run: |
           pip install pytest
-          pip install pytest-cov
           pytest ./integration-tests/  
 

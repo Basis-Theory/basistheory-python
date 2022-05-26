@@ -13,6 +13,7 @@ from basistheory.api import tokens_api, applications_api
 from basistheory.exceptions import NotFoundException
 from basistheory.model.create_token_request import CreateTokenRequest
 from basistheory.model.search_tokens_request import SearchTokensRequest
+from basistheory.model.privacy import Privacy
 from basistheory.request_options import RequestOptions
 
 tokens_to_delete = []
@@ -85,12 +86,10 @@ def test_delete_token():
         assert error.status == HTTPStatus.NOT_FOUND
 
 def test_search_tokens(): 
-    print("key")
-    print(os.environ.get('BT_API_KEY'))
     randomKey = str(uuid.uuid4())
     randomValue = str(uuid.uuid4())
-    request1 = CreateTokenRequest(type="social_security_number", data="123-45-6789")
-    request2 = CreateTokenRequest(type="employer_id_number", data="12-3456789", metadata = { randomKey: randomValue})
+    request1 = CreateTokenRequest(type="social_security_number", data="123-45-6789", privacy=Privacy(impact_level="low"))
+    request2 = CreateTokenRequest(type="employer_id_number", data="12-3456789", metadata = { randomKey: randomValue}, privacy=Privacy(impact_level="low"))
 
     created_token1 = tokens_client.create(create_token_request=request1, request_options=request_options)
     created_token2 = tokens_client.create(create_token_request=request2, request_options=request_options)

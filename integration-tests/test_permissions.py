@@ -1,3 +1,4 @@
+import os
 import uuid
 import basistheory
 import pytest
@@ -12,7 +13,7 @@ def setup():
 
     configuration = basistheory.Configuration(
       host = "https://api-dev.basistheory.com",
-      api_key = "key_dev_B88saRZ2QxGCtBe62xs14t"
+      api_key = os.environ.get('BT_MANAGEMENT_API_KEY')
     ) 
     api_client = basistheory.ApiClient(configuration)
     permissions_client = permissions_api.PermissionsApi(api_client)

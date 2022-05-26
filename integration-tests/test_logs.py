@@ -27,6 +27,6 @@ def test_get():
 def test_get_entity_types(): 
     logs = logs_client.get_entity_types()
 
-    assert len(logs) == -1
+    assert len(logs) > 0
 
 
