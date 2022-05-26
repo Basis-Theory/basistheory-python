@@ -33,5 +33,8 @@ jobs:
         run: python3 setup.py sdist bdist_wheel
 
       - name: "Integration Tests"
-        uses: actions/python-actions@v0.0.1
+        run: |
+          pip install pytest
+          pip install pytest-cov
+          pytest ./integration-tests/  
 
