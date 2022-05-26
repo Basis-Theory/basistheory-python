@@ -94,7 +94,7 @@ class ReactorFormulasApi(object):
         )
         self.delete_endpoint = _Endpoint(
             settings={
-                'response_type': (ReactorFormula,),
+                'response_type': None,
                 'auth': [
                     'apiKey'
                 ],
@@ -447,7 +447,7 @@ class ReactorFormulasApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            ReactorFormula
+            None
                 If the method is called asynchronously, returns the request
                 thread.
         """
