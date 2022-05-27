@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.10.0 (2022-05-27)
+### Feature
+* Adding integration tests ([#24](https://github.com/Basis-Theory/basistheory-python/issues/24)) ([`ac2c482`](https://github.com/Basis-Theory/basistheory-python/commit/ac2c4825d6ca7bfd412c46740221852234b88302))
+
 ## v0.9.1 (2022-05-20)
 ### Fix
 * Fix so the sdk doesnt thrown when a request returns new props ([#22](https://github.com/Basis-Theory/basistheory-python/issues/22)) ([`9c2c107`](https://github.com/Basis-Theory/basistheory-python/commit/9c2c107e8585846f933e8055cb1a3553889b8fd0))
