@@ -8,154 +8,85 @@ from pytest import approx
 from basistheory.api import applications_api, tenants_api
 from basistheory.exceptions import NotFoundException
 from basistheory.model.create_application_request import CreateApplicationRequest
+from basistheory.model.create_tenant_invitation_request import CreateTenantInvitationRequest
+from basistheory.model.tenant_invitation_status import TenantInvitationStatus
 from basistheory.model.update_application_request import UpdateApplicationRequest
 from basistheory.request_options import RequestOptions
 
 applications_to_delete = []
-tenant = None
 applications_client = None
 tenants_client = None
 options = None
 
 @pytest.fixture(scope="module", autouse=True)
 def setup():
-    global tenant
     global applications_client
     global options
+    global tenants_client
 
     configuration = basistheory.Configuration(
       host = "https://api-dev.basistheory.com",
-      api_key = os.environ.get('BT_MANAGEMENT_API_KEY')
+      api_key = "key_dev_9KZXo1jaeKtK2Z9NejCS11" # TODO change to env var once we get a mgmt key working for all
     ) 
     options = RequestOptions(api_key=configuration.api_key["apiKey"], correlation_id=uuid.uuid4().__str__())
     api_client = basistheory.ApiClient(configuration)
     applications_client = applications_api.ApplicationsApi(api_client)
     tenants_client = tenants_api.TenantsApi(api_client)
-    tenant = tenants_client.get(request_options=options)
 
     yield
 
     for app_id in applications_to_delete:
         applications_client.delete(app_id)
 
+def test_get(): 
+    tenant = tenants_client.get(request_options=options)
 
-# def test_create(): 
-#     request = CreateApplicationRequest(
-#       name="Test App",
-#       type="server_to_server", 
-#       permissions=["token:general:create", "token:general:read:low"]
-#     )
-#     application = applications_client.create(create_application_request=request)
+    assert tenant.id is not None
+    assert tenant.name is not None
+    assert tenant.owner_id is not None
+    assert tenant.created_at is not None
 
-#     applications_to_delete.append(application.id)
+def test_get_tenant_usage_report(): 
+    tenant_report = tenants_client.get_tenant_usage_report(request_options=options)
 
-#     assert_application(application, request)
+    assert tenant_report.token_report is not None
 
-# def test_get(): 
-#     request = CreateApplicationRequest(
-#       name="Test App",
-#       type="server_to_server", 
-#       permissions=["token:general:create", "token:general:read:low"]
-#     )
-#     application = applications_client.create(create_application_request=request)
-#     applications_to_delete.append(application.id)
+def test_get_invitations(): 
+    invitations = tenants_client.get_invitations(request_options=options)
 
-#     retrieved_applications = applications_client.get(id=[application.id])
+    assert invitations.data is not None
+    
+def test_get_members(): 
+    members = tenants_client.get_members(request_options=options)
 
-#     assert_application(retrieved_applications.data[0], request)    
+    assert members.data is not None
 
-# def test_get_by_id(): 
-#     request = CreateApplicationRequest(
-#       name="Test App",
-#       type="server_to_server", 
-#       permissions=["token:general:create", "token:general:read:low"]
-#     )
-#     application = applications_client.create(create_application_request=request)
-#     applications_to_delete.append(application.id)
+# TODO this endpoint is not working, it returns a list instead of an object
+# def test_get_tenant_operation_report(): 
+#     tenant_report = tenants_client.get_tenant_operation_report(request_options=options)
 
-#     retrieved_application = applications_client.get_by_id(id=application.id)
+#     assert tenant_report.token_report is not None
 
-#     assert_application(retrieved_application, request)        
+def test_create_invitation():
+    request = CreateTenantInvitationRequest(email="test@basistheory.com")
 
-# def test_get_by_key(): 
-#     request = CreateApplicationRequest(
-#       name="Test App",
-#       type="server_to_server", 
-#       permissions=["token:general:create", "token:general:read:low"]
-#     )
-#     application = applications_client.create(create_application_request=request)
-#     applications_to_delete.append(application.id)
+    invitation = tenants_client.create_invitation(create_tenant_invitation_request=request)
 
-#     configuration2 = basistheory.Configuration(
-#       host = "https://api-dev.basistheory.com",
-#       api_key = application.key
-#     ) 
-#     api_client2 = basistheory.ApiClient(configuration2)
-#     applications_client2 = applications_api.ApplicationsApi(api_client2)
+    assert invitation.id is not None
+    assert invitation.email == request.email
+    assert invitation.tenant_id is not None
+    assert invitation.status is not None
+    assert invitation.created_by is not None
+    assert invitation.created_at is not None
+    assert invitation.expires_at is not None
 
-#     updatedRequestOptions = RequestOptions(api_key=application.key, correlation_id=uuid.uuid4().__str__())
+def test_delete_invitation():
+    request = CreateTenantInvitationRequest(email="test@basistheory.com")
 
-#     retrieved_application = applications_client2.get_by_key(request_options=updatedRequestOptions)
+    invitation = tenants_client.create_invitation(create_tenant_invitation_request=request)
 
-#     assert_application(retrieved_application, request) 
+    tenants_client.delete_invitation(invitation_id=invitation.id)
 
-# def test_update(): 
-#     request = CreateApplicationRequest(
-#       name="Test App",
-#       type="server_to_server", 
-#       permissions=["token:general:create", "token:general:read:low"]
-#     )
-#     application = applications_client.create(create_application_request=request)
+    invitations = tenants_client.get_invitations(request_options=options)
 
-#     applications_to_delete.append(application.id)
-
-#     update_request = UpdateApplicationRequest(
-#       name="New name"
-#     )
-#     updated_application = applications_client.update(id=application.id,update_application_request=update_request)
-
-#     assert updated_application.name == update_request.name
-#     assert updated_application.modified_by is not None
-#     assert updated_application.modified_at is not None
-
-# def test_regenerate_key(): 
-#     request = CreateApplicationRequest(
-#       name="Test App",
-#       type="server_to_server", 
-#       permissions=["token:general:create", "token:general:read:low"]
-#     )
-#     application = applications_client.create(create_application_request=request)
-
-#     applications_to_delete.append(application.id)
-
-#     regenerated_application = applications_client.regenerate_key(id=application.id)
-
-#     assert application.key != regenerated_application.key
-
-# def test_delete(): 
-#     request = CreateApplicationRequest(
-#       name="Test App",
-#       type="server_to_server", 
-#       permissions=["token:general:create", "token:general:read:low"]
-#     )
-#     application = applications_client.create(create_application_request=request)
-#     applications_client.delete(application.id)
-
-#     try:
-#         error = applications_client.get_by_id(application.id)
-#     except NotFoundException as error:
-#         assert error.status == HTTPStatus.NOT_FOUND
-
-def assert_application(application, request):
-    assert application.id is not None
-    assert application.tenant_id == tenant.id
-    assert application.name == request.name
-    assert application.type == request.type 
-    assert application.created_by is not None
-    assert datetime.utcnow().timestamp() - datetime.utcfromtimestamp(application.created_at.timestamp()).timestamp() == approx(0, abs=3)
-    assert sorted(application.permissions) == sorted(request.permissions)
-
-
-
-
-
+    assert invitation.id not in map(lambda inv: inv.id, invitations.data)
