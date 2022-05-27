@@ -10,7 +10,7 @@ def setup():
     global logs_client
 
     configuration = basistheory.Configuration(
-      host = "https://api-dev.basistheory.com",
+      host = os.environ.get('BT_API_URL'),
       api_key = os.environ.get('BT_MANAGEMENT_API_KEY')
     ) 
     api_client = basistheory.ApiClient(configuration)

@@ -24,7 +24,7 @@ def setup():
     global options
 
     configuration = basistheory.Configuration(
-      host = "https://api-dev.basistheory.com",
+      host = os.environ.get('BT_API_URL'),
       api_key = os.environ.get('BT_MANAGEMENT_API_KEY')
     ) 
     options = RequestOptions(api_key=configuration.api_key["apiKey"], correlation_id=uuid.uuid4().__str__())
@@ -87,7 +87,7 @@ def test_get_by_key():
     applications_to_delete.append(application.id)
 
     configuration2 = basistheory.Configuration(
-      host = "https://api-dev.basistheory.com",
+      host = os.environ.get('BT_API_URL'),
       api_key = application.key
     ) 
     api_client2 = basistheory.ApiClient(configuration2)

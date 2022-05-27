@@ -25,8 +25,8 @@ def setup():
     global tenants_client
 
     configuration = basistheory.Configuration(
-      host = "https://api-dev.basistheory.com",
-      api_key = "key_dev_9KZXo1jaeKtK2Z9NejCS11" # TODO change to env var once we get a mgmt key working for all
+      host = os.environ.get('BT_API_URL'),
+      api_key = os.environ.get('BT_MANAGEMENT_API_KEY') # TODO change to env var once we get a mgmt key working for all
     ) 
     options = RequestOptions(api_key=configuration.api_key["apiKey"], correlation_id=uuid.uuid4().__str__())
     api_client = basistheory.ApiClient(configuration)
