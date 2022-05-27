@@ -20,6 +20,7 @@ from basistheory.model.create_token_response import CreateTokenResponse
 from basistheory.model.encryption_key import EncryptionKey
 from basistheory.model.encryption_metadata import EncryptionMetadata
 from basistheory.model.log import Log
+from basistheory.model.log_entity_type import LogEntityType
 from basistheory.model.log_paginated_list import LogPaginatedList
 from basistheory.model.pagination import Pagination
 from basistheory.model.permission import Permission

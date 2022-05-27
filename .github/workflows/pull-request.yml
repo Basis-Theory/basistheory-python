@@ -31,3 +31,15 @@ jobs:
 
       - name: "Build"
         run: python3 setup.py sdist bdist_wheel
+
+      - name: "Integration Tests"
+        run: |
+          pip install pytest
+          pytest ./integration-tests/  
+        env:
+          BT_API_KEY: ${{ secrets.BT_API_KEY }}
+          BT_MANAGEMENT_API_KEY: ${{ secrets.BT_MANAGEMENT_API_KEY }}
+          BT_BILLING_API_KEY: ${{ secrets.BT_BILLING_API_KEY }}
+          BT_CARD_REACTOR_ID: ${{ secrets.BT_CARD_REACTOR_ID }}
+
+

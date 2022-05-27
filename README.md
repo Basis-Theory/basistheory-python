@@ -37,6 +37,11 @@ Then import the package:
 import basistheory
 ```
 
+### Locally
+To install your latest changes locally run:
+
+`python3 -m pip install .`
+
 ## Documentation
 
 If you need any assistance, please contact support@basistheory.com at this time.
