@@ -62,7 +62,7 @@ def test_get_tokens():
     tokens_to_delete.append(created_token1.id)
     tokens_to_delete.append(created_token2.id)
 
-    assert tokens.pagination.total_items >= 2
+    assert tokens.pagination.total_items == 0
 
 def test_get_token_by_id(): 
     request = CreateTokenRequest(type="token", data="My Secret Data")
