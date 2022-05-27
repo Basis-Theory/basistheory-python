@@ -12,7 +12,7 @@ def setup():
     global permissions_client
 
     configuration = basistheory.Configuration(
-      host = os.environ.get('BT_API_URL'),
+      host = os.environ.get('BT_API_URL') or "https://api-dev.basistheory.com",
       api_key = os.environ.get('BT_MANAGEMENT_API_KEY')
     ) 
     api_client = basistheory.ApiClient(configuration)
