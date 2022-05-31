@@ -490,7 +490,7 @@ class TokensApi(object):
                     'id':
                         ([str],),
                     'metadata':
-                        ({str: (str, none_type)},),
+                        ({str: (str,)},),
                     'page':
                         (int, none_type,),
                     'size':
@@ -1203,7 +1203,7 @@ class TokensApi(object):
         Keyword Args:
             type ([str]): [optional]
             id ([str]): [optional]
-            metadata ({str: (str, none_type)}): [optional]
+            metadata ({str: (str,)}): [optional]
             page (int, none_type): [optional]
             size (int, none_type): [optional]
             request_options(RequestOptions): [optional]
