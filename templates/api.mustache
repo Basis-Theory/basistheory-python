@@ -173,6 +173,13 @@ class {{classname}}(object):
 {{#collectionFormat}}
                     '{{paramName}}': '{{collectionFormat}}',
 {{/collectionFormat}}
+{{#isQueryParam}}
+{{#isDeepObject}}
+{{^collectionFormat}}
+                    '{{paramName}}': 'deepObject',
+{{/collectionFormat}}
+{{/isDeepObject}}
+{{/isQueryParam}}
 {{/allParams}}
                 }
             },
