@@ -1,0 +1,6 @@
+[pytest]
+env =
+    D:BT_API_URL=[insert_bt_url]
+    D:BT_API_KEY=[insert_api_key]
+    D:BT_MANAGEMENT_API_KEY=[insert_api_key]
+    D:BT_CARD_REACTOR_ID=[insert_api_key]
