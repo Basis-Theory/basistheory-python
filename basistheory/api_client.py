@@ -514,10 +514,9 @@ class ApiClient(object):
                 collection_format = collection_formats[k]
                 if collection_format == 'multi':
                     new_params.extend((k, value) for value in v)
+                elif collection_format == 'deepObject':
+                    new_params.extend((f'{k}[{inner_k}]', inner_v) for inner_k, inner_v in v.items())
                 else:
-                    # support custom 'dict' type for metadata query params in 'key.inner_key=value' format
-                    if collection_format == 'dict':
-                        new_params.extend((f'{k}.{inner_k}', inner_v) for inner_k, inner_v in v.items())
                     if collection_format == 'ssv':
                         delimiter = ' '
                     elif collection_format == 'tsv':
