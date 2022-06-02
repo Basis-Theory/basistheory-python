@@ -5,7 +5,6 @@ import uuid
 import basistheory
 import pytest
 from pytest import approx
-from basistheory import request_options
 from basistheory.api import reactor_formulas_api, applications_api
 from basistheory.exceptions import NotFoundException
 from basistheory.model.create_reactor_formula_request import CreateReactorFormulaRequest
@@ -166,10 +165,3 @@ def assert_reactor_formula(reactor_formula, request):
     assert datetime.utcnow().timestamp() - datetime.utcfromtimestamp(reactor_formula.created_at.timestamp()).timestamp() == approx(0, abs=3)
     assert reactor_formula.configuration == request.configuration
     assert len(reactor_formula.request_parameters) == 2
-
-    
-
-
-
-
-

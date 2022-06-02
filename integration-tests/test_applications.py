@@ -17,6 +17,7 @@ applications_client = None
 tenants_client = None
 options = None
 
+
 @pytest.fixture(scope="module", autouse=True)
 def setup():
     global tenant
@@ -51,6 +52,7 @@ def test_create():
 
     assert_application(application, request)
 
+
 def test_get(): 
     request = CreateApplicationRequest(
       name="Test App",
@@ -64,6 +66,7 @@ def test_get():
 
     assert_application(retrieved_applications.data[0], request)    
 
+
 def test_get_by_id(): 
     request = CreateApplicationRequest(
       name="Test App",
@@ -76,6 +79,7 @@ def test_get_by_id():
     retrieved_application = applications_client.get_by_id(id=application.id)
 
     assert_application(retrieved_application, request)        
+
 
 def test_get_by_key(): 
     request = CreateApplicationRequest(
@@ -99,6 +103,7 @@ def test_get_by_key():
 
     assert_application(retrieved_application, request) 
 
+
 def test_update(): 
     request = CreateApplicationRequest(
       name="Test App",
@@ -118,6 +123,7 @@ def test_update():
     assert updated_application.modified_by is not None
     assert updated_application.modified_at is not None
 
+
 def test_regenerate_key(): 
     request = CreateApplicationRequest(
       name="Test App",
@@ -131,6 +137,7 @@ def test_regenerate_key():
     regenerated_application = applications_client.regenerate_key(id=application.id)
 
     assert application.key != regenerated_application.key
+
 
 def test_delete(): 
     request = CreateApplicationRequest(
@@ -146,6 +153,7 @@ def test_delete():
     except NotFoundException as error:
         assert error.status == HTTPStatus.NOT_FOUND
 
+
 def assert_application(application, request):
     assert application.id is not None
     assert application.tenant_id == tenant.id
@@ -154,8 +162,3 @@ def assert_application(application, request):
     assert application.created_by is not None
     assert datetime.utcnow().timestamp() - datetime.utcfromtimestamp(application.created_at.timestamp()).timestamp() == approx(0, abs=3)
     assert sorted(application.permissions) == sorted(request.permissions)
-
-
-
-
-
