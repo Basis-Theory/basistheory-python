@@ -5,6 +5,7 @@ from basistheory.api import logs_api
 
 logs_client = None
 
+
 @pytest.fixture(scope="module", autouse=True)
 def setup():
     global logs_client
@@ -24,9 +25,8 @@ def test_get():
 
     assert logs.pagination.total_items > 0
 
+
 def test_get_entity_types(): 
     logs = logs_client.get_entity_types()
 
     assert len(logs) > 0
-
-

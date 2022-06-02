@@ -1,11 +1,10 @@
 import os
-import uuid
-import basistheory
 import pytest
+import basistheory
 from basistheory.api import permissions_api
-from basistheory.request_options import RequestOptions
 
 permissions_client = None
+
 
 @pytest.fixture(scope="module", autouse=True)
 def setup():
@@ -24,6 +23,4 @@ def setup():
 def test_get(): 
     permissions = permissions_client.get(application_type="management")
 
-    assert len(permissions) == 20
-
-
+    assert len(permissions) > 0

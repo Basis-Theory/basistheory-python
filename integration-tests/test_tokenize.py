@@ -5,7 +5,6 @@ import uuid
 import basistheory
 import pytest
 from pytest import approx
-from basistheory import request_options
 from basistheory.api import tokens_api, tokenize_api, applications_api
 from basistheory.request_options import RequestOptions
 
@@ -14,6 +13,7 @@ application = None
 tokenize_client = None
 tokens_client = None
 request_options = None
+
 
 @pytest.fixture(scope="module", autouse=True)
 def setup():
@@ -68,8 +68,3 @@ def test_tokenize():
     assert card_token['privacy']['classification'] == 'pci'
     assert card_token['privacy']['impact_level'] == 'high'
     assert card_token['privacy']['restriction_policy'] == 'mask'
-
-
-
-
-

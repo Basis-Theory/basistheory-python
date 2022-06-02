@@ -5,7 +5,6 @@ import uuid
 import basistheory
 import pytest
 from pytest import approx
-from basistheory import request_options
 from basistheory.api import reactor_formulas_api, applications_api, reactors_api, tokens_api
 from basistheory.exceptions import NotFoundException
 from basistheory.model.create_reactor_formula_request import CreateReactorFormulaRequest
@@ -63,6 +62,7 @@ create_reactor_formula_request = CreateReactorFormulaRequest(
 
 request = None
 
+
 @pytest.fixture(scope="module", autouse=True)
 def setup():
     global application
@@ -113,6 +113,7 @@ def test_create():
 
     assert_reactor(created_reactor, request)
 
+
 def test_react(): 
     created_token = tokens_client.create(create_token_request=CreateTokenRequest(type="card", data={
         "number": "4242424242424242",
@@ -129,6 +130,7 @@ def test_react():
 
     assert react_response.raw is not None
 
+
 def test_get(): 
     created_reactor = reactors_client.create(create_reactor_request=request)
 
@@ -138,6 +140,7 @@ def test_get():
 
     assert_reactor(reactors.data[0], request)
 
+
 def test_get_by_id(): 
     created_reactor = reactors_client.create(create_reactor_request=request)
 
@@ -146,6 +149,7 @@ def test_get_by_id():
     reactor = reactors_client.get_by_id(id=created_reactor.id)
 
     assert_reactor(reactor, request)
+
 
 def test_update(): 
     created_reactor = reactors_client.create(create_reactor_request=request)
@@ -166,6 +170,7 @@ def test_update():
     assert updated_reactor.modified_by is not None
     assert updated_reactor.modified_at is not None
 
+
 def test_delete(): 
     created_reactor = reactors_client.create(create_reactor_request=request)
 
@@ -176,6 +181,7 @@ def test_delete():
     except NotFoundException as error:
         assert error.status == HTTPStatus.NOT_FOUND
 
+
 def assert_reactor(reactor, request):
     assert reactor.id is not None
     assert reactor.tenant_id == application.tenant_id
@@ -184,10 +190,3 @@ def assert_reactor(reactor, request):
     assert datetime.utcnow().timestamp() - datetime.utcfromtimestamp(reactor.created_at.timestamp()).timestamp() == approx(0, abs=3)
     assert reactor.configuration == request.configuration
     assert reactor.formula == reactor_formula
-
-    
-
-
-
-
-

@@ -8,7 +8,6 @@ from retrying import retry
 import basistheory
 import pytest
 from pytest import approx
-from basistheory import request_options
 from basistheory.api import tokens_api, applications_api
 from basistheory.exceptions import NotFoundException
 from basistheory.model.create_token_request import CreateTokenRequest
@@ -20,6 +19,7 @@ tokens_to_delete = []
 application = None
 tokens_client = None
 request_options = None
+
 
 @pytest.fixture(scope="module", autouse=True)
 def setup():
@@ -52,6 +52,7 @@ def test_create_tokens():
 
     assert_token(created_token, request, False)
 
+
 def test_get_tokens(): 
     request = CreateTokenRequest(type="token", data="My Secret Data", metadata = { "fooooo": "barrrrr" })
 
@@ -64,6 +65,7 @@ def test_get_tokens():
 
     assert tokens.pagination.total_items >= 2
 
+
 def test_get_token_by_id(): 
     request = CreateTokenRequest(type="token", data="My Secret Data")
 
@@ -73,6 +75,7 @@ def test_get_token_by_id():
     tokens_to_delete.append(created_token.id)
 
     assert_token(unencrypted_token, request, True)
+
 
 def test_delete_token(): 
     request = CreateTokenRequest(type="token", data="My Secret Data")
@@ -84,6 +87,7 @@ def test_delete_token():
         error = tokens_client.get_by_id(created_token.id)
     except NotFoundException as error:
         assert error.status == HTTPStatus.NOT_FOUND
+
 
 def test_search_tokens(): 
     randomKey = str(uuid.uuid4())
@@ -100,6 +104,7 @@ def test_search_tokens():
     searchTokensRequest = SearchTokensRequest(query = f'data:6789 AND metadata.{randomKey}:{randomValue}')
 
     assert_search_tokens(searchTokensRequest, created_token2.id)
+
 
 @retry(stop_max_attempt_number=10, wait_fixed=1000)
 def assert_search_tokens(request, expectedTokenId):
@@ -119,8 +124,3 @@ def assert_token(token, request, assertData):
     assert token.privacy.classification == 'general'
     assert token.privacy.impact_level == 'high'
     assert token.privacy.restriction_policy == 'redact'
-
-
-
-
-
