@@ -2,9 +2,13 @@
 
 <!--next-version-placeholder-->
 
-## v0.10.1 (2022-06-03)
+## v0.11.1 (2022-06-03)
 ### Fix
 * Fix semantic release ([#29](https://github.com/Basis-Theory/basistheory-python/issues/29)) ([`9af81a7`](https://github.com/Basis-Theory/basistheory-python/commit/9af81a750756ffe8a9244874561407ccd52063fa))
+
+## v0.11.0 (2022-05-27)
+### Feature
+* Add openapi templates, inbound proxy, token search indexes and fingerprint expression ([#23](https://github.com/Basis-Theory/basistheory-python/issues/23)) ([`328e009`](https://github.com/Basis-Theory/basistheory-python/commit/328e0097798a6fdd30f074c7d6cbedc9e948ff63))
 
 ## v0.10.0 (2022-05-27)
 ### Feature

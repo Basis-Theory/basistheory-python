@@ -11,7 +11,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "basistheory"
-VERSION = "0.10.1"
+VERSION = "0.11.1"
 # To install the library, run the following
 #
 # python setup.py install
