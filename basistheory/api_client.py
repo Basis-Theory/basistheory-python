@@ -118,6 +118,40 @@ class ApiClient(object):
     def set_default_header(self, header_name, header_value):
         self.default_headers[header_name] = header_value
 
+    def build_client_user_agent_header(self, app_info=None):
+        header = {
+            "client": "basistheory-python",
+            "client_version": self.get_version(),
+            "os_version": self.get_os(),
+            "runtime_version": self.get_runtime()
+        }
+
+        if app_info is not None:
+            header["application"] = app_info
+        
+        return json.dumps(header)
+
+    @staticmethod
+    def get_version():
+        try:
+            return pkg_resources.require('basistheory')[0].version
+        except:
+            return "unknown"
+    
+    @staticmethod
+    def get_os():
+        try:
+            return platform.platform()
+        except:
+            return "unknown"
+    
+    @staticmethod
+    def get_runtime():
+        try:
+            return platform.python_version()
+        except:
+            return "unknown"
+
     def __call_api(
         self,
         resource_path: str,
