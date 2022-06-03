@@ -332,3 +332,4 @@ class LogsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.get_entity_types_endpoint.call_with_http_info(**kwargs)
+

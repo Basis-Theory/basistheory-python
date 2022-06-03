@@ -61,9 +61,6 @@ class ReactorFormulaRequestParameter(ModelNormal):
         ('name',): {
             'max_length': 200,
             'min_length': 1,
-            'regex': {
-                'pattern': r'^[\w-.]+$',  # noqa: E501
-            },
         },
         ('type',): {
             'min_length': 1,

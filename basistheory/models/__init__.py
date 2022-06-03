@@ -21,6 +21,7 @@ from basistheory.model.card import Card
 from basistheory.model.create_application_request import CreateApplicationRequest
 from basistheory.model.create_atomic_bank_request import CreateAtomicBankRequest
 from basistheory.model.create_atomic_card_request import CreateAtomicCardRequest
+from basistheory.model.create_proxy_request import CreateProxyRequest
 from basistheory.model.create_reactor_formula_request import CreateReactorFormulaRequest
 from basistheory.model.create_reactor_request import CreateReactorRequest
 from basistheory.model.create_tenant_invitation_request import CreateTenantInvitationRequest
@@ -30,6 +31,7 @@ from basistheory.model.encryption_key import EncryptionKey
 from basistheory.model.encryption_metadata import EncryptionMetadata
 from basistheory.model.get_logs import GetLogs
 from basistheory.model.get_permissions import GetPermissions
+from basistheory.model.get_proxies import GetProxies
 from basistheory.model.get_tokens import GetTokens
 from basistheory.model.log import Log
 from basistheory.model.log_entity_type import LogEntityType
@@ -38,6 +40,8 @@ from basistheory.model.pagination import Pagination
 from basistheory.model.permission import Permission
 from basistheory.model.privacy import Privacy
 from basistheory.model.problem_details import ProblemDetails
+from basistheory.model.proxy import Proxy
+from basistheory.model.proxy_paginated_list import ProxyPaginatedList
 from basistheory.model.react_request import ReactRequest
 from basistheory.model.react_response import ReactResponse
 from basistheory.model.reactor import Reactor
@@ -62,6 +66,7 @@ from basistheory.model.token_report import TokenReport
 from basistheory.model.update_application_request import UpdateApplicationRequest
 from basistheory.model.update_atomic_bank_request import UpdateAtomicBankRequest
 from basistheory.model.update_atomic_card_request import UpdateAtomicCardRequest
+from basistheory.model.update_proxy_request import UpdateProxyRequest
 from basistheory.model.update_reactor_formula_request import UpdateReactorFormulaRequest
 from basistheory.model.update_reactor_request import UpdateReactorRequest
 from basistheory.model.update_tenant_request import UpdateTenantRequest
