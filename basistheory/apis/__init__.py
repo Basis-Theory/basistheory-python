@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.applications_api import ApplicationsApi
+#   from basistheory.api.applications_api import ApplicationsApi
 #
 # or import this package, but before doing it, use:
 #
@@ -15,8 +15,11 @@
 
 # Import APIs into API package:
 from basistheory.api.applications_api import ApplicationsApi
+from basistheory.api.banks_api import BanksApi
+from basistheory.api.cards_api import CardsApi
 from basistheory.api.logs_api import LogsApi
 from basistheory.api.permissions_api import PermissionsApi
+from basistheory.api.proxies_api import ProxiesApi
 from basistheory.api.reactor_formulas_api import ReactorFormulasApi
 from basistheory.api.reactors_api import ReactorsApi
 from basistheory.api.tenants_api import TenantsApi

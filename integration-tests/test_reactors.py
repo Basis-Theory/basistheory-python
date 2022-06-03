@@ -47,12 +47,12 @@ create_reactor_formula_request = CreateReactorFormulaRequest(
         ],
         request_parameters=[
             ReactorFormulaRequestParameter(
-                name="request_parameter_1",
+                name="request-parameter-1",
                 description="Request parameter description",
                 type="string"
             ),
             ReactorFormulaRequestParameter(
-                name="request_parameter_2",
+                name="request-parameter-2",
                 description="Request parameter description",
                 type="boolean",
                 optional=True

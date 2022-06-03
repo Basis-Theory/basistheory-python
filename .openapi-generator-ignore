@@ -22,10 +22,6 @@
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
 
-basistheory/api_client.py
-basistheory/model_utils.py
-basistheory/request_options.py
-basistheory/__init__.py
 docs/*.md
 README.md
 setup.py
@@ -33,6 +29,3 @@ git_push.sh
 .travis.yml
 .gitlab-ci.yml
 .github/*
-
-# Adding this for now as methods were renamed to match other SDKs
-basistheory/api/tenants_api.py
