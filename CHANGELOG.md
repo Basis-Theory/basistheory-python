@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.10.1 (2022-06-03)
+### Fix
+* Fix semantic release ([#29](https://github.com/Basis-Theory/basistheory-python/issues/29)) ([`9af81a7`](https://github.com/Basis-Theory/basistheory-python/commit/9af81a750756ffe8a9244874561407ccd52063fa))
+
 ## v0.10.0 (2022-05-27)
 ### Feature
 * Adding integration tests ([#24](https://github.com/Basis-Theory/basistheory-python/issues/24)) ([`ac2c482`](https://github.com/Basis-Theory/basistheory-python/commit/ac2c4825d6ca7bfd412c46740221852234b88302))
