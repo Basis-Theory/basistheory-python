@@ -59,7 +59,9 @@ class BanksApi(object):
                     'create_atomic_bank_request',
                     'request_options'
                 ],
-                'required': [],
+                'required': [
+                    'create_atomic_bank_request',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -272,6 +274,7 @@ class BanksApi(object):
                 ],
                 'required': [
                     'bank_id',
+                    'atomic_react_request',
                 ],
                 'nullable': [
                 ],
@@ -330,6 +333,7 @@ class BanksApi(object):
                 ],
                 'required': [
                     'id',
+                    'update_atomic_bank_request',
                 ],
                 'nullable': [
                 ],
@@ -372,6 +376,7 @@ class BanksApi(object):
 
     def create(
         self,
+        create_atomic_bank_request,
         **kwargs
     ):
         """create  # noqa: E501
@@ -379,12 +384,13 @@ class BanksApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create(async_req=True)
+        >>> thread = api.create(create_atomic_bank_request, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            create_atomic_bank_request (CreateAtomicBankRequest):
 
         Keyword Args:
-            create_atomic_bank_request (CreateAtomicBankRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -450,6 +456,8 @@ class BanksApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['create_atomic_bank_request'] = \
+            create_atomic_bank_request
         return self.create_endpoint.call_with_http_info(**kwargs)
 
     def delete(
@@ -710,6 +718,7 @@ class BanksApi(object):
     def react(
         self,
         bank_id,
+        atomic_react_request,
         **kwargs
     ):
         """react  # noqa: E501
@@ -717,14 +726,14 @@ class BanksApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.react(bank_id, async_req=True)
+        >>> thread = api.react(bank_id, atomic_react_request, async_req=True)
         >>> result = thread.get()
 
         Args:
             bank_id (str):
+            atomic_react_request (AtomicReactRequest):
 
         Keyword Args:
-            atomic_react_request (AtomicReactRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -792,11 +801,14 @@ class BanksApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['bank_id'] = \
             bank_id
+        kwargs['atomic_react_request'] = \
+            atomic_react_request
         return self.react_endpoint.call_with_http_info(**kwargs)
 
     def update(
         self,
         id,
+        update_atomic_bank_request,
         **kwargs
     ):
         """update  # noqa: E501
@@ -804,14 +816,14 @@ class BanksApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update(id, async_req=True)
+        >>> thread = api.update(id, update_atomic_bank_request, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str):
+            update_atomic_bank_request (UpdateAtomicBankRequest):
 
         Keyword Args:
-            update_atomic_bank_request (UpdateAtomicBankRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -879,5 +891,7 @@ class BanksApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
+        kwargs['update_atomic_bank_request'] = \
+            update_atomic_bank_request
         return self.update_endpoint.call_with_http_info(**kwargs)
 

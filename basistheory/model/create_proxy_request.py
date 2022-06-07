@@ -86,7 +86,7 @@ class CreateProxyRequest(ModelNormal):
             'name': (str,),  # noqa: E501
             'destination_url': (str,),  # noqa: E501
             'request_reactor_id': (str,),  # noqa: E501
-            'require_auth': (bool,),  # noqa: E501
+            'require_auth': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -147,7 +147,7 @@ class CreateProxyRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            require_auth (bool): [optional]  # noqa: E501
+            require_auth (bool, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -241,7 +241,7 @@ class CreateProxyRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            require_auth (bool): [optional]  # noqa: E501
+            require_auth (bool, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
