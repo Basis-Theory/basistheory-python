@@ -85,8 +85,9 @@ class CreateProxyRequest(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'destination_url': (str,),  # noqa: E501
-            'request_reactor_id': (str,),  # noqa: E501
-            'require_auth': (bool,),  # noqa: E501
+            'request_reactor_id': (str, none_type,),  # noqa: E501
+            'response_reactor_id': (str, none_type,),  # noqa: E501
+            'require_auth': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +99,7 @@ class CreateProxyRequest(ModelNormal):
         'name': 'name',  # noqa: E501
         'destination_url': 'destination_url',  # noqa: E501
         'request_reactor_id': 'request_reactor_id',  # noqa: E501
+        'response_reactor_id': 'response_reactor_id',  # noqa: E501
         'require_auth': 'require_auth',  # noqa: E501
     }
 
@@ -108,13 +110,12 @@ class CreateProxyRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, destination_url, request_reactor_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, destination_url, *args, **kwargs):  # noqa: E501
         """CreateProxyRequest - a model defined in OpenAPI
 
         Args:
             name (str):
             destination_url (str):
-            request_reactor_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,7 +148,9 @@ class CreateProxyRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            require_auth (bool): [optional]  # noqa: E501
+            request_reactor_id (str, none_type): [optional]  # noqa: E501
+            response_reactor_id (str, none_type): [optional]  # noqa: E501
+            require_auth (bool, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -181,7 +184,6 @@ class CreateProxyRequest(ModelNormal):
 
         self.name = name
         self.destination_url = destination_url
-        self.request_reactor_id = request_reactor_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -202,13 +204,12 @@ class CreateProxyRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, destination_url, request_reactor_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, destination_url, *args, **kwargs):  # noqa: E501
         """CreateProxyRequest - a model defined in OpenAPI
 
         Args:
             name (str):
             destination_url (str):
-            request_reactor_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -241,7 +242,9 @@ class CreateProxyRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            require_auth (bool): [optional]  # noqa: E501
+            request_reactor_id (str, none_type): [optional]  # noqa: E501
+            response_reactor_id (str, none_type): [optional]  # noqa: E501
+            require_auth (bool, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -273,7 +276,6 @@ class CreateProxyRequest(ModelNormal):
 
         self.name = name
         self.destination_url = destination_url
-        self.request_reactor_id = request_reactor_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

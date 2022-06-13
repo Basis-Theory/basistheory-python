@@ -82,6 +82,7 @@ class Tenant(ModelNormal):
             'created_at': (datetime, none_type,),  # noqa: E501
             'modified_by': (str, none_type,),  # noqa: E501
             'modified_at': (datetime, none_type,),  # noqa: E501
+            'settings': ({str: (str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -97,6 +98,7 @@ class Tenant(ModelNormal):
         'created_at': 'created_at',  # noqa: E501
         'modified_by': 'modified_by',  # noqa: E501
         'modified_at': 'modified_at',  # noqa: E501
+        'settings': 'settings',  # noqa: E501
     }
 
     read_only_vars = {
@@ -147,6 +149,7 @@ class Tenant(ModelNormal):
             created_at (datetime, none_type): [optional]  # noqa: E501
             modified_by (str, none_type): [optional]  # noqa: E501
             modified_at (datetime, none_type): [optional]  # noqa: E501
+            settings ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -239,6 +242,7 @@ class Tenant(ModelNormal):
             created_at (datetime, none_type): [optional]  # noqa: E501
             modified_by (str, none_type): [optional]  # noqa: E501
             modified_at (datetime, none_type): [optional]  # noqa: E501
+            settings ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -89,6 +89,7 @@ class CreateTokenRequest(ModelNormal):
             'metadata': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'search_indexes': ([str], none_type,),  # noqa: E501
             'fingerprint_expression': (str, none_type,),  # noqa: E501
+            'deduplicate_token': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -104,6 +105,7 @@ class CreateTokenRequest(ModelNormal):
         'metadata': 'metadata',  # noqa: E501
         'search_indexes': 'search_indexes',  # noqa: E501
         'fingerprint_expression': 'fingerprint_expression',  # noqa: E501
+        'deduplicate_token': 'deduplicate_token',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,6 +158,7 @@ class CreateTokenRequest(ModelNormal):
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             search_indexes ([str], none_type): [optional]  # noqa: E501
             fingerprint_expression (str, none_type): [optional]  # noqa: E501
+            deduplicate_token (bool, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,6 +254,7 @@ class CreateTokenRequest(ModelNormal):
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             search_indexes ([str], none_type): [optional]  # noqa: E501
             fingerprint_expression (str, none_type): [optional]  # noqa: E501
+            deduplicate_token (bool, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
