@@ -80,7 +80,8 @@ class Proxy(ModelNormal):
             'tenant_id': (str,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'destination_url': (str, none_type,),  # noqa: E501
-            'request_reactor_id': (str,),  # noqa: E501
+            'request_reactor_id': (str, none_type,),  # noqa: E501
+            'response_reactor_id': (str, none_type,),  # noqa: E501
             'require_auth': (bool,),  # noqa: E501
             'created_by': (str, none_type,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
@@ -100,6 +101,7 @@ class Proxy(ModelNormal):
         'name': 'name',  # noqa: E501
         'destination_url': 'destination_url',  # noqa: E501
         'request_reactor_id': 'request_reactor_id',  # noqa: E501
+        'response_reactor_id': 'response_reactor_id',  # noqa: E501
         'require_auth': 'require_auth',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
@@ -154,7 +156,8 @@ class Proxy(ModelNormal):
             tenant_id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             destination_url (str, none_type): [optional]  # noqa: E501
-            request_reactor_id (str): [optional]  # noqa: E501
+            request_reactor_id (str, none_type): [optional]  # noqa: E501
+            response_reactor_id (str, none_type): [optional]  # noqa: E501
             require_auth (bool): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
@@ -250,7 +253,8 @@ class Proxy(ModelNormal):
             tenant_id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             destination_url (str, none_type): [optional]  # noqa: E501
-            request_reactor_id (str): [optional]  # noqa: E501
+            request_reactor_id (str, none_type): [optional]  # noqa: E501
+            response_reactor_id (str, none_type): [optional]  # noqa: E501
             require_auth (bool): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
