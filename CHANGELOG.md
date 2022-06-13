@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.11.0 (2022-06-13)
+### Feature
+* Add deduplicate token settings ([#31](https://github.com/Basis-Theory/basistheory-python/issues/31)) ([`b1b96c0`](https://github.com/Basis-Theory/basistheory-python/commit/b1b96c01738468f26bfce75edc6eae7b485b8fdf))
+
 ## v0.10.1 (2022-06-03)
 ### Fix
 * Fix semantic release ([#29](https://github.com/Basis-Theory/basistheory-python/issues/29)) ([`9af81a7`](https://github.com/Basis-Theory/basistheory-python/commit/9af81a750756ffe8a9244874561407ccd52063fa))
