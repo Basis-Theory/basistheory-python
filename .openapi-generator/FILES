@@ -85,6 +85,7 @@ basistheory/models/__init__.py
 basistheory/request_options.py
 basistheory/rest.py
 requirements.txt
+setup.cfg
 test-requirements.txt
 test/__init__.py
 tox.ini
