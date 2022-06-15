@@ -74,10 +74,12 @@ basistheory/model/token_report.py
 basistheory/model/update_application_request.py
 basistheory/model/update_atomic_bank_request.py
 basistheory/model/update_atomic_card_request.py
+basistheory/model/update_privacy.py
 basistheory/model/update_proxy_request.py
 basistheory/model/update_reactor_formula_request.py
 basistheory/model/update_reactor_request.py
 basistheory/model/update_tenant_request.py
+basistheory/model/update_token_request.py
 basistheory/model/user.py
 basistheory/model/validation_problem_details.py
 basistheory/model_utils.py
@@ -85,7 +87,8 @@ basistheory/models/__init__.py
 basistheory/request_options.py
 basistheory/rest.py
 requirements.txt
-setup.cfg
 test-requirements.txt
 test/__init__.py
+test/test_update_privacy.py
+test/test_update_token_request.py
 tox.ini
