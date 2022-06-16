@@ -85,6 +85,7 @@ class CreateTokenResponse(ModelNormal):
             'type': (str, none_type,),  # noqa: E501
             'fingerprint': (str, none_type,),  # noqa: E501
             'fingerprint_expression': (str, none_type,),  # noqa: E501
+            'mask': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'data': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'metadata': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'privacy': (Privacy,),  # noqa: E501
@@ -106,6 +107,7 @@ class CreateTokenResponse(ModelNormal):
         'type': 'type',  # noqa: E501
         'fingerprint': 'fingerprint',  # noqa: E501
         'fingerprint_expression': 'fingerprint_expression',  # noqa: E501
+        'mask': 'mask',  # noqa: E501
         'data': 'data',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'privacy': 'privacy',  # noqa: E501
@@ -162,6 +164,7 @@ class CreateTokenResponse(ModelNormal):
             type (str, none_type): [optional]  # noqa: E501
             fingerprint (str, none_type): [optional]  # noqa: E501
             fingerprint_expression (str, none_type): [optional]  # noqa: E501
+            mask (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501
@@ -260,6 +263,7 @@ class CreateTokenResponse(ModelNormal):
             type (str, none_type): [optional]  # noqa: E501
             fingerprint (str, none_type): [optional]  # noqa: E501
             fingerprint_expression (str, none_type): [optional]  # noqa: E501
+            mask (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501

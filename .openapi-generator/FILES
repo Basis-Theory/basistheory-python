@@ -89,6 +89,4 @@ basistheory/rest.py
 requirements.txt
 test-requirements.txt
 test/__init__.py
-test/test_update_privacy.py
-test/test_update_token_request.py
 tox.ini
