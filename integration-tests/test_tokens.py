@@ -11,6 +11,7 @@ from pytest import approx
 from basistheory.api import tokens_api, applications_api
 from basistheory.exceptions import NotFoundException
 from basistheory.model.create_token_request import CreateTokenRequest
+from basistheory.model.update_token_request import UpdateTokenRequest
 from basistheory.model.search_tokens_request import SearchTokensRequest
 from basistheory.model.privacy import Privacy
 from basistheory.request_options import RequestOptions
@@ -64,6 +65,21 @@ def test_get_tokens():
     tokens_to_delete.append(created_token2.id)
 
     assert tokens.pagination.total_items >= 2
+
+def test_update_tokens():
+    create_request = CreateTokenRequest(type="token", data={ "foo": "bar", "bar": "foo" }, metadata={ "fooooo": "barrrrr" })
+
+    created_token = tokens_client.create(create_token_request=create_request, request_options=request_options)
+
+    update_request = UpdateTokenRequest(data={"foo": "newbar", "bar": None, "newfoo": "barbar"}, metadata={"fooooo": "bar"})
+    
+    updated_token = tokens_client.update(created_token.id, update_token_request=update_request, request_options=request_options)
+
+    tokens_to_delete.append(created_token.id)
+
+    assert updated_token.id == created_token.id
+    assert updated_token.data == {"foo": "newbar", "newfoo": "barbar"}
+    assert updated_token.metadata == {"fooooo": "bar"}
 
 
 def test_get_token_by_id(): 

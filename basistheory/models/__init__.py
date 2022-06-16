@@ -66,9 +66,11 @@ from basistheory.model.token_report import TokenReport
 from basistheory.model.update_application_request import UpdateApplicationRequest
 from basistheory.model.update_atomic_bank_request import UpdateAtomicBankRequest
 from basistheory.model.update_atomic_card_request import UpdateAtomicCardRequest
+from basistheory.model.update_privacy import UpdatePrivacy
 from basistheory.model.update_proxy_request import UpdateProxyRequest
 from basistheory.model.update_reactor_formula_request import UpdateReactorFormulaRequest
 from basistheory.model.update_reactor_request import UpdateReactorRequest
 from basistheory.model.update_tenant_request import UpdateTenantRequest
+from basistheory.model.update_token_request import UpdateTokenRequest
 from basistheory.model.user import User
 from basistheory.model.validation_problem_details import ValidationProblemDetails
