@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.13.0 (2022-06-18)
+### Feature
+* Adding mask property to tokens api ([#33](https://github.com/Basis-Theory/basistheory-python/issues/33)) ([`953355e`](https://github.com/Basis-Theory/basistheory-python/commit/953355efd4c790c6de19d8c1e58e00356ed1fb8f))
+
 ## v0.12.0 (2022-06-16)
 ### Feature
 * Add token update ([#32](https://github.com/Basis-Theory/basistheory-python/issues/32)) ([`becc8f7`](https://github.com/Basis-Theory/basistheory-python/commit/becc8f764ea7e5de38ee13cbaf54944ae1fbd262))
