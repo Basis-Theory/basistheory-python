@@ -14,6 +14,7 @@ from basistheory.model.create_token_request import CreateTokenRequest
 from basistheory.model.update_token_request import UpdateTokenRequest
 from basistheory.model.search_tokens_request import SearchTokensRequest
 from basistheory.model.privacy import Privacy
+from basistheory.model.update_privacy import UpdatePrivacy
 from basistheory.request_options import RequestOptions
 
 tokens_to_delete = []
@@ -45,13 +46,14 @@ def setup():
 
 
 def test_create_tokens(): 
-    request = CreateTokenRequest(type="token", data="My Secret Data")
+    privacyRequest = Privacy(restriction_policy="mask")
+    request = CreateTokenRequest(type="token", data="My Secret Data", mask="{{ data | reveal_last: 4 }}", privacy=privacyRequest)
 
     created_token = tokens_client.create(create_token_request=request, request_options=request_options)
 
     tokens_to_delete.append(created_token.id)
 
-    assert_token(created_token, request, False)
+    assert_token(created_token, request, False, True)
 
 
 def test_get_tokens(): 
@@ -71,7 +73,14 @@ def test_update_tokens():
 
     created_token = tokens_client.create(create_token_request=create_request, request_options=request_options)
 
-    update_request = UpdateTokenRequest(data={"foo": "newbar", "bar": None, "newfoo": "barbar"}, metadata={"fooooo": "bar"})
+    maskUpdate = {"foo": "{{ data.foo }}", "newfoo": "{{ data | reveal_last: 4, '#' }}"}
+    privacyUpdateRequest = UpdatePrivacy(restriction_policy="mask")
+    update_request = UpdateTokenRequest(
+        data={"foo": "newbar", "bar": None, "newfoo": "barbar"},
+        metadata={"fooooo": "bar"},
+        privacy=privacyUpdateRequest,
+        mask=maskUpdate
+    )
     
     updated_token = tokens_client.update(created_token.id, update_token_request=update_request, request_options=request_options)
 
@@ -80,6 +89,8 @@ def test_update_tokens():
     assert updated_token.id == created_token.id
     assert updated_token.data == {"foo": "newbar", "newfoo": "barbar"}
     assert updated_token.metadata == {"fooooo": "bar"}
+    assert updated_token.privacy.restriction_policy == "mask"
+    assert updated_token.mask == maskUpdate
 
 
 def test_get_token_by_id(): 
@@ -90,7 +101,7 @@ def test_get_token_by_id():
 
     tokens_to_delete.append(created_token.id)
 
-    assert_token(unencrypted_token, request, True)
+    assert_token(unencrypted_token, request, True, False)
 
 
 def test_delete_token(): 
@@ -130,7 +141,7 @@ def assert_search_tokens(request, expectedTokenId):
     assert expectedTokenId in map(lambda token: token.id, tokens.data)
 
 
-def assert_token(token, request, assertData):
+def assert_token(token, request, assertData, masked):
     assert token.id is not None 
     assert token.type == 'token'
     assert token.data == request.data if assertData else True
@@ -139,4 +150,5 @@ def assert_token(token, request, assertData):
     assert datetime.utcnow().timestamp() - datetime.utcfromtimestamp(token.created_at.timestamp()).timestamp() == approx(0, abs=3)
     assert token.privacy.classification == 'general'
     assert token.privacy.impact_level == 'high'
-    assert token.privacy.restriction_policy == 'redact'
+    assert token.privacy.restriction_policy == 'mask' if masked else token.privacy.restriction_policy == 'redact'
+    assert token.mask == request.mask if masked else True

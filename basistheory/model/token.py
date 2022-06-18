@@ -94,6 +94,7 @@ class Token(ModelNormal):
             'modified_at': (datetime, none_type,),  # noqa: E501
             'fingerprint': (str, none_type,),  # noqa: E501
             'fingerprint_expression': (str, none_type,),  # noqa: E501
+            'mask': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'privacy': (Privacy,),  # noqa: E501
             'search_indexes': ([str], none_type,),  # noqa: E501
         }
@@ -116,6 +117,7 @@ class Token(ModelNormal):
         'modified_at': 'modified_at',  # noqa: E501
         'fingerprint': 'fingerprint',  # noqa: E501
         'fingerprint_expression': 'fingerprint_expression',  # noqa: E501
+        'mask': 'mask',  # noqa: E501
         'privacy': 'privacy',  # noqa: E501
         'search_indexes': 'search_indexes',  # noqa: E501
     }
@@ -173,6 +175,7 @@ class Token(ModelNormal):
             modified_at (datetime, none_type): [optional]  # noqa: E501
             fingerprint (str, none_type): [optional]  # noqa: E501
             fingerprint_expression (str, none_type): [optional]  # noqa: E501
+            mask (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501
             search_indexes ([str], none_type): [optional]  # noqa: E501
         """
@@ -272,6 +275,7 @@ class Token(ModelNormal):
             modified_at (datetime, none_type): [optional]  # noqa: E501
             fingerprint (str, none_type): [optional]  # noqa: E501
             fingerprint_expression (str, none_type): [optional]  # noqa: E501
+            mask (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501
             search_indexes ([str], none_type): [optional]  # noqa: E501
         """
