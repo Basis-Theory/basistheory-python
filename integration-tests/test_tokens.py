@@ -73,7 +73,7 @@ def test_update_tokens():
 
     created_token = tokens_client.create(create_token_request=create_request, request_options=request_options)
 
-    maskUpdate = {"foo": "{{ data.foo }}", "newfoo": "{{ data | reveal_last: 4, '#' }}"}
+    maskUpdate = {"foo": "{{ data.foo }}", "newfoo": "{{ data.newfoo | reveal_last: 4, '#' }}"}
     privacyUpdateRequest = UpdatePrivacy(restriction_policy="mask")
     update_request = UpdateTokenRequest(
         data={"foo": "newbar", "bar": None, "newfoo": "barbar"},
