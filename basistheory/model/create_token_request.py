@@ -83,6 +83,7 @@ class CreateTokenRequest(ModelNormal):
         lazy_import()
         return {
             'data': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'id': (str, none_type,),  # noqa: E501
             'type': (str, none_type,),  # noqa: E501
             'encryption': (EncryptionMetadata,),  # noqa: E501
             'privacy': (Privacy,),  # noqa: E501
@@ -100,6 +101,7 @@ class CreateTokenRequest(ModelNormal):
 
     attribute_map = {
         'data': 'data',  # noqa: E501
+        'id': 'id',  # noqa: E501
         'type': 'type',  # noqa: E501
         'encryption': 'encryption',  # noqa: E501
         'privacy': 'privacy',  # noqa: E501
@@ -154,6 +156,7 @@ class CreateTokenRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id (str, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             encryption (EncryptionMetadata): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501
@@ -251,6 +254,7 @@ class CreateTokenRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id (str, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             encryption (EncryptionMetadata): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501

@@ -80,10 +80,10 @@ class AtomicBank(ModelNormal):
         """
         lazy_import()
         return {
-            'id': (str,),  # noqa: E501
+            'id': (str, none_type,),  # noqa: E501
             'tenant_id': (str, none_type,),  # noqa: E501
-            'bank': (Bank,),  # noqa: E501
             'type': (str, none_type,),  # noqa: E501
+            'bank': (Bank,),  # noqa: E501
             'fingerprint': (str, none_type,),  # noqa: E501
             'metadata': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'created_by': (str, none_type,),  # noqa: E501
@@ -100,8 +100,8 @@ class AtomicBank(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'tenant_id': 'tenant_id',  # noqa: E501
-        'bank': 'bank',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'bank': 'bank',  # noqa: E501
         'fingerprint': 'fingerprint',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
@@ -151,10 +151,10 @@ class AtomicBank(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
+            id (str, none_type): [optional]  # noqa: E501
             tenant_id (str, none_type): [optional]  # noqa: E501
-            bank (Bank): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
+            bank (Bank): [optional]  # noqa: E501
             fingerprint (str, none_type): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
@@ -246,10 +246,10 @@ class AtomicBank(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
+            id (str, none_type): [optional]  # noqa: E501
             tenant_id (str, none_type): [optional]  # noqa: E501
-            bank (Bank): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
+            bank (Bank): [optional]  # noqa: E501
             fingerprint (str, none_type): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
