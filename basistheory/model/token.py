@@ -82,8 +82,8 @@ class Token(ModelNormal):
         """
         lazy_import()
         return {
-            'id': (str, none_type,),  # noqa: E501
-            'type': (str, none_type,),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'type': (str,),  # noqa: E501
             'tenant_id': (str,),  # noqa: E501
             'data': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'metadata': ({str: (str, none_type)}, none_type,),  # noqa: E501
@@ -163,8 +163,8 @@ class Token(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): [optional]  # noqa: E501
-            type (str, none_type): [optional]  # noqa: E501
+            id (str): [optional]  # noqa: E501
+            type (str): [optional]  # noqa: E501
             tenant_id (str): [optional]  # noqa: E501
             data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
@@ -263,8 +263,8 @@ class Token(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str, none_type): [optional]  # noqa: E501
-            type (str, none_type): [optional]  # noqa: E501
+            id (str): [optional]  # noqa: E501
+            type (str): [optional]  # noqa: E501
             tenant_id (str): [optional]  # noqa: E501
             data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
