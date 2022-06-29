@@ -80,7 +80,7 @@ class CreateTokenResponse(ModelNormal):
         """
         lazy_import()
         return {
-            'id': (str,),  # noqa: E501
+            'id': (str, none_type,),  # noqa: E501
             'tenant_id': (str,),  # noqa: E501
             'type': (str, none_type,),  # noqa: E501
             'fingerprint': (str, none_type,),  # noqa: E501
@@ -159,7 +159,7 @@ class CreateTokenResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
+            id (str, none_type): [optional]  # noqa: E501
             tenant_id (str): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             fingerprint (str, none_type): [optional]  # noqa: E501
@@ -258,7 +258,7 @@ class CreateTokenResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
+            id (str, none_type): [optional]  # noqa: E501
             tenant_id (str): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             fingerprint (str, none_type): [optional]  # noqa: E501
