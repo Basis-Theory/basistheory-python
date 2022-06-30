@@ -59,7 +59,9 @@ class TokensApi(object):
                     'create_token_request',
                     'request_options'
                 ],
-                'required': [],
+                'required': [
+                    'create_token_request',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -171,6 +173,7 @@ class TokensApi(object):
                 ],
                 'required': [
                     'parent_id',
+                    'create_token_request',
                 ],
                 'nullable': [
                 ],
@@ -545,7 +548,9 @@ class TokensApi(object):
                     'search_tokens_request',
                     'request_options'
                 ],
-                'required': [],
+                'required': [
+                    'search_tokens_request',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -599,6 +604,7 @@ class TokensApi(object):
                 ],
                 'required': [
                     'id',
+                    'update_token_request',
                 ],
                 'nullable': [
                 ],
@@ -641,6 +647,7 @@ class TokensApi(object):
 
     def create(
         self,
+        create_token_request,
         **kwargs
     ):
         """create  # noqa: E501
@@ -648,12 +655,13 @@ class TokensApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create(async_req=True)
+        >>> thread = api.create(create_token_request, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            create_token_request (CreateTokenRequest):
 
         Keyword Args:
-            create_token_request (CreateTokenRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -719,6 +727,8 @@ class TokensApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['create_token_request'] = \
+            create_token_request
         return self.create_endpoint.call_with_http_info(**kwargs)
 
     def create_association(
@@ -814,6 +824,7 @@ class TokensApi(object):
     def create_child(
         self,
         parent_id,
+        create_token_request,
         **kwargs
     ):
         """create_child  # noqa: E501
@@ -821,14 +832,14 @@ class TokensApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_child(parent_id, async_req=True)
+        >>> thread = api.create_child(parent_id, create_token_request, async_req=True)
         >>> result = thread.get()
 
         Args:
             parent_id (str):
+            create_token_request (CreateTokenRequest):
 
         Keyword Args:
-            create_token_request (CreateTokenRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -896,6 +907,8 @@ class TokensApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['parent_id'] = \
             parent_id
+        kwargs['create_token_request'] = \
+            create_token_request
         return self.create_child_endpoint.call_with_http_info(**kwargs)
 
     def delete(
@@ -1339,6 +1352,7 @@ class TokensApi(object):
 
     def search(
         self,
+        search_tokens_request,
         **kwargs
     ):
         """search  # noqa: E501
@@ -1346,12 +1360,13 @@ class TokensApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.search(async_req=True)
+        >>> thread = api.search(search_tokens_request, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            search_tokens_request (SearchTokensRequest):
 
         Keyword Args:
-            search_tokens_request (SearchTokensRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -1417,11 +1432,14 @@ class TokensApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['search_tokens_request'] = \
+            search_tokens_request
         return self.search_endpoint.call_with_http_info(**kwargs)
 
     def update(
         self,
         id,
+        update_token_request,
         **kwargs
     ):
         """update  # noqa: E501
@@ -1429,14 +1447,14 @@ class TokensApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update(id, async_req=True)
+        >>> thread = api.update(id, update_token_request, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str):
+            update_token_request (UpdateTokenRequest):
 
         Keyword Args:
-            update_token_request (UpdateTokenRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -1504,5 +1522,7 @@ class TokensApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
+        kwargs['update_token_request'] = \
+            update_token_request
         return self.update_endpoint.call_with_http_info(**kwargs)
 

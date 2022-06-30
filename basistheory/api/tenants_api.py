@@ -61,7 +61,9 @@ class TenantsApi(object):
                     'create_tenant_invitation_request',
                     'request_options'
                 ],
-                'required': [],
+                'required': [
+                    'create_tenant_invitation_request',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -569,7 +571,9 @@ class TenantsApi(object):
                     'update_tenant_request',
                     'request_options'
                 ],
-                'required': [],
+                'required': [
+                    'update_tenant_request',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -607,6 +611,7 @@ class TenantsApi(object):
 
     def create_invitation(
         self,
+        create_tenant_invitation_request,
         **kwargs
     ):
         """create_invitation  # noqa: E501
@@ -614,12 +619,13 @@ class TenantsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_invitation(async_req=True)
+        >>> thread = api.create_invitation(create_tenant_invitation_request, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            create_tenant_invitation_request (CreateTenantInvitationRequest):
 
         Keyword Args:
-            create_tenant_invitation_request (CreateTenantInvitationRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -685,6 +691,8 @@ class TenantsApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['create_tenant_invitation_request'] = \
+            create_tenant_invitation_request
         return self.create_invitation_endpoint.call_with_http_info(**kwargs)
 
     def delete(
@@ -1439,6 +1447,7 @@ class TenantsApi(object):
 
     def update(
         self,
+        update_tenant_request,
         **kwargs
     ):
         """update  # noqa: E501
@@ -1446,12 +1455,13 @@ class TenantsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update(async_req=True)
+        >>> thread = api.update(update_tenant_request, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            update_tenant_request (UpdateTenantRequest):
 
         Keyword Args:
-            update_tenant_request (UpdateTenantRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -1517,5 +1527,7 @@ class TenantsApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['update_tenant_request'] = \
+            update_tenant_request
         return self.update_endpoint.call_with_http_info(**kwargs)
 
