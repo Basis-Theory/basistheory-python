@@ -59,7 +59,9 @@ class ReactorsApi(object):
                     'create_reactor_request',
                     'request_options'
                 ],
-                'required': [],
+                'required': [
+                    'create_reactor_request',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -283,6 +285,7 @@ class ReactorsApi(object):
                 ],
                 'required': [
                     'id',
+                    'react_request',
                 ],
                 'nullable': [
                 ],
@@ -341,6 +344,7 @@ class ReactorsApi(object):
                 ],
                 'required': [
                     'id',
+                    'update_reactor_request',
                 ],
                 'nullable': [
                 ],
@@ -383,6 +387,7 @@ class ReactorsApi(object):
 
     def create(
         self,
+        create_reactor_request,
         **kwargs
     ):
         """create  # noqa: E501
@@ -390,12 +395,13 @@ class ReactorsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create(async_req=True)
+        >>> thread = api.create(create_reactor_request, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            create_reactor_request (CreateReactorRequest):
 
         Keyword Args:
-            create_reactor_request (CreateReactorRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -461,6 +467,8 @@ class ReactorsApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['create_reactor_request'] = \
+            create_reactor_request
         return self.create_endpoint.call_with_http_info(**kwargs)
 
     def delete(
@@ -723,6 +731,7 @@ class ReactorsApi(object):
     def react(
         self,
         id,
+        react_request,
         **kwargs
     ):
         """react  # noqa: E501
@@ -730,14 +739,14 @@ class ReactorsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.react(id, async_req=True)
+        >>> thread = api.react(id, react_request, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str):
+            react_request (ReactRequest):
 
         Keyword Args:
-            react_request (ReactRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -805,11 +814,14 @@ class ReactorsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
+        kwargs['react_request'] = \
+            react_request
         return self.react_endpoint.call_with_http_info(**kwargs)
 
     def update(
         self,
         id,
+        update_reactor_request,
         **kwargs
     ):
         """update  # noqa: E501
@@ -817,14 +829,14 @@ class ReactorsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update(id, async_req=True)
+        >>> thread = api.update(id, update_reactor_request, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str):
+            update_reactor_request (UpdateReactorRequest):
 
         Keyword Args:
-            update_reactor_request (UpdateReactorRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -892,5 +904,7 @@ class ReactorsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
+        kwargs['update_reactor_request'] = \
+            update_reactor_request
         return self.update_endpoint.call_with_http_info(**kwargs)
 

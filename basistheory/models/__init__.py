@@ -15,7 +15,6 @@ from basistheory.model.atomic_bank import AtomicBank
 from basistheory.model.atomic_bank_paginated_list import AtomicBankPaginatedList
 from basistheory.model.atomic_card import AtomicCard
 from basistheory.model.atomic_card_paginated_list import AtomicCardPaginatedList
-from basistheory.model.atomic_react_request import AtomicReactRequest
 from basistheory.model.bank import Bank
 from basistheory.model.card import Card
 from basistheory.model.create_application_request import CreateApplicationRequest

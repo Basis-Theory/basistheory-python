@@ -57,7 +57,9 @@ class ReactorFormulasApi(object):
                     'create_reactor_formula_request',
                     'request_options'
                 ],
-                'required': [],
+                'required': [
+                    'create_reactor_formula_request',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -275,6 +277,7 @@ class ReactorFormulasApi(object):
                 ],
                 'required': [
                     'id',
+                    'update_reactor_formula_request',
                 ],
                 'nullable': [
                 ],
@@ -317,6 +320,7 @@ class ReactorFormulasApi(object):
 
     def create(
         self,
+        create_reactor_formula_request,
         **kwargs
     ):
         """create  # noqa: E501
@@ -324,12 +328,13 @@ class ReactorFormulasApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create(async_req=True)
+        >>> thread = api.create(create_reactor_formula_request, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            create_reactor_formula_request (CreateReactorFormulaRequest):
 
         Keyword Args:
-            create_reactor_formula_request (CreateReactorFormulaRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -395,6 +400,8 @@ class ReactorFormulasApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['create_reactor_formula_request'] = \
+            create_reactor_formula_request
         return self.create_endpoint.call_with_http_info(**kwargs)
 
     def delete(
@@ -656,6 +663,7 @@ class ReactorFormulasApi(object):
     def update(
         self,
         id,
+        update_reactor_formula_request,
         **kwargs
     ):
         """update  # noqa: E501
@@ -663,14 +671,14 @@ class ReactorFormulasApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update(id, async_req=True)
+        >>> thread = api.update(id, update_reactor_formula_request, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str):
+            update_reactor_formula_request (UpdateReactorFormulaRequest):
 
         Keyword Args:
-            update_reactor_formula_request (UpdateReactorFormulaRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -738,5 +746,7 @@ class ReactorFormulasApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
+        kwargs['update_reactor_formula_request'] = \
+            update_reactor_formula_request
         return self.update_endpoint.call_with_http_info(**kwargs)
 

@@ -57,7 +57,9 @@ class ProxiesApi(object):
                     'create_proxy_request',
                     'request_options'
                 ],
-                'required': [],
+                'required': [
+                    'create_proxy_request',
+                ],
                 'nullable': [
                 ],
                 'enum': [
@@ -288,6 +290,7 @@ class ProxiesApi(object):
                 ],
                 'required': [
                     'id',
+                    'update_proxy_request',
                 ],
                 'nullable': [
                 ],
@@ -330,6 +333,7 @@ class ProxiesApi(object):
 
     def create(
         self,
+        create_proxy_request,
         **kwargs
     ):
         """create  # noqa: E501
@@ -337,12 +341,13 @@ class ProxiesApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create(async_req=True)
+        >>> thread = api.create(create_proxy_request, async_req=True)
         >>> result = thread.get()
 
+        Args:
+            create_proxy_request (CreateProxyRequest):
 
         Keyword Args:
-            create_proxy_request (CreateProxyRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -408,6 +413,8 @@ class ProxiesApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['create_proxy_request'] = \
+            create_proxy_request
         return self.create_endpoint.call_with_http_info(**kwargs)
 
     def delete(
@@ -670,6 +677,7 @@ class ProxiesApi(object):
     def update(
         self,
         id,
+        update_proxy_request,
         **kwargs
     ):
         """update  # noqa: E501
@@ -677,14 +685,14 @@ class ProxiesApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update(id, async_req=True)
+        >>> thread = api.update(id, update_proxy_request, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str):
+            update_proxy_request (UpdateProxyRequest):
 
         Keyword Args:
-            update_proxy_request (UpdateProxyRequest): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -752,5 +760,7 @@ class ProxiesApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
+        kwargs['update_proxy_request'] = \
+            update_proxy_request
         return self.update_endpoint.call_with_http_info(**kwargs)
 

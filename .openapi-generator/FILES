@@ -23,7 +23,6 @@ basistheory/model/atomic_bank.py
 basistheory/model/atomic_bank_paginated_list.py
 basistheory/model/atomic_card.py
 basistheory/model/atomic_card_paginated_list.py
-basistheory/model/atomic_react_request.py
 basistheory/model/bank.py
 basistheory/model/card.py
 basistheory/model/create_application_request.py
