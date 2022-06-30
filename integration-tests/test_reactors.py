@@ -126,7 +126,7 @@ def test_react():
         "card": f"{{{{ {created_token.id }}}}}"
     })
 
-    react_response = react_client.react(id="5c16844c-8be0-4df4-b667-1b415dcaec7c", react_request=react_request)
+    react_response = react_client.react(id="c67bfc9a-228a-4740-a5a8-a6f81be2d89e", react_request=react_request)
 
     assert react_response.raw is not None
 
