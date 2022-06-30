@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.0 (2022-06-30)
+### Breaking
+* remove react methods on atomic cards and banks ([`c1cbb75`](https://github.com/Basis-Theory/basistheory-python/commit/c1cbb756bb5d0f0bca97d5c84e822e9466ea3ef3))
+
 ## v0.14.0 (2022-06-29)
 ### Feature
 * Adding token id to the create token request ([#35](https://github.com/Basis-Theory/basistheory-python/issues/35)) ([`faa3229`](https://github.com/Basis-Theory/basistheory-python/commit/faa322939b2289a7262edef4d95277bc40642e23))
