@@ -23,7 +23,7 @@ def setup():
 def test_get(): 
     logs = logs_client.get()
 
-    assert logs.pagination.total_items > 0
+    assert logs.pagination.total_items >= 0
 
 
 def test_get_entity_types(): 
