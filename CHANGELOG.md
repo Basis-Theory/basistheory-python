@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.0 (2022-07-21)
+### Feature
+* Removing atomics ([#38](https://github.com/Basis-Theory/basistheory-python/issues/38)) ([`fa18596`](https://github.com/Basis-Theory/basistheory-python/commit/fa1859650c3a87e692373f31f68bb0a54f7cbcc4))
+
 ## v1.0.0 (2022-06-30)
 ### Breaking
 * remove react methods on atomic cards and banks ([`c1cbb75`](https://github.com/Basis-Theory/basistheory-python/commit/c1cbb756bb5d0f0bca97d5c84e822e9466ea3ef3))
