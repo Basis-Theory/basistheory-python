@@ -65,11 +65,39 @@ class CreateReactorFormulaRequest(ModelNormal):
 
     validations = {
         ('type',): {
+            'max_length': 25,
             'min_length': 1,
+            'regex': {
+                'pattern': r'^(?:private|official)$',  # noqa: E501
+            },
         },
         ('name',): {
             'max_length': 200,
             'min_length': 1,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
+            },
+        },
+        ('id',): {
+            'max_length': 36,
+            'regex': {
+                'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+            },
+        },
+        ('description',): {
+            'max_length': 1000,
+            'regex': {
+                'pattern': r'^.*$',  # noqa: E501
+            },
+        },
+        ('code',): {
+            'max_length': 4000,
+        },
+        ('configuration',): {
+            'max_items': 25,
+        },
+        ('request_parameters',): {
+            'max_items': 25,
         },
     }
 

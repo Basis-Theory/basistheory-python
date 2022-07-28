@@ -118,10 +118,17 @@ class ApplicationsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+                        'max_length': 36,
+                        'regex': {
+                            'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
@@ -166,14 +173,28 @@ class ApplicationsApi(object):
                 ],
                 'required': [],
                 'nullable': [
+                    'page',
+                    'size',
                 ],
                 'enum': [
                 ],
                 'validation': [
+                    'page',
+                    'size',
                 ]
             },
             root_map={
                 'validations': {
+                    ('page',): {
+
+                        'inclusive_maximum': 2147483647,
+                        'exclusive_minimum': 0,
+                    },
+                    ('size',): {
+
+                        'inclusive_maximum': 100,
+                        'inclusive_minimum': 0,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -181,9 +202,9 @@ class ApplicationsApi(object):
                     'id':
                         ([str],),
                     'page':
-                        (int,),
+                        (int, none_type,),
                     'size':
-                        (int,),
+                        (int, none_type,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -231,10 +252,17 @@ class ApplicationsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+                        'max_length': 36,
+                        'regex': {
+                            'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
@@ -328,10 +356,17 @@ class ApplicationsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+                        'max_length': 36,
+                        'regex': {
+                            'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
@@ -382,10 +417,17 @@ class ApplicationsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+                        'max_length': 36,
+                        'regex': {
+                            'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
@@ -603,8 +645,8 @@ class ApplicationsApi(object):
 
         Keyword Args:
             id ([str]): [optional]
-            page (int): [optional]
-            size (int): [optional]
+            page (int, none_type): [optional]
+            size (int, none_type): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

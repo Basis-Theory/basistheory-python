@@ -118,10 +118,17 @@ class ProxiesApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+                        'max_length': 36,
+                        'regex': {
+                            'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
@@ -175,12 +182,27 @@ class ProxiesApi(object):
                 ],
                 'validation': [
                     'name',
+                    'page',
+                    'size',
                 ]
             },
             root_map={
                 'validations': {
                     ('name',): {
                         'max_length': 200,
+                        'regex': {
+                            'pattern': r'^.+$',  # noqa: E501
+                        },
+                    },
+                    ('page',): {
+
+                        'inclusive_maximum': 2147483647,
+                        'exclusive_minimum': 0,
+                    },
+                    ('size',): {
+
+                        'inclusive_maximum': 100,
+                        'inclusive_minimum': 0,
                     },
                 },
                 'allowed_values': {
@@ -243,10 +265,17 @@ class ProxiesApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+                        'max_length': 36,
+                        'regex': {
+                            'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
@@ -297,10 +326,17 @@ class ProxiesApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+                        'max_length': 36,
+                        'regex': {
+                            'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },

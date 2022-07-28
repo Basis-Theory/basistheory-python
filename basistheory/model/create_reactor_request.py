@@ -67,6 +67,9 @@ class CreateReactorRequest(ModelNormal):
         ('name',): {
             'max_length': 200,
             'min_length': 1,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
+            },
         },
     }
 

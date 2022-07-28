@@ -64,6 +64,22 @@ class CreateTokenRequest(ModelNormal):
     }
 
     validations = {
+        ('id',): {
+            'max_length': 400,
+            'min_length': 3,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
+            },
+        },
+        ('search_indexes',): {
+            'max_items': 10,
+        },
+        ('fingerprint_expression',): {
+            'max_length': 400,
+            'regex': {
+                'pattern': r'^.*$',  # noqa: E501
+            },
+        },
     }
 
     additional_properties_type = None
@@ -92,6 +108,7 @@ class CreateTokenRequest(ModelNormal):
             'fingerprint_expression': (str, none_type,),  # noqa: E501
             'mask': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'deduplicate_token': (bool, none_type,),  # noqa: E501
+            'expires_at': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +127,7 @@ class CreateTokenRequest(ModelNormal):
         'fingerprint_expression': 'fingerprint_expression',  # noqa: E501
         'mask': 'mask',  # noqa: E501
         'deduplicate_token': 'deduplicate_token',  # noqa: E501
+        'expires_at': 'expires_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -165,6 +183,7 @@ class CreateTokenRequest(ModelNormal):
             fingerprint_expression (str, none_type): [optional]  # noqa: E501
             mask (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             deduplicate_token (bool, none_type): [optional]  # noqa: E501
+            expires_at (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -263,6 +282,7 @@ class CreateTokenRequest(ModelNormal):
             fingerprint_expression (str, none_type): [optional]  # noqa: E501
             mask (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             deduplicate_token (bool, none_type): [optional]  # noqa: E501
+            expires_at (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

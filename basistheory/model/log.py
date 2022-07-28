@@ -58,6 +58,51 @@ class Log(ModelNormal):
     }
 
     validations = {
+        ('tenant_id',): {
+            'max_length': 36,
+            'regex': {
+                'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+            },
+        },
+        ('actor_id',): {
+            'max_length': 36,
+            'regex': {
+                'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+            },
+        },
+        ('actor_type',): {
+            'max_length': 50,
+            'regex': {
+                'pattern': r'^[A-z]+$',  # noqa: E501
+            },
+        },
+        ('entity_type',): {
+            'max_length': 50,
+            'regex': {
+                'pattern': r'^[A-z]+$',  # noqa: E501
+            },
+        },
+        ('entity_id',): {
+            'max_length': 200,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
+            },
+        },
+        ('operation',): {
+            'max_length': 50,
+            'regex': {
+                'pattern': r'^[A-z]+$',  # noqa: E501
+            },
+        },
+        ('message',): {
+            'max_length': 250,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
+            },
+        },
+        ('created_at',): {
+            'max_length': 40,
+        },
     }
 
     additional_properties_type = None

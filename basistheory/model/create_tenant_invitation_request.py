@@ -59,6 +59,7 @@ class CreateTenantInvitationRequest(ModelNormal):
 
     validations = {
         ('email',): {
+            'max_length': 330,
             'min_length': 1,
         },
     }

@@ -58,6 +58,24 @@ class Privacy(ModelNormal):
     }
 
     validations = {
+        ('classification',): {
+            'max_length': 25,
+            'regex': {
+                'pattern': r'^[A-z]*$',  # noqa: E501
+            },
+        },
+        ('impact_level',): {
+            'max_length': 10,
+            'regex': {
+                'pattern': r'^(?:low|moderate|high)$',  # noqa: E501
+            },
+        },
+        ('restriction_policy',): {
+            'max_length': 10,
+            'regex': {
+                'pattern': r'^(?:mask|redact)$',  # noqa: E501
+            },
+        },
     }
 
     additional_properties_type = None

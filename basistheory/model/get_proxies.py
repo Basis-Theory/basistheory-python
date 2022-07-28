@@ -58,8 +58,22 @@ class GetProxies(ModelNormal):
     }
 
     validations = {
+        ('ids',): {
+            'max_items': 100,
+        },
         ('name',): {
             'max_length': 200,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
+            },
+        },
+        ('page',): {
+            'inclusive_maximum': 2147483647,
+            'exclusive_minimum''inclusive_minimum': 0,
+        },
+        ('size',): {
+            'inclusive_maximum': 100,
+            'inclusive_minimum': 0,
         },
     }
 

@@ -67,6 +67,15 @@ class ReactorFormulaConfiguration(ModelNormal):
         },
         ('type',): {
             'min_length': 1,
+            'regex': {
+                'pattern': r'^(?:string|boolean|number)$',  # noqa: E501
+            },
+        },
+        ('description',): {
+            'max_length': 400,
+            'regex': {
+                'pattern': r'^.*$',  # noqa: E501
+            },
         },
     }
 

@@ -61,6 +61,12 @@ class UpdateApplicationRequest(ModelNormal):
         ('name',): {
             'max_length': 200,
             'min_length': 1,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
+            },
+        },
+        ('permissions',): {
+            'max_items': 50,
         },
     }
 

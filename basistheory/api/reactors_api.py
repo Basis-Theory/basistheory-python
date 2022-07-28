@@ -120,10 +120,17 @@ class ReactorsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+                        'max_length': 36,
+                        'regex': {
+                            'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
@@ -169,14 +176,33 @@ class ReactorsApi(object):
                 ],
                 'required': [],
                 'nullable': [
+                    'name',
+                    'page',
+                    'size',
                 ],
                 'enum': [
                 ],
                 'validation': [
+                    'name',
+                    'page',
+                    'size',
                 ]
             },
             root_map={
                 'validations': {
+                    ('name',): {
+                        'max_length': 200,
+                    },
+                    ('page',): {
+
+                        'inclusive_maximum': 2147483647,
+                        'exclusive_minimum': 0,
+                    },
+                    ('size',): {
+
+                        'inclusive_maximum': 100,
+                        'inclusive_minimum': 0,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -184,11 +210,11 @@ class ReactorsApi(object):
                     'id':
                         ([str],),
                     'name':
-                        (str,),
+                        (str, none_type,),
                     'page':
-                        (int,),
+                        (int, none_type,),
                     'size':
-                        (int,),
+                        (int, none_type,),
                 },
                 'attribute_map': {
                     'id': 'id',
@@ -238,10 +264,17 @@ class ReactorsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+                        'max_length': 36,
+                        'regex': {
+                            'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
@@ -292,10 +325,17 @@ class ReactorsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+                        'max_length': 36,
+                        'regex': {
+                            'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
@@ -351,10 +391,17 @@ class ReactorsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+                        'max_length': 36,
+                        'regex': {
+                            'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
@@ -572,9 +619,9 @@ class ReactorsApi(object):
 
         Keyword Args:
             id ([str]): [optional]
-            name (str): [optional]
-            page (int): [optional]
-            size (int): [optional]
+            name (str, none_type): [optional]
+            page (int, none_type): [optional]
+            size (int, none_type): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
