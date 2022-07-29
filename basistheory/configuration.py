@@ -236,7 +236,7 @@ conf = basistheory.Configuration(
         if name == 'disabled_client_side_validations':
             s = set(filter(None, value.split(',')))
             for v in s:
-                if v not in JSON_SCHEMA_VALIDATION_KEYWORDS:
+                if v not in JSON_SCHEMA_VALIDATION_KEYWORDS or v is not "all":
                     raise ApiValueError(
                         "Invalid keyword: '{0}''".format(v))
             self._disabled_client_side_validations = s
