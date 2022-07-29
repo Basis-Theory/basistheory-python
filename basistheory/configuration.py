@@ -105,7 +105,7 @@ conf = basistheory.Configuration(
                  access_token=None,
                  username=None, password=None,
                  discard_unknown_keys=False,
-                 disabled_client_side_validations="",
+                 disabled_client_side_validations=" ".join(JSON_SCHEMA_VALIDATION_KEYWORDS),
                  server_index=None, server_variables=None,
                  server_operation_index=None, server_operation_variables=None,
                  ssl_ca_cert=None,
@@ -148,7 +148,7 @@ conf = basistheory.Configuration(
         """Password for HTTP basic authentication
         """
         self.discard_unknown_keys = discard_unknown_keys
-        self.disabled_client_side_validations = "all"
+        self.disabled_client_side_validations = disabled_client_side_validations
         self.logger = {}
         """Logging Settings
         """
@@ -236,7 +236,7 @@ conf = basistheory.Configuration(
         if name == 'disabled_client_side_validations':
             s = set(filter(None, value.split(',')))
             for v in s:
-                if v not in JSON_SCHEMA_VALIDATION_KEYWORDS and v is not "all":
+                if v not in JSON_SCHEMA_VALIDATION_KEYWORDS:
                     raise ApiValueError(
                         "Invalid keyword: '{0}''".format(v))
             self._disabled_client_side_validations = s
