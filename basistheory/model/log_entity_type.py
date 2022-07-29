@@ -58,6 +58,18 @@ class LogEntityType(ModelNormal):
     }
 
     validations = {
+        ('display_name',): {
+            'max_length': 50,
+            'regex': {
+                'pattern': r'^[A-z]+$',  # noqa: E501
+            },
+        },
+        ('value',): {
+            'max_length': 50,
+            'regex': {
+                'pattern': r'^[A-z]+$',  # noqa: E501
+            },
+        },
     }
 
     additional_properties_type = None

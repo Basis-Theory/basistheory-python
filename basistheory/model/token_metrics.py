@@ -58,6 +58,12 @@ class TokenMetrics(ModelNormal):
     }
 
     validations = {
+        ('count',): {
+            'inclusive_minimum': 0,
+        },
+        ('last_created_at',): {
+            'max_length': 40,
+        },
     }
 
     additional_properties_type = None

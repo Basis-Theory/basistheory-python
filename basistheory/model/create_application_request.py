@@ -61,9 +61,18 @@ class CreateApplicationRequest(ModelNormal):
         ('name',): {
             'max_length': 200,
             'min_length': 1,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
+            },
         },
         ('type',): {
             'min_length': 1,
+            'regex': {
+                'pattern': r'^[A-z_]+$',  # noqa: E501
+            },
+        },
+        ('permissions',): {
+            'max_items': 50,
         },
     }
 

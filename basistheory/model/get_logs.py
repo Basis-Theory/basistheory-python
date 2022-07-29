@@ -58,6 +58,31 @@ class GetLogs(ModelNormal):
     }
 
     validations = {
+        ('entity_type',): {
+            'regex': {
+                'pattern': r'^[A-z]+$',  # noqa: E501
+            },
+        },
+        ('entity_id',): {
+            'max_length': 200,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
+            },
+        },
+        ('start_date',): {
+            'max_length': 40,
+        },
+        ('end_date',): {
+            'max_length': 40,
+        },
+        ('page',): {
+            'inclusive_maximum': 2147483647,
+            'exclusive_minimum''inclusive_minimum': 0,
+        },
+        ('size',): {
+            'inclusive_maximum': 10000,
+            'inclusive_minimum': 0,
+        },
     }
 
     additional_properties_type = None

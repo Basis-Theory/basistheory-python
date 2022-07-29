@@ -61,10 +61,28 @@ class CreateProxyRequest(ModelNormal):
         ('name',): {
             'max_length': 200,
             'min_length': 1,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
+            },
         },
         ('destination_url',): {
             'max_length': 400,
             'min_length': 1,
+            'regex': {
+                'pattern': r'^https:\/\/.+$',  # noqa: E501
+            },
+        },
+        ('request_reactor_id',): {
+            'max_length': 36,
+            'regex': {
+                'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+            },
+        },
+        ('response_reactor_id',): {
+            'max_length': 36,
+            'regex': {
+                'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+            },
         },
     }
 

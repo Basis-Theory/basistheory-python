@@ -58,6 +58,27 @@ class User(ModelNormal):
     }
 
     validations = {
+        ('id',): {
+            'max_length': 36,
+            'regex': {
+                'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+            },
+        },
+        ('email',): {
+            'max_length': 200,
+        },
+        ('first_name',): {
+            'max_length': 200,
+            'regex': {
+                'pattern': r'^.*$',  # noqa: E501
+            },
+        },
+        ('last_name',): {
+            'max_length': 200,
+            'regex': {
+                'pattern': r'^.*$',  # noqa: E501
+            },
+        },
     }
 
     additional_properties_type = None

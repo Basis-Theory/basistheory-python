@@ -23,6 +23,7 @@ from basistheory.model_utils import (  # noqa: F401
     set_request_options
 )
 from basistheory.model.problem_details import ProblemDetails
+from basistheory.model.validation_problem_details import ValidationProblemDetails
 
 
 class TokenizeApi(object):

@@ -24,6 +24,7 @@ from basistheory.model_utils import (  # noqa: F401
 )
 from basistheory.model.permission import Permission
 from basistheory.model.problem_details import ProblemDetails
+from basistheory.model.validation_problem_details import ValidationProblemDetails
 
 
 class PermissionsApi(object):

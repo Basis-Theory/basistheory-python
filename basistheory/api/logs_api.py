@@ -25,6 +25,7 @@ from basistheory.model_utils import (  # noqa: F401
 from basistheory.model.log_entity_type import LogEntityType
 from basistheory.model.log_paginated_list import LogPaginatedList
 from basistheory.model.problem_details import ProblemDetails
+from basistheory.model.validation_problem_details import ValidationProblemDetails
 
 
 class LogsApi(object):
@@ -71,10 +72,44 @@ class LogsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'entity_type',
+                    'entity_id',
+                    'start_date',
+                    'end_date',
+                    'page',
+                    'size',
                 ]
             },
             root_map={
                 'validations': {
+                    ('entity_type',): {
+
+                        'regex': {
+                            'pattern': r'^[A-z]+$',  # noqa: E501
+                        },
+                    },
+                    ('entity_id',): {
+                        'max_length': 200,
+                        'regex': {
+                            'pattern': r'^.+$',  # noqa: E501
+                        },
+                    },
+                    ('start_date',): {
+                        'max_length': 40,
+                    },
+                    ('end_date',): {
+                        'max_length': 40,
+                    },
+                    ('page',): {
+
+                        'inclusive_maximum': 2147483647,
+                        'exclusive_minimum': 0,
+                    },
+                    ('size',): {
+
+                        'inclusive_maximum': 10000,
+                        'inclusive_minimum': 0,
+                    },
                 },
                 'allowed_values': {
                 },
