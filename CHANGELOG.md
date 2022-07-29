@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.2.0 (2022-07-29)
+### Feature
+* Add token expires_at, validations, updated models ([#41](https://github.com/Basis-Theory/basistheory-python/issues/41)) ([`98fc2f6`](https://github.com/Basis-Theory/basistheory-python/commit/98fc2f6eeab4cd063e43e1f27658d9e95af54ef7))
+
 ## v1.1.0 (2022-07-21)
 ### Feature
 * Removing atomics ([#38](https://github.com/Basis-Theory/basistheory-python/issues/38)) ([`fa18596`](https://github.com/Basis-Theory/basistheory-python/commit/fa1859650c3a87e692373f31f68bb0a54f7cbcc4))
