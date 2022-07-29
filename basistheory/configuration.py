@@ -105,7 +105,7 @@ conf = basistheory.Configuration(
                  access_token=None,
                  username=None, password=None,
                  discard_unknown_keys=False,
-                 disabled_client_side_validations=" ".join(JSON_SCHEMA_VALIDATION_KEYWORDS),
+                 disabled_client_side_validations=",".join(JSON_SCHEMA_VALIDATION_KEYWORDS),
                  server_index=None, server_variables=None,
                  server_operation_index=None, server_operation_variables=None,
                  ssl_ca_cert=None,
