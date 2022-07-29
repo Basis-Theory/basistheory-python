@@ -71,6 +71,17 @@ class UpdateReactorFormulaRequest(ModelNormal):
             'max_length': 200,
             'min_length': 1,
         },
+        ('description',): {
+            'max_length': 1000,
+            'regex': {
+                'pattern': r'^.*$',  # noqa: E501
+            },
+        },
+        ('code',): {
+            'regex': {
+                'pattern': r'^.*$',  # noqa: E501
+            },
+        },
     }
 
     additional_properties_type = None

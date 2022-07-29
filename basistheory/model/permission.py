@@ -58,6 +58,21 @@ class Permission(ModelNormal):
     }
 
     validations = {
+        ('type',): {
+            'max_length': 100,
+            'regex': {
+                'pattern': r'^[a-z]+(?::[a-z]+){1,2}:[a-z]+$',  # noqa: E501
+            },
+        },
+        ('description',): {
+            'max_length': 250,
+            'regex': {
+                'pattern': r'^.*$',  # noqa: E501
+            },
+        },
+        ('application_types',): {
+            'max_items': 10,
+        },
     }
 
     additional_properties_type = None

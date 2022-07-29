@@ -122,10 +122,18 @@ class TokensApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'parent_id',
+                    'child_id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('parent_id',): {
+                        'max_length': 200,
+                    },
+                    ('child_id',): {
+                        'max_length': 200,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -180,10 +188,14 @@ class TokensApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'parent_id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('parent_id',): {
+                        'max_length': 200,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -237,10 +249,14 @@ class TokensApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+                        'max_length': 200,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -291,10 +307,18 @@ class TokensApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'parent_id',
+                    'child_id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('parent_id',): {
+                        'max_length': 200,
+                    },
+                    ('child_id',): {
+                        'max_length': 200,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -351,10 +375,22 @@ class TokensApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'page',
+                    'size',
                 ]
             },
             root_map={
                 'validations': {
+                    ('page',): {
+
+                        'inclusive_maximum': 2147483647,
+                        'exclusive_minimum': 0,
+                    },
+                    ('size',): {
+
+                        'inclusive_maximum': 100,
+                        'inclusive_minimum': 0,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -422,10 +458,14 @@ class TokensApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+                        'max_length': 200,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -481,10 +521,26 @@ class TokensApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'parent_id',
+                    'page',
+                    'size',
                 ]
             },
             root_map={
                 'validations': {
+                    ('parent_id',): {
+                        'max_length': 200,
+                    },
+                    ('page',): {
+
+                        'inclusive_maximum': 2147483647,
+                        'exclusive_minimum': 0,
+                    },
+                    ('size',): {
+
+                        'inclusive_maximum': 100,
+                        'inclusive_minimum': 0,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -611,10 +667,14 @@ class TokensApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('id',): {
+                        'max_length': 200,
+                    },
                 },
                 'allowed_values': {
                 },

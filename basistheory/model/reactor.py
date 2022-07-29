@@ -64,6 +64,42 @@ class Reactor(ModelNormal):
     }
 
     validations = {
+        ('id',): {
+            'max_length': 36,
+            'regex': {
+                'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+            },
+        },
+        ('tenant_id',): {
+            'max_length': 36,
+            'regex': {
+                'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+            },
+        },
+        ('name',): {
+            'max_length': 200,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
+            },
+        },
+        ('created_by',): {
+            'max_length': 36,
+            'regex': {
+                'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+            },
+        },
+        ('created_at',): {
+            'max_length': 40,
+        },
+        ('modified_by',): {
+            'max_length': 36,
+            'regex': {
+                'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+            },
+        },
+        ('modified_at',): {
+            'max_length': 40,
+        },
     }
 
     additional_properties_type = None

@@ -58,6 +58,22 @@ class GetTokens(ModelNormal):
     }
 
     validations = {
+        ('types',): {
+            'max_items': 10,
+        },
+        ('token_ids',): {
+            'max_items': 100,
+        },
+        ('metadata_search',): {
+        },
+        ('page',): {
+            'inclusive_maximum': 2147483647,
+            'exclusive_minimum''inclusive_minimum': 0,
+        },
+        ('size',): {
+            'inclusive_maximum': 100,
+            'inclusive_minimum': 0,
+        },
     }
 
     additional_properties_type = None

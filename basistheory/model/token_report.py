@@ -62,6 +62,12 @@ class TokenReport(ModelNormal):
     }
 
     validations = {
+        ('included_monthly_active_tokens',): {
+            'inclusive_minimum': 0,
+        },
+        ('monthly_active_tokens',): {
+            'inclusive_minimum': 0,
+        },
     }
 
     additional_properties_type = None

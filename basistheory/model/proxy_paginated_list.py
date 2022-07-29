@@ -64,6 +64,9 @@ class ProxyPaginatedList(ModelNormal):
     }
 
     validations = {
+        ('data',): {
+            'max_items': 100,
+        },
     }
 
     additional_properties_type = None

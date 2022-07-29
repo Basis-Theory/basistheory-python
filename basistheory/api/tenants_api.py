@@ -167,10 +167,17 @@ class TenantsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'invitation_id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('invitation_id',): {
+                        'max_length': 36,
+                        'regex': {
+                            'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
@@ -219,10 +226,17 @@ class TenantsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'member_id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('member_id',): {
+                        'max_length': 36,
+                        'regex': {
+                            'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
@@ -312,14 +326,28 @@ class TenantsApi(object):
                 ],
                 'required': [],
                 'nullable': [
+                    'page',
+                    'size',
                 ],
                 'enum': [
                 ],
                 'validation': [
+                    'page',
+                    'size',
                 ]
             },
             root_map={
                 'validations': {
+                    ('page',): {
+
+                        'inclusive_maximum': 2147483647,
+                        'exclusive_minimum': 0,
+                    },
+                    ('size',): {
+
+                        'inclusive_maximum': 100,
+                        'inclusive_minimum': 0,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -327,9 +355,9 @@ class TenantsApi(object):
                     'status':
                         (TenantInvitationStatus,),
                     'page':
-                        (int,),
+                        (int, none_type,),
                     'size':
-                        (int,),
+                        (int, none_type,),
                 },
                 'attribute_map': {
                     'status': 'status',
@@ -372,14 +400,28 @@ class TenantsApi(object):
                 ],
                 'required': [],
                 'nullable': [
+                    'page',
+                    'size',
                 ],
                 'enum': [
                 ],
                 'validation': [
+                    'page',
+                    'size',
                 ]
             },
             root_map={
                 'validations': {
+                    ('page',): {
+
+                        'inclusive_maximum': 2147483647,
+                        'exclusive_minimum': 0,
+                    },
+                    ('size',): {
+
+                        'inclusive_maximum': 50,
+                        'inclusive_minimum': 0,
+                    },
                 },
                 'allowed_values': {
                 },
@@ -387,9 +429,9 @@ class TenantsApi(object):
                     'user_id':
                         ([str],),
                     'page':
-                        (int,),
+                        (int, none_type,),
                     'size':
-                        (int,),
+                        (int, none_type,),
                 },
                 'attribute_map': {
                     'user_id': 'user_id',
@@ -527,10 +569,17 @@ class TenantsApi(object):
                 'enum': [
                 ],
                 'validation': [
+                    'invitation_id',
                 ]
             },
             root_map={
                 'validations': {
+                    ('invitation_id',): {
+                        'max_length': 36,
+                        'regex': {
+                            'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
                 },
                 'allowed_values': {
                 },
@@ -1044,8 +1093,8 @@ class TenantsApi(object):
 
         Keyword Args:
             status (TenantInvitationStatus): [optional]
-            page (int): [optional]
-            size (int): [optional]
+            page (int, none_type): [optional]
+            size (int, none_type): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -1128,8 +1177,8 @@ class TenantsApi(object):
 
         Keyword Args:
             user_id ([str]): [optional]
-            page (int): [optional]
-            size (int): [optional]
+            page (int, none_type): [optional]
+            size (int, none_type): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

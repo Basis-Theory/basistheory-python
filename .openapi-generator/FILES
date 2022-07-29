@@ -26,9 +26,14 @@ basistheory/model/create_token_request.py
 basistheory/model/create_token_response.py
 basistheory/model/encryption_key.py
 basistheory/model/encryption_metadata.py
+basistheory/model/get_applications.py
 basistheory/model/get_logs.py
 basistheory/model/get_permissions.py
 basistheory/model/get_proxies.py
+basistheory/model/get_reactor_formulas.py
+basistheory/model/get_reactors.py
+basistheory/model/get_tenant_invitations.py
+basistheory/model/get_tenant_members.py
 basistheory/model/get_tokens.py
 basistheory/model/log.py
 basistheory/model/log_entity_type.py
