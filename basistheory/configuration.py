@@ -148,7 +148,7 @@ conf = basistheory.Configuration(
         """Password for HTTP basic authentication
         """
         self.discard_unknown_keys = discard_unknown_keys
-        self.disabled_client_side_validations = disabled_client_side_validations
+        self.disabled_client_side_validations = True
         self.logger = {}
         """Logging Settings
         """
