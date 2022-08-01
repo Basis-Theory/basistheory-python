@@ -20,6 +20,7 @@ from urllib.parse import quote
 from urllib3.fields import RequestField
 
 
+from basistheory import __version__
 from basistheory import rest
 from basistheory.configuration import Configuration
 from basistheory.exceptions import ApiTypeError, ApiValueError, ApiException
@@ -134,7 +135,7 @@ class ApiClient(object):
     @staticmethod
     def get_version():
         try:
-            return pkg_resources.require('basistheory')[0].version
+            return __version__
         except:
             return "unknown"
     

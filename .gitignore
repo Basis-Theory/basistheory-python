@@ -70,5 +70,5 @@ target/
 swagger.json
 pytest.ini
 
-#Npm stuff:
+#Npm stuff
 node_modules/
