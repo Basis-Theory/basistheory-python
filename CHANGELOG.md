@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.2.0...v1.3.0) (2022-08-01)
+
+
+### Bug Fixes
+
+* bump semantic release action ([#42](https://github.com/Basis-Theory/basistheory-python/issues/42)) ([ed4a07b](https://github.com/Basis-Theory/basistheory-python/commit/ed4a07b0332480667a8cb61bdf9fc9a036f90c6c))
+* fix semantic release version source ([#43](https://github.com/Basis-Theory/basistheory-python/issues/43)) ([217fcca](https://github.com/Basis-Theory/basistheory-python/commit/217fcca0487ebccb168aa640bf13e1d637aeb629))
+* use npm semantic release ([#45](https://github.com/Basis-Theory/basistheory-python/issues/45)) ([5103326](https://github.com/Basis-Theory/basistheory-python/commit/5103326aac4a1a9a6bc1ff911d4048493e9cbd2c))
+
+
+### Features
+
+* add token expires_at, validations, updated models ([#44](https://github.com/Basis-Theory/basistheory-python/issues/44)) ([1c9b8b9](https://github.com/Basis-Theory/basistheory-python/commit/1c9b8b9e20c55fc24147e2e42aa81ac036ea4b9f))
+
 # Changelog
 
 <!--next-version-placeholder-->
