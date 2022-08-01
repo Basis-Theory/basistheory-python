@@ -10,10 +10,7 @@
 """
 
 
-import configparser
-
-config = configparser.ConfigParser()
-__version__ = config["metadata"]["version"]
+__version__ = "1.2.0"
 
 # import ApiClient
 from basistheory.api_client import ApiClient
