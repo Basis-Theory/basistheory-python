@@ -21,7 +21,7 @@ jobs:
         run: python3 -m pip install --upgrade pip
       
       - name: "Install base dependencies"
-        run: python3 -m pip install setuptools wheel
+        run: python3 -m pip install setuptools wheel twine
       
       - name: "Install additional dependencies"
         run: if [ -f requirements.txt ]; then pip install -r requirements.txt; fi

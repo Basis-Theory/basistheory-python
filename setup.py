@@ -11,7 +11,6 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "basistheory"
-VERSION = "1.2.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -31,7 +30,6 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name=NAME,
-    version=VERSION,
     description="BasisTheory Python SDK",
     author="Basis Theory",
     author_email="support@basistheory.com",

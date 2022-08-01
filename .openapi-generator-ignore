@@ -30,3 +30,7 @@ git_push.sh
 .travis.yml
 .gitlab-ci.yml
 .github/*
+node_modules/*
+.releaserc.json
+package.json
+yarn.lock
