@@ -69,3 +69,6 @@ target/
 .idea/
 swagger.json
 pytest.ini
+
+#Npm stuff
+node_modules/

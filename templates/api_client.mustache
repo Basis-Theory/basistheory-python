@@ -15,6 +15,7 @@ from urllib3.fields import RequestField
 import tornado.gen
 {{/tornado}}
 
+from {{packageName}} import __version__
 from {{packageName}} import rest
 from {{packageName}}.configuration import Configuration
 from {{packageName}}.exceptions import ApiTypeError, ApiValueError, ApiException
@@ -129,7 +130,7 @@ class ApiClient(object):
     @staticmethod
     def get_version():
         try:
-            return pkg_resources.require('basistheory')[0].version
+            return __version__
         except:
             return "unknown"
     

@@ -1,0 +1,21 @@
+{
+  "name": "basistheory-python",
+  "version": "1.2.0",
+  "description": "Basis Theory Python SDK",
+  "repository": "https://github.com/Basis-Theory/basistheory-python",
+  "author": "Basis Theory",
+  "license": "Apache-2.0",
+  "scripts": {
+    "release": "semantic-release"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.5",
+    "@semantic-release/release-notes-generator": "^10.0.3",
+    "semantic-release": "^19.0.3",
+    "semantic-release-pypi": "^2.5.0"
+  }
+}
