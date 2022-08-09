@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.3.0...v1.4.0) (2022-08-09)
+
+
+### Features
+
+* renaming sts app type in tests and adding container to tokens ([#47](https://github.com/Basis-Theory/basistheory-python/issues/47)) ([8d82520](https://github.com/Basis-Theory/basistheory-python/commit/8d8252003b7f5b80d5ad3ee594f56d2fb00d8bb8))
+
 # [1.3.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.2.0...v1.3.0) (2022-08-01)
 
 
