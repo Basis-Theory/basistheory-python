@@ -78,19 +78,19 @@ def setup():
       host = os.environ.get('BT_API_URL') or "https://api-dev.basistheory.com",
       api_key = os.environ.get('BT_MANAGEMENT_API_KEY')
     ) 
-    server_to_server_configuration = basistheory.Configuration(
+    private_configuration = basistheory.Configuration(
       host = os.environ.get('BT_API_URL') or "https://api-dev.basistheory.com",
       api_key = os.environ.get('BT_API_KEY')
     ) 
     request_options = RequestOptions(api_key=configuration.api_key["apiKey"], correlation_id=uuid.uuid4().__str__())
     api_client = basistheory.ApiClient(configuration)
-    server_to_server_api_client = basistheory.ApiClient(server_to_server_configuration)
+    private_api_client = basistheory.ApiClient(private_configuration)
     applications_client = applications_api.ApplicationsApi(api_client)
     application = applications_client.get_by_key(request_options=request_options)
     reactor_formulas_client = reactor_formulas_api.ReactorFormulasApi(api_client)
     reactors_client = reactors_api.ReactorsApi(api_client)
-    react_client = reactors_api.ReactorsApi(server_to_server_api_client)
-    tokens_client = tokens_api.TokensApi(server_to_server_api_client)
+    react_client = reactors_api.ReactorsApi(private_api_client)
+    tokens_client = tokens_api.TokensApi(private_api_client)
     reactor_formula = reactor_formulas_client.create(create_reactor_formula_request=create_reactor_formula_request)
     request = CreateReactorRequest(
         name="My Reactor",

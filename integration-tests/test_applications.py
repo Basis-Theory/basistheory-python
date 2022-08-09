@@ -43,7 +43,7 @@ def setup():
 def test_create(): 
     request = CreateApplicationRequest(
       name="Test App",
-      type="server_to_server", 
+      type="private", 
       permissions=["token:general:create", "token:general:read:low"]
     )
     application = applications_client.create(create_application_request=request)
@@ -56,7 +56,7 @@ def test_create():
 def test_get(): 
     request = CreateApplicationRequest(
       name="Test App",
-      type="server_to_server", 
+      type="private", 
       permissions=["token:general:create", "token:general:read:low"]
     )
     application = applications_client.create(create_application_request=request)
@@ -70,7 +70,7 @@ def test_get():
 def test_get_by_id(): 
     request = CreateApplicationRequest(
       name="Test App",
-      type="server_to_server", 
+      type="private", 
       permissions=["token:general:create", "token:general:read:low"]
     )
     application = applications_client.create(create_application_request=request)
@@ -84,7 +84,7 @@ def test_get_by_id():
 def test_get_by_key(): 
     request = CreateApplicationRequest(
       name="Test App",
-      type="server_to_server", 
+      type="private", 
       permissions=["token:general:create", "token:general:read:low"]
     )
     application = applications_client.create(create_application_request=request)
@@ -107,7 +107,7 @@ def test_get_by_key():
 def test_update(): 
     request = CreateApplicationRequest(
       name="Test App",
-      type="server_to_server", 
+      type="private", 
       permissions=["token:general:create", "token:general:read:low"]
     )
     application = applications_client.create(create_application_request=request)
@@ -127,7 +127,7 @@ def test_update():
 def test_regenerate_key(): 
     request = CreateApplicationRequest(
       name="Test App",
-      type="server_to_server", 
+      type="private", 
       permissions=["token:general:create", "token:general:read:low"]
     )
     application = applications_client.create(create_application_request=request)
@@ -142,7 +142,7 @@ def test_regenerate_key():
 def test_delete(): 
     request = CreateApplicationRequest(
       name="Test App",
-      type="server_to_server", 
+      type="private", 
       permissions=["token:general:create", "token:general:read:low"]
     )
     application = applications_client.create(create_application_request=request)
