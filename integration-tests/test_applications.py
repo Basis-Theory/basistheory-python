@@ -115,7 +115,8 @@ def test_update():
     applications_to_delete.append(application.id)
 
     update_request = UpdateApplicationRequest(
-      name="New name"
+      name="New name",
+      permissions=["token:general:create", "token:general:read:low"]
     )
     updated_application = applications_client.update(id=application.id,update_application_request=update_request)
 
