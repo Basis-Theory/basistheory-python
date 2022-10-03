@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/Basis-Theory/basistheory-python/compare/v1.4.0...v1.4.1) (2022-10-03)
+
+
+### Bug Fixes
+
+* fixes update token integration test ([#49](https://github.com/Basis-Theory/basistheory-python/issues/49)) ([309db0f](https://github.com/Basis-Theory/basistheory-python/commit/309db0fa391d82d104554e93b858d08c5fe6a483))
+
 # [1.4.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.3.0...v1.4.0) (2022-08-09)
 
 
