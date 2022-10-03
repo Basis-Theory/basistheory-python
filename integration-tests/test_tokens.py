@@ -87,7 +87,7 @@ def test_update_tokens():
     tokens_to_delete.append(created_token.id)
 
     assert updated_token.id == created_token.id
-    assert updated_token.data == {"foo": "newbar", "newfoo": "barbar"}
+    assert updated_token.data == {"foo": "newbar", "newfoo": "##rbar"}
     assert updated_token.metadata == {"fooooo": "bar"}
     assert updated_token.privacy.restriction_policy == "mask"
     assert updated_token.mask == maskUpdate
