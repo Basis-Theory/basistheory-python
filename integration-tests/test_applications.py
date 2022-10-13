@@ -44,7 +44,7 @@ def test_create():
     request = CreateApplicationRequest(
       name="Test App",
       type="private", 
-      permissions=["token:general:create", "token:general:read:low"]
+      permissions=["token:create", "token:read"]
     )
     application = applications_client.create(create_application_request=request)
 
@@ -57,7 +57,7 @@ def test_get():
     request = CreateApplicationRequest(
       name="Test App",
       type="private", 
-      permissions=["token:general:create", "token:general:read:low"]
+      permissions=["token:create", "token:read"]
     )
     application = applications_client.create(create_application_request=request)
     applications_to_delete.append(application.id)
@@ -71,7 +71,7 @@ def test_get_by_id():
     request = CreateApplicationRequest(
       name="Test App",
       type="private", 
-      permissions=["token:general:create", "token:general:read:low"]
+      permissions=["token:create", "token:read"]
     )
     application = applications_client.create(create_application_request=request)
     applications_to_delete.append(application.id)
@@ -85,7 +85,7 @@ def test_get_by_key():
     request = CreateApplicationRequest(
       name="Test App",
       type="private", 
-      permissions=["token:general:create", "token:general:read:low"]
+      permissions=["token:create", "token:read"]
     )
     application = applications_client.create(create_application_request=request)
     applications_to_delete.append(application.id)
@@ -108,7 +108,7 @@ def test_update():
     request = CreateApplicationRequest(
       name="Test App",
       type="private", 
-      permissions=["token:general:create", "token:general:read:low"]
+      permissions=["token:create", "token:read"]
     )
     application = applications_client.create(create_application_request=request)
 
@@ -116,7 +116,7 @@ def test_update():
 
     update_request = UpdateApplicationRequest(
       name="New name",
-      permissions=["token:general:create", "token:general:read:low"]
+      permissions=["token:create", "token:read"]
     )
     updated_application = applications_client.update(id=application.id,update_application_request=update_request)
 
@@ -129,7 +129,7 @@ def test_regenerate_key():
     request = CreateApplicationRequest(
       name="Test App",
       type="private", 
-      permissions=["token:general:create", "token:general:read:low"]
+      permissions=["token:create", "token:read"]
     )
     application = applications_client.create(create_application_request=request)
 
@@ -144,7 +144,7 @@ def test_delete():
     request = CreateApplicationRequest(
       name="Test App",
       type="private", 
-      permissions=["token:general:create", "token:general:read:low"]
+      permissions=["token:create", "token:read"]
     )
     application = applications_client.create(create_application_request=request)
     applications_client.delete(application.id)
