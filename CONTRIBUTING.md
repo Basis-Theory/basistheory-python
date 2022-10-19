@@ -20,13 +20,15 @@ pip install .
 
 ## Updating the SDK
 
-First download the latest API schema to `./swagger.json`, which can be done with the command:
+Download the latest API schema to `./swagger.json` from `https://api.basistheory.com/swagger/v1/swagger.json`, 
+which can be done manually or with the command:
 
 ```shell
 make update-api-spec
 ```
 
-Then regenerate the SDK using the open api generator with the command:
+Once the latest api spec has been downloaded locally, you must regenerate the SDK using the open api generator,
+which can be done with the command:
 
 ```shell
 make generate-sdk
@@ -41,16 +43,4 @@ To run tests using this configuration, run:
 
 ```shell
 make verify
-```
-
-## Updating examples
-
-The examples included under `/examples/resources` should be manually updated
-with any new resources that are introduced.
-
-After updating the examples, reformat and regenerate the markdown docs under 
-`/docs/resources` by running the command:
-
-```shell
-go generate
 ```

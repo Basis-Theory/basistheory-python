@@ -58,11 +58,11 @@ class GetReactors(ModelNormal):
     }
 
     validations = {
-        ('reactor_ids',): {
-            'max_items': 100,
-        },
         ('name',): {
             'max_length': 200,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
+            },
         },
         ('page',): {
             'inclusive_maximum': 2147483647,
@@ -89,7 +89,7 @@ class GetReactors(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'reactor_ids': ([str], none_type,),  # noqa: E501
+            'id': ([str], none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
             'size': (int, none_type,),  # noqa: E501
@@ -101,7 +101,7 @@ class GetReactors(ModelNormal):
 
 
     attribute_map = {
-        'reactor_ids': 'reactorIds',  # noqa: E501
+        'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'page': 'page',  # noqa: E501
         'size': 'size',  # noqa: E501
@@ -148,7 +148,7 @@ class GetReactors(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            reactor_ids ([str], none_type): [optional]  # noqa: E501
+            id ([str], none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
@@ -237,7 +237,7 @@ class GetReactors(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            reactor_ids ([str], none_type): [optional]  # noqa: E501
+            id ([str], none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501

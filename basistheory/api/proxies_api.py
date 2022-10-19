@@ -174,6 +174,7 @@ class ProxiesApi(object):
                 ],
                 'required': [],
                 'nullable': [
+                    'id',
                     'name',
                     'page',
                     'size',
@@ -209,7 +210,7 @@ class ProxiesApi(object):
                 },
                 'openapi_types': {
                     'id':
-                        ([str],),
+                        ([str], none_type,),
                     'name':
                         (str, none_type,),
                     'page':
@@ -553,7 +554,7 @@ class ProxiesApi(object):
 
 
         Keyword Args:
-            id ([str]): [optional]
+            id ([str], none_type): [optional]
             name (str, none_type): [optional]
             page (int, none_type): [optional]
             size (int, none_type): [optional]

@@ -58,14 +58,6 @@ class GetTokens(ModelNormal):
     }
 
     validations = {
-        ('types',): {
-            'max_items': 10,
-        },
-        ('token_ids',): {
-            'max_items': 100,
-        },
-        ('metadata_search',): {
-        },
         ('page',): {
             'inclusive_maximum': 2147483647,
             'exclusive_minimum''inclusive_minimum': 0,
@@ -91,9 +83,9 @@ class GetTokens(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'types': ([str], none_type,),  # noqa: E501
-            'token_ids': ([str], none_type,),  # noqa: E501
-            'metadata_search': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'type': ([str], none_type,),  # noqa: E501
+            'id': ([str], none_type,),  # noqa: E501
+            'metadata': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
             'size': (int, none_type,),  # noqa: E501
         }
@@ -104,9 +96,9 @@ class GetTokens(ModelNormal):
 
 
     attribute_map = {
-        'types': 'types',  # noqa: E501
-        'token_ids': 'tokenIds',  # noqa: E501
-        'metadata_search': 'metadataSearch',  # noqa: E501
+        'type': 'type',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'metadata': 'metadata',  # noqa: E501
         'page': 'page',  # noqa: E501
         'size': 'size',  # noqa: E501
     }
@@ -152,9 +144,9 @@ class GetTokens(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            types ([str], none_type): [optional]  # noqa: E501
-            token_ids ([str], none_type): [optional]  # noqa: E501
-            metadata_search ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            type ([str], none_type): [optional]  # noqa: E501
+            id ([str], none_type): [optional]  # noqa: E501
+            metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
@@ -242,9 +234,9 @@ class GetTokens(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            types ([str], none_type): [optional]  # noqa: E501
-            token_ids ([str], none_type): [optional]  # noqa: E501
-            metadata_search ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            type ([str], none_type): [optional]  # noqa: E501
+            id ([str], none_type): [optional]  # noqa: E501
+            metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """

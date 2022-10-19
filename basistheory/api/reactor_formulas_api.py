@@ -189,6 +189,9 @@ class ReactorFormulasApi(object):
                 'validations': {
                     ('name',): {
                         'max_length': 200,
+                        'regex': {
+                            'pattern': r'^.+$',  # noqa: E501
+                        },
                     },
                     ('page',): {
 

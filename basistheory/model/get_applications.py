@@ -58,9 +58,6 @@ class GetApplications(ModelNormal):
     }
 
     validations = {
-        ('application_ids',): {
-            'max_items': 100,
-        },
         ('page',): {
             'inclusive_maximum': 2147483647,
             'exclusive_minimum''inclusive_minimum': 0,
@@ -86,7 +83,7 @@ class GetApplications(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'application_ids': ([str], none_type,),  # noqa: E501
+            'id': ([str], none_type,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
             'size': (int, none_type,),  # noqa: E501
         }
@@ -97,7 +94,7 @@ class GetApplications(ModelNormal):
 
 
     attribute_map = {
-        'application_ids': 'applicationIds',  # noqa: E501
+        'id': 'id',  # noqa: E501
         'page': 'page',  # noqa: E501
         'size': 'size',  # noqa: E501
     }
@@ -143,7 +140,7 @@ class GetApplications(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            application_ids ([str], none_type): [optional]  # noqa: E501
+            id ([str], none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
@@ -231,7 +228,7 @@ class GetApplications(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            application_ids ([str], none_type): [optional]  # noqa: E501
+            id ([str], none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """

@@ -116,11 +116,8 @@ class CreateTokenResponse(ModelNormal):
         ('expires_at',): {
             'max_length': 40,
         },
-        ('container',): {
-            'max_length': 400,
-            'regex': {
-                'pattern': r'^(?!.*\/\/)(?!.+\/$)\/[A-z0-9_\-\/]*$',  # noqa: E501
-            },
+        ('containers',): {
+            'max_items': 1,
         },
     }
 
@@ -155,7 +152,7 @@ class CreateTokenResponse(ModelNormal):
             'modified_by': (str, none_type,),  # noqa: E501
             'modified_at': (datetime, none_type,),  # noqa: E501
             'expires_at': (datetime, none_type,),  # noqa: E501
-            'container': (str, none_type,),  # noqa: E501
+            'containers': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -179,7 +176,7 @@ class CreateTokenResponse(ModelNormal):
         'modified_by': 'modified_by',  # noqa: E501
         'modified_at': 'modified_at',  # noqa: E501
         'expires_at': 'expires_at',  # noqa: E501
-        'container': 'container',  # noqa: E501
+        'containers': 'containers',  # noqa: E501
     }
 
     read_only_vars = {
@@ -238,7 +235,7 @@ class CreateTokenResponse(ModelNormal):
             modified_by (str, none_type): [optional]  # noqa: E501
             modified_at (datetime, none_type): [optional]  # noqa: E501
             expires_at (datetime, none_type): [optional]  # noqa: E501
-            container (str, none_type): [optional]  # noqa: E501
+            containers ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -339,7 +336,7 @@ class CreateTokenResponse(ModelNormal):
             modified_by (str, none_type): [optional]  # noqa: E501
             modified_at (datetime, none_type): [optional]  # noqa: E501
             expires_at (datetime, none_type): [optional]  # noqa: E501
-            container (str, none_type): [optional]  # noqa: E501
+            containers ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

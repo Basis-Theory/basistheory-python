@@ -58,9 +58,6 @@ class GetProxies(ModelNormal):
     }
 
     validations = {
-        ('ids',): {
-            'max_items': 100,
-        },
         ('name',): {
             'max_length': 200,
             'regex': {
@@ -92,7 +89,7 @@ class GetProxies(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'ids': ([str], none_type,),  # noqa: E501
+            'id': ([str], none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
             'size': (int, none_type,),  # noqa: E501
@@ -104,7 +101,7 @@ class GetProxies(ModelNormal):
 
 
     attribute_map = {
-        'ids': 'ids',  # noqa: E501
+        'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'page': 'page',  # noqa: E501
         'size': 'size',  # noqa: E501
@@ -151,7 +148,7 @@ class GetProxies(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ids ([str], none_type): [optional]  # noqa: E501
+            id ([str], none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
@@ -240,7 +237,7 @@ class GetProxies(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ids ([str], none_type): [optional]  # noqa: E501
+            id ([str], none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501

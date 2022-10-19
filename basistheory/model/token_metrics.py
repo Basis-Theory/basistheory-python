@@ -59,6 +59,7 @@ class TokenMetrics(ModelNormal):
 
     validations = {
         ('count',): {
+            'inclusive_maximum': 2147483647,
             'inclusive_minimum': 0,
         },
         ('last_created_at',): {

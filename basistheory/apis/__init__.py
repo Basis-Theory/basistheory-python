@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from basistheory.api.applications_api import ApplicationsApi
+#   from basistheory.api.application_templates_api import ApplicationTemplatesApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,6 +14,7 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
+from basistheory.api.application_templates_api import ApplicationTemplatesApi
 from basistheory.api.applications_api import ApplicationsApi
 from basistheory.api.logs_api import LogsApi
 from basistheory.api.permissions_api import PermissionsApi

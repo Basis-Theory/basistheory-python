@@ -58,9 +58,6 @@ class GetTenantMembers(ModelNormal):
     }
 
     validations = {
-        ('user_ids',): {
-            'max_items': 50,
-        },
         ('page',): {
             'inclusive_maximum': 2147483647,
             'exclusive_minimum''inclusive_minimum': 0,
@@ -86,7 +83,7 @@ class GetTenantMembers(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'user_ids': ([str], none_type,),  # noqa: E501
+            'user_id': ([str], none_type,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
             'size': (int, none_type,),  # noqa: E501
         }
@@ -97,7 +94,7 @@ class GetTenantMembers(ModelNormal):
 
 
     attribute_map = {
-        'user_ids': 'userIds',  # noqa: E501
+        'user_id': 'user_id',  # noqa: E501
         'page': 'page',  # noqa: E501
         'size': 'size',  # noqa: E501
     }
@@ -143,7 +140,7 @@ class GetTenantMembers(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user_ids ([str], none_type): [optional]  # noqa: E501
+            user_id ([str], none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
@@ -231,7 +228,7 @@ class GetTenantMembers(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            user_ids ([str], none_type): [optional]  # noqa: E501
+            user_id ([str], none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """

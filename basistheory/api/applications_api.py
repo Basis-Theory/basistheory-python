@@ -173,6 +173,7 @@ class ApplicationsApi(object):
                 ],
                 'required': [],
                 'nullable': [
+                    'id',
                     'page',
                     'size',
                 ],
@@ -200,7 +201,7 @@ class ApplicationsApi(object):
                 },
                 'openapi_types': {
                     'id':
-                        ([str],),
+                        ([str], none_type,),
                     'page':
                         (int, none_type,),
                     'size':
@@ -644,7 +645,7 @@ class ApplicationsApi(object):
 
 
         Keyword Args:
-            id ([str]): [optional]
+            id ([str], none_type): [optional]
             page (int, none_type): [optional]
             size (int, none_type): [optional]
             request_options(RequestOptions): [optional]

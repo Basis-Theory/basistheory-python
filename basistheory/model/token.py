@@ -118,11 +118,8 @@ class Token(ModelNormal):
         ('expires_at',): {
             'max_length': 40,
         },
-        ('container',): {
-            'max_length': 400,
-            'regex': {
-                'pattern': r'^(?!.*\/\/)(?!.+\/$)\/[A-z0-9_\-\/]*$',  # noqa: E501
-            },
+        ('containers',): {
+            'max_items': 1,
         },
     }
 
@@ -158,7 +155,7 @@ class Token(ModelNormal):
             'privacy': (Privacy,),  # noqa: E501
             'search_indexes': ([str], none_type,),  # noqa: E501
             'expires_at': (datetime, none_type,),  # noqa: E501
-            'container': (str, none_type,),  # noqa: E501
+            'containers': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -183,7 +180,7 @@ class Token(ModelNormal):
         'privacy': 'privacy',  # noqa: E501
         'search_indexes': 'search_indexes',  # noqa: E501
         'expires_at': 'expires_at',  # noqa: E501
-        'container': 'container',  # noqa: E501
+        'containers': 'containers',  # noqa: E501
     }
 
     read_only_vars = {
@@ -243,7 +240,7 @@ class Token(ModelNormal):
             privacy (Privacy): [optional]  # noqa: E501
             search_indexes ([str], none_type): [optional]  # noqa: E501
             expires_at (datetime, none_type): [optional]  # noqa: E501
-            container (str, none_type): [optional]  # noqa: E501
+            containers ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -345,7 +342,7 @@ class Token(ModelNormal):
             privacy (Privacy): [optional]  # noqa: E501
             search_indexes ([str], none_type): [optional]  # noqa: E501
             expires_at (datetime, none_type): [optional]  # noqa: E501
-            container (str, none_type): [optional]  # noqa: E501
+            containers ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

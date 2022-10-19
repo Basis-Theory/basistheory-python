@@ -400,6 +400,7 @@ class TenantsApi(object):
                 ],
                 'required': [],
                 'nullable': [
+                    'user_id',
                     'page',
                     'size',
                 ],
@@ -427,7 +428,7 @@ class TenantsApi(object):
                 },
                 'openapi_types': {
                     'user_id':
-                        ([str],),
+                        ([str], none_type,),
                     'page':
                         (int, none_type,),
                     'size':
@@ -1176,7 +1177,7 @@ class TenantsApi(object):
 
 
         Keyword Args:
-            user_id ([str]): [optional]
+            user_id ([str], none_type): [optional]
             page (int, none_type): [optional]
             size (int, none_type): [optional]
             request_options(RequestOptions): [optional]
