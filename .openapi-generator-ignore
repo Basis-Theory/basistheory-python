@@ -27,6 +27,7 @@ README.md
 setup.py
 setup.cfg
 git_push.sh
+.gitignore
 .travis.yml
 .gitlab-ci.yml
 .github/*
