@@ -13,8 +13,6 @@ from basistheory.exceptions import NotFoundException
 from basistheory.model.create_token_request import CreateTokenRequest
 from basistheory.model.update_token_request import UpdateTokenRequest
 from basistheory.model.search_tokens_request import SearchTokensRequest
-from basistheory.model.privacy import Privacy
-from basistheory.model.update_privacy import UpdatePrivacy
 from basistheory.request_options import RequestOptions
 
 tokens_to_delete = []
@@ -46,8 +44,7 @@ def setup():
 
 
 def test_create_tokens(): 
-    privacyRequest = Privacy(restriction_policy="mask")
-    request = CreateTokenRequest(type="token", data="My Secret Data", mask="{{ data | reveal_last: 4 }}", privacy=privacyRequest)
+    request = CreateTokenRequest(type="token", data="My Secret Data", mask="{{ data | reveal_last: 4 }}")
 
     created_token = tokens_client.create(create_token_request=request, request_options=request_options)
 
@@ -74,11 +71,10 @@ def test_update_tokens():
     created_token = tokens_client.create(create_token_request=create_request, request_options=request_options)
 
     maskUpdate = {"foo": "{{ data.foo }}", "newfoo": "{{ data.newfoo | reveal_last: 4, '#' }}"}
-    privacyUpdateRequest = UpdatePrivacy(restriction_policy="mask")
     update_request = UpdateTokenRequest(
         data={"foo": "newbar", "bar": None, "newfoo": "barbar"},
         metadata={"fooooo": "bar"},
-        privacy=privacyUpdateRequest,
+        containers=['/general/foo/'],
         mask=maskUpdate
     )
     
@@ -89,7 +85,7 @@ def test_update_tokens():
     assert updated_token.id == created_token.id
     assert updated_token.data == {"foo": "newbar", "newfoo": "##rbar"}
     assert updated_token.metadata == {"fooooo": "bar"}
-    assert updated_token.privacy.restriction_policy == "mask"
+    assert updated_token.containers == ['/general/foo/']
     assert updated_token.mask == maskUpdate
 
 
@@ -119,11 +115,13 @@ def test_delete_token():
 def test_search_tokens(): 
     randomKey = str(uuid.uuid4())
     randomValue = str(uuid.uuid4())
-    request1 = CreateTokenRequest(type="social_security_number", data="123-45-6789", privacy=Privacy(impact_level="low"))
-    request2 = CreateTokenRequest(type="employer_id_number", data="12-3456789", metadata = { randomKey: randomValue}, privacy=Privacy(impact_level="low"))
+    request1 = CreateTokenRequest(type="social_security_number", data="123-45-6789", containers=['/general/low/'])
+    request2 = CreateTokenRequest(type="employer_id_number", data="12-3456789", metadata = { randomKey: randomValue }, containers=['/general/low/'])
 
     created_token1 = tokens_client.create(create_token_request=request1, request_options=request_options)
     created_token2 = tokens_client.create(create_token_request=request2, request_options=request_options)
+    print(created_token1.id)
+    print(created_token2.id)
 
     tokens_to_delete.append(created_token1.id)
     tokens_to_delete.append(created_token2.id)
@@ -148,7 +146,7 @@ def assert_token(token, request, assertData, masked):
     assert token.tenant_id == application.tenant_id
     assert token.created_by == application.id
     assert datetime.utcnow().timestamp() - datetime.utcfromtimestamp(token.created_at.timestamp()).timestamp() == approx(0, abs=3)
+    assert token.containers == ['/general/high/']
     assert token.privacy.classification == 'general'
     assert token.privacy.impact_level == 'high'
-    assert token.privacy.restriction_policy == 'mask' if masked else token.privacy.restriction_policy == 'redact'
     assert token.mask == request.mask if masked else True
