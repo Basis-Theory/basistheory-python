@@ -59,6 +59,7 @@ class GetLogs(ModelNormal):
 
     validations = {
         ('entity_type',): {
+            'max_length': 50,
             'regex': {
                 'pattern': r'^[A-z]+$',  # noqa: E501
             },
@@ -114,10 +115,10 @@ class GetLogs(ModelNormal):
 
 
     attribute_map = {
-        'entity_type': 'entityType',  # noqa: E501
-        'entity_id': 'entityId',  # noqa: E501
-        'start_date': 'startDate',  # noqa: E501
-        'end_date': 'endDate',  # noqa: E501
+        'entity_type': 'entity_type',  # noqa: E501
+        'entity_id': 'entity_id',  # noqa: E501
+        'start_date': 'start_date',  # noqa: E501
+        'end_date': 'end_date',  # noqa: E501
         'page': 'page',  # noqa: E501
         'size': 'size',  # noqa: E501
     }

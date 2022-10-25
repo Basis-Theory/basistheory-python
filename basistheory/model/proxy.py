@@ -82,6 +82,12 @@ class Proxy(ModelNormal):
                 'pattern': r'^.+$',  # noqa: E501
             },
         },
+        ('destination_url',): {
+            'max_length': 400,
+            'regex': {
+                'pattern': r'^https:\/\/.+$',  # noqa: E501
+            },
+        },
         ('request_reactor_id',): {
             'max_length': 36,
             'regex': {

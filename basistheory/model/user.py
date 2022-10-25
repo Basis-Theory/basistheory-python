@@ -79,6 +79,9 @@ class User(ModelNormal):
                 'pattern': r'^.*$',  # noqa: E501
             },
         },
+        ('picture',): {
+            'max_length': 400,
+        },
     }
 
     additional_properties_type = None

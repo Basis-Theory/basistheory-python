@@ -52,31 +52,50 @@ class PermissionsApi(object):
             params_map={
                 'all': [
                     'application_type',
+                    'version',
                     'request_options'
                 ],
                 'required': [],
                 'nullable': [
                     'application_type',
+                    'version',
                 ],
                 'enum': [
                 ],
                 'validation': [
+                    'application_type',
+                    'version',
                 ]
             },
             root_map={
                 'validations': {
+                    ('application_type',): {
+                        'max_length': 25,
+                        'regex': {
+                            'pattern': r'^[A-z_]+$',  # noqa: E501
+                        },
+                    },
+                    ('version',): {
+
+                        'inclusive_maximum': 2147483647,
+                        'inclusive_minimum': 0,
+                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
                     'application_type':
                         (str, none_type,),
+                    'version':
+                        (int, none_type,),
                 },
                 'attribute_map': {
                     'application_type': 'application_type',
+                    'version': 'version',
                 },
                 'location_map': {
                     'application_type': 'query',
+                    'version': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -105,6 +124,7 @@ class PermissionsApi(object):
 
         Keyword Args:
             application_type (str, none_type): [optional]
+            version (int, none_type): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

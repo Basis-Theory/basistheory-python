@@ -70,6 +70,42 @@ class ReactorFormula(ModelNormal):
                 'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
             },
         },
+        ('type',): {
+            'max_length': 25,
+            'regex': {
+                'pattern': r'^(?:private|official)$',  # noqa: E501
+            },
+        },
+        ('status',): {
+            'max_length': 25,
+            'regex': {
+                'pattern': r'^(?:verified|coming_soon)$',  # noqa: E501
+            },
+        },
+        ('name',): {
+            'max_length': 200,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
+            },
+        },
+        ('description',): {
+            'max_length': 1000,
+            'regex': {
+                'pattern': r'^[\S\s]*$',  # noqa: E501
+            },
+        },
+        ('icon',): {
+            'max_length': 50000,
+            'regex': {
+                'pattern': r'(^data:(image\/png|image\/jpg|image\/jpeg|image\/svg\+xml);\s*base64,\s*(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{4})$)|(^data:(image\/png|image\/jpg|image\/jpeg);\s*base64,\s*(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{4})$)',  # noqa: E501
+            },
+        },
+        ('code',): {
+            'max_length': 4000,
+            'regex': {
+                'pattern': r'^[\S\s]*$',  # noqa: E501
+            },
+        },
         ('created_by',): {
             'max_length': 36,
             'regex': {
@@ -87,6 +123,12 @@ class ReactorFormula(ModelNormal):
         },
         ('modified_at',): {
             'max_length': 40,
+        },
+        ('configuration',): {
+            'max_items': 25,
+        },
+        ('request_parameters',): {
+            'max_items': 25,
         },
     }
 

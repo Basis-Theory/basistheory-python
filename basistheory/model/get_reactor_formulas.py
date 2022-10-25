@@ -60,6 +60,9 @@ class GetReactorFormulas(ModelNormal):
     validations = {
         ('name',): {
             'max_length': 200,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
+            },
         },
         ('page',): {
             'inclusive_maximum': 2147483647,

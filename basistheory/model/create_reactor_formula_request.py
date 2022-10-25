@@ -87,7 +87,7 @@ class CreateReactorFormulaRequest(ModelNormal):
         ('description',): {
             'max_length': 1000,
             'regex': {
-                'pattern': r'^.*$',  # noqa: E501
+                'pattern': r'^[\S\s]*$',  # noqa: E501
             },
         },
         ('code',): {

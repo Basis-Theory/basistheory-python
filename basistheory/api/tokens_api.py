@@ -130,9 +130,15 @@ class TokensApi(object):
                 'validations': {
                     ('parent_id',): {
                         'max_length': 200,
+                        'regex': {
+                            'pattern': r'^.+$',  # noqa: E501
+                        },
                     },
                     ('child_id',): {
                         'max_length': 200,
+                        'regex': {
+                            'pattern': r'^.+$',  # noqa: E501
+                        },
                     },
                 },
                 'allowed_values': {
@@ -195,6 +201,9 @@ class TokensApi(object):
                 'validations': {
                     ('parent_id',): {
                         'max_length': 200,
+                        'regex': {
+                            'pattern': r'^.+$',  # noqa: E501
+                        },
                     },
                 },
                 'allowed_values': {
@@ -256,6 +265,9 @@ class TokensApi(object):
                 'validations': {
                     ('id',): {
                         'max_length': 200,
+                        'regex': {
+                            'pattern': r'^.+$',  # noqa: E501
+                        },
                     },
                 },
                 'allowed_values': {
@@ -315,9 +327,15 @@ class TokensApi(object):
                 'validations': {
                     ('parent_id',): {
                         'max_length': 200,
+                        'regex': {
+                            'pattern': r'^.+$',  # noqa: E501
+                        },
                     },
                     ('child_id',): {
                         'max_length': 200,
+                        'regex': {
+                            'pattern': r'^.+$',  # noqa: E501
+                        },
                     },
                 },
                 'allowed_values': {
@@ -369,6 +387,9 @@ class TokensApi(object):
                 ],
                 'required': [],
                 'nullable': [
+                    'type',
+                    'id',
+                    'metadata',
                     'page',
                     'size',
                 ],
@@ -396,11 +417,11 @@ class TokensApi(object):
                 },
                 'openapi_types': {
                     'type':
-                        ([str],),
+                        ([str], none_type,),
                     'id':
-                        ([str],),
+                        ([str], none_type,),
                     'metadata':
-                        ({str: (str,)},),
+                        ({str: (str,)}, none_type,),
                     'page':
                         (int, none_type,),
                     'size':
@@ -465,6 +486,9 @@ class TokensApi(object):
                 'validations': {
                     ('id',): {
                         'max_length': 200,
+                        'regex': {
+                            'pattern': r'^.+$',  # noqa: E501
+                        },
                     },
                 },
                 'allowed_values': {
@@ -515,6 +539,9 @@ class TokensApi(object):
                     'parent_id',
                 ],
                 'nullable': [
+                    'type',
+                    'id',
+                    'metadata',
                     'page',
                     'size',
                 ],
@@ -530,6 +557,9 @@ class TokensApi(object):
                 'validations': {
                     ('parent_id',): {
                         'max_length': 200,
+                        'regex': {
+                            'pattern': r'^.+$',  # noqa: E501
+                        },
                     },
                     ('page',): {
 
@@ -548,11 +578,11 @@ class TokensApi(object):
                     'parent_id':
                         (str,),
                     'type':
-                        ([str],),
+                        ([str], none_type,),
                     'id':
-                        ([str],),
+                        ([str], none_type,),
                     'metadata':
-                        ({str: (str,)},),
+                        ({str: (str,)}, none_type,),
                     'page':
                         (int, none_type,),
                     'size':
@@ -674,6 +704,9 @@ class TokensApi(object):
                 'validations': {
                     ('id',): {
                         'max_length': 200,
+                        'regex': {
+                            'pattern': r'^.+$',  # noqa: E501
+                        },
                     },
                 },
                 'allowed_values': {
@@ -1161,9 +1194,9 @@ class TokensApi(object):
 
 
         Keyword Args:
-            type ([str]): [optional]
-            id ([str]): [optional]
-            metadata ({str: (str,)}): [optional]
+            type ([str], none_type): [optional]
+            id ([str], none_type): [optional]
+            metadata ({str: (str,)}, none_type): [optional]
             page (int, none_type): [optional]
             size (int, none_type): [optional]
             request_options(RequestOptions): [optional]
@@ -1336,9 +1369,9 @@ class TokensApi(object):
             parent_id (str):
 
         Keyword Args:
-            type ([str]): [optional]
-            id ([str]): [optional]
-            metadata ({str: (str,)}): [optional]
+            type ([str], none_type): [optional]
+            id ([str], none_type): [optional]
+            metadata ({str: (str,)}, none_type): [optional]
             page (int, none_type): [optional]
             size (int, none_type): [optional]
             request_options(RequestOptions): [optional]
