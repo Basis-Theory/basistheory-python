@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.4.1...v1.5.0) (2022-10-25)
+
+
+### Features
+
+* adds support for access rules and containers ([#51](https://github.com/Basis-Theory/basistheory-python/issues/51)) ([7bcbe91](https://github.com/Basis-Theory/basistheory-python/commit/7bcbe91ec7f0af62b5e6482e0f8627d420af3881))
+
 ## [1.4.1](https://github.com/Basis-Theory/basistheory-python/compare/v1.4.0...v1.4.1) (2022-10-03)
 
 
