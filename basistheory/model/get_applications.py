@@ -84,6 +84,7 @@ class GetApplications(ModelNormal):
         """
         return {
             'id': ([str], none_type,),  # noqa: E501
+            'type': ([str], none_type,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
             'size': (int, none_type,),  # noqa: E501
         }
@@ -95,6 +96,7 @@ class GetApplications(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'page': 'page',  # noqa: E501
         'size': 'size',  # noqa: E501
     }
@@ -141,6 +143,7 @@ class GetApplications(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id ([str], none_type): [optional]  # noqa: E501
+            type ([str], none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
@@ -229,6 +232,7 @@ class GetApplications(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id ([str], none_type): [optional]  # noqa: E501
+            type ([str], none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
