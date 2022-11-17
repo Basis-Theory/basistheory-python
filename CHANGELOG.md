@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.5.0...v1.6.0) (2022-11-17)
+
+
+### Features
+
+* support for expiring applications ([#52](https://github.com/Basis-Theory/basistheory-python/issues/52)) ([fc60618](https://github.com/Basis-Theory/basistheory-python/commit/fc606188b1cdedb6f6ec24546c5c4acb1b4e7392))
+
 # [1.5.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.4.1...v1.5.0) (2022-10-25)
 
 
