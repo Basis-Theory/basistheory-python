@@ -19,6 +19,7 @@ basistheory/model/access_rule.py
 basistheory/model/application.py
 basistheory/model/application_paginated_list.py
 basistheory/model/application_template.py
+basistheory/model/condition.py
 basistheory/model/create_application_request.py
 basistheory/model/create_proxy_request.py
 basistheory/model/create_reactor_formula_request.py
@@ -84,8 +85,5 @@ basistheory/rest.py
 requirements.txt
 test-requirements.txt
 test/__init__.py
-test/test_access_rule.py
-test/test_application_template.py
-test/test_application_templates_api.py
-test/test_monthly_active_token_history.py
+test/test_condition.py
 tox.ini

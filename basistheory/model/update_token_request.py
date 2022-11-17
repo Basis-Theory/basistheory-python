@@ -101,6 +101,7 @@ class UpdateTokenRequest(ModelNormal):
             'search_indexes': ([str], none_type,),  # noqa: E501
             'fingerprint_expression': (str, none_type,),  # noqa: E501
             'mask': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'expires_at': (str, none_type,),  # noqa: E501
             'deduplicate_token': (bool, none_type,),  # noqa: E501
             'containers': ([str], none_type,),  # noqa: E501
         }
@@ -118,6 +119,7 @@ class UpdateTokenRequest(ModelNormal):
         'search_indexes': 'search_indexes',  # noqa: E501
         'fingerprint_expression': 'fingerprint_expression',  # noqa: E501
         'mask': 'mask',  # noqa: E501
+        'expires_at': 'expires_at',  # noqa: E501
         'deduplicate_token': 'deduplicate_token',  # noqa: E501
         'containers': 'containers',  # noqa: E501
     }
@@ -170,6 +172,7 @@ class UpdateTokenRequest(ModelNormal):
             search_indexes ([str], none_type): [optional]  # noqa: E501
             fingerprint_expression (str, none_type): [optional]  # noqa: E501
             mask (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            expires_at (str, none_type): [optional]  # noqa: E501
             deduplicate_token (bool, none_type): [optional]  # noqa: E501
             containers ([str], none_type): [optional]  # noqa: E501
         """
@@ -264,6 +267,7 @@ class UpdateTokenRequest(ModelNormal):
             search_indexes ([str], none_type): [optional]  # noqa: E501
             fingerprint_expression (str, none_type): [optional]  # noqa: E501
             mask (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            expires_at (str, none_type): [optional]  # noqa: E501
             deduplicate_token (bool, none_type): [optional]  # noqa: E501
             containers ([str], none_type): [optional]  # noqa: E501
         """

@@ -167,6 +167,7 @@ class ApplicationsApi(object):
             params_map={
                 'all': [
                     'id',
+                    'type',
                     'page',
                     'size',
                     'request_options'
@@ -174,6 +175,7 @@ class ApplicationsApi(object):
                 'required': [],
                 'nullable': [
                     'id',
+                    'type',
                     'page',
                     'size',
                 ],
@@ -202,6 +204,8 @@ class ApplicationsApi(object):
                 'openapi_types': {
                     'id':
                         ([str], none_type,),
+                    'type':
+                        ([str], none_type,),
                     'page':
                         (int, none_type,),
                     'size':
@@ -209,16 +213,19 @@ class ApplicationsApi(object):
                 },
                 'attribute_map': {
                     'id': 'id',
+                    'type': 'type',
                     'page': 'page',
                     'size': 'size',
                 },
                 'location_map': {
                     'id': 'query',
+                    'type': 'query',
                     'page': 'query',
                     'size': 'query',
                 },
                 'collection_format_map': {
                     'id': 'multi',
+                    'type': 'multi',
                 }
             },
             headers_map={
@@ -646,6 +653,7 @@ class ApplicationsApi(object):
 
         Keyword Args:
             id ([str], none_type): [optional]
+            type ([str], none_type): [optional]
             page (int, none_type): [optional]
             size (int, none_type): [optional]
             request_options(RequestOptions): [optional]

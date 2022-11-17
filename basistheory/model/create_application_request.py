@@ -62,18 +62,17 @@ class CreateApplicationRequest(ModelNormal):
     }
 
     validations = {
-        ('name',): {
-            'max_length': 200,
-            'min_length': 1,
-            'regex': {
-                'pattern': r'^.+$',  # noqa: E501
-            },
-        },
         ('type',): {
             'max_length': 25,
             'min_length': 1,
             'regex': {
                 'pattern': r'^[A-z_]+$',  # noqa: E501
+            },
+        },
+        ('name',): {
+            'max_length': 200,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
             },
         },
         ('permissions',): {
@@ -97,8 +96,10 @@ class CreateApplicationRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'name': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'can_create_expiring_applications': (bool, none_type,),  # noqa: E501
+            'expires_at': (str, none_type,),  # noqa: E501
             'permissions': ([str], none_type,),  # noqa: E501
             'rules': ([AccessRule], none_type,),  # noqa: E501
         }
@@ -109,8 +110,10 @@ class CreateApplicationRequest(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'can_create_expiring_applications': 'can_create_expiring_applications',  # noqa: E501
+        'expires_at': 'expires_at',  # noqa: E501
         'permissions': 'permissions',  # noqa: E501
         'rules': 'rules',  # noqa: E501
     }
@@ -122,11 +125,10 @@ class CreateApplicationRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, type, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, type, *args, **kwargs):  # noqa: E501
         """CreateApplicationRequest - a model defined in OpenAPI
 
         Args:
-            name (str):
             type (str):
 
         Keyword Args:
@@ -160,6 +162,9 @@ class CreateApplicationRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            name (str, none_type): [optional]  # noqa: E501
+            can_create_expiring_applications (bool, none_type): [optional]  # noqa: E501
+            expires_at (str, none_type): [optional]  # noqa: E501
             permissions ([str], none_type): [optional]  # noqa: E501
             rules ([AccessRule], none_type): [optional]  # noqa: E501
         """
@@ -193,7 +198,6 @@ class CreateApplicationRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.name = name
         self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -215,11 +219,10 @@ class CreateApplicationRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, type, *args, **kwargs):  # noqa: E501
+    def __init__(self, type, *args, **kwargs):  # noqa: E501
         """CreateApplicationRequest - a model defined in OpenAPI
 
         Args:
-            name (str):
             type (str):
 
         Keyword Args:
@@ -253,6 +256,9 @@ class CreateApplicationRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            name (str, none_type): [optional]  # noqa: E501
+            can_create_expiring_applications (bool, none_type): [optional]  # noqa: E501
+            expires_at (str, none_type): [optional]  # noqa: E501
             permissions ([str], none_type): [optional]  # noqa: E501
             rules ([AccessRule], none_type): [optional]  # noqa: E501
         """
@@ -284,7 +290,6 @@ class CreateApplicationRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.name = name
         self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

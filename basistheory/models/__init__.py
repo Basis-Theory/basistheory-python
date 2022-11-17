@@ -4,7 +4,7 @@
 # if you have many models here with many references from one model to another this may
 # raise a RecursionError
 # to avoid this, import only the models that you directly need like:
-# from from basistheory.model.pet import Pet
+# from basistheory.model.pet import Pet
 # or import this package, but before doing it, use:
 # import sys
 # sys.setrecursionlimit(n)
@@ -13,6 +13,7 @@ from basistheory.model.access_rule import AccessRule
 from basistheory.model.application import Application
 from basistheory.model.application_paginated_list import ApplicationPaginatedList
 from basistheory.model.application_template import ApplicationTemplate
+from basistheory.model.condition import Condition
 from basistheory.model.create_application_request import CreateApplicationRequest
 from basistheory.model.create_proxy_request import CreateProxyRequest
 from basistheory.model.create_reactor_formula_request import CreateReactorFormulaRequest

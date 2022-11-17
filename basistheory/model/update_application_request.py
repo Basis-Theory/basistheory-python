@@ -91,6 +91,7 @@ class UpdateApplicationRequest(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
+            'can_create_expiring_applications': (bool, none_type,),  # noqa: E501
             'permissions': ([str], none_type,),  # noqa: E501
             'rules': ([AccessRule], none_type,),  # noqa: E501
         }
@@ -102,6 +103,7 @@ class UpdateApplicationRequest(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
+        'can_create_expiring_applications': 'can_create_expiring_applications',  # noqa: E501
         'permissions': 'permissions',  # noqa: E501
         'rules': 'rules',  # noqa: E501
     }
@@ -150,6 +152,7 @@ class UpdateApplicationRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            can_create_expiring_applications (bool, none_type): [optional]  # noqa: E501
             permissions ([str], none_type): [optional]  # noqa: E501
             rules ([AccessRule], none_type): [optional]  # noqa: E501
         """
@@ -241,6 +244,7 @@ class UpdateApplicationRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            can_create_expiring_applications (bool, none_type): [optional]  # noqa: E501
             permissions ([str], none_type): [optional]  # noqa: E501
             rules ([AccessRule], none_type): [optional]  # noqa: E501
         """
