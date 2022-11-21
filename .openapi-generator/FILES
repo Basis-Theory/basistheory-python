@@ -85,5 +85,4 @@ basistheory/rest.py
 requirements.txt
 test-requirements.txt
 test/__init__.py
-test/test_condition.py
 tox.ini
