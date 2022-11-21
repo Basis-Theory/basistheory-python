@@ -67,7 +67,6 @@ target/
 
 .DS_STORE
 .idea/
-swagger.json
 pytest.ini
 
 #Npm stuff
