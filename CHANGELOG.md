@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/Basis-Theory/basistheory-python/compare/v1.6.0...v1.6.1) (2022-11-21)
+
+
+### Bug Fixes
+
+* Pins open api generator version to 6.2.1 ([#53](https://github.com/Basis-Theory/basistheory-python/issues/53)) ([98e5d11](https://github.com/Basis-Theory/basistheory-python/commit/98e5d119d61e8d45090021d867c2685b998c611c))
+
 # [1.6.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.5.0...v1.6.0) (2022-11-17)
 
 
