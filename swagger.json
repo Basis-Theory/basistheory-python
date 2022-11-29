@@ -3745,6 +3745,24 @@
             "format": "uuid",
             "nullable": true
           },
+          "request_transform": {
+            "$ref": "#/components/schemas/ProxyTransform"
+          },
+          "response_transform": {
+            "$ref": "#/components/schemas/ProxyTransform"
+          },
+          "application": {
+            "$ref": "#/components/schemas/Application"
+          },
+          "configuration": {
+            "maxLength": 25,
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
           "require_auth": {
             "type": "boolean",
             "nullable": true
@@ -3789,7 +3807,7 @@
             "nullable": true
           },
           "code": {
-            "maxLength": 4000,
+            "maxLength": 12000,
             "type": "string",
             "nullable": true
           },
@@ -4622,6 +4640,27 @@
           "require_auth": {
             "type": "boolean"
           },
+          "request_transform": {
+            "$ref": "#/components/schemas/ProxyTransform"
+          },
+          "response_transform": {
+            "$ref": "#/components/schemas/ProxyTransform"
+          },
+          "application_id": {
+            "maxLength": 36,
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "configuration": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
           "created_by": {
             "maxLength": 36,
             "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
@@ -4668,6 +4707,17 @@
         },
         "additionalProperties": false
       },
+      "ProxyTransform": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "maxLength": 12000,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ReactRequest": {
         "type": "object",
         "properties": {
@@ -4684,6 +4734,12 @@
             "nullable": true
           },
           "raw": {
+            "nullable": true
+          },
+          "body": {
+            "nullable": true
+          },
+          "headers": {
             "nullable": true
           }
         },
@@ -4971,10 +5027,13 @@
         "type": "object",
         "properties": {
           "key": {
+            "maxLength": 200,
             "minLength": 1,
+            "pattern": "^[A-z0-9][A-z0-9.\\-_]*[A-z0-9]$",
             "type": "string"
           },
           "value": {
+            "maxLength": 500,
             "minLength": 1,
             "type": "string"
           }
@@ -5448,6 +5507,24 @@
             "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
             "type": "string",
             "format": "uuid",
+            "nullable": true
+          },
+          "request_transform": {
+            "$ref": "#/components/schemas/ProxyTransform"
+          },
+          "response_transform": {
+            "$ref": "#/components/schemas/ProxyTransform"
+          },
+          "application": {
+            "$ref": "#/components/schemas/Application"
+          },
+          "configuration": {
+            "maxLength": 25,
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
             "nullable": true
           },
           "require_auth": {

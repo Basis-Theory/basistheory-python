@@ -77,6 +77,8 @@ class ReactResponse(ModelNormal):
         return {
             'tokens': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'raw': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'body': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'headers': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -87,6 +89,8 @@ class ReactResponse(ModelNormal):
     attribute_map = {
         'tokens': 'tokens',  # noqa: E501
         'raw': 'raw',  # noqa: E501
+        'body': 'body',  # noqa: E501
+        'headers': 'headers',  # noqa: E501
     }
 
     read_only_vars = {
@@ -132,6 +136,8 @@ class ReactResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             tokens (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             raw (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            body (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            headers (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -219,6 +225,8 @@ class ReactResponse(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             tokens (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             raw (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            body (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            headers (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
