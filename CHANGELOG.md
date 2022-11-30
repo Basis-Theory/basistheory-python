@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.6.1...v1.7.0) (2022-11-30)
+
+
+### Features
+
+* add new proxy transform attributes ([#54](https://github.com/Basis-Theory/basistheory-python/issues/54)) ([608070a](https://github.com/Basis-Theory/basistheory-python/commit/608070a05707af37c822551abe2e48a2aea81e6a))
+
 ## [1.6.1](https://github.com/Basis-Theory/basistheory-python/compare/v1.6.0...v1.6.1) (2022-11-21)
 
 
