@@ -48,6 +48,7 @@ basistheory/model/privacy.py
 basistheory/model/problem_details.py
 basistheory/model/proxy.py
 basistheory/model/proxy_paginated_list.py
+basistheory/model/proxy_transform.py
 basistheory/model/react_request.py
 basistheory/model/react_response.py
 basistheory/model/reactor.py
@@ -85,4 +86,5 @@ basistheory/rest.py
 requirements.txt
 test-requirements.txt
 test/__init__.py
+test/test_proxy_transform.py
 tox.ini
