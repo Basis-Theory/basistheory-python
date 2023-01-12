@@ -7,6 +7,7 @@ basistheory/api/permissions_api.py
 basistheory/api/proxies_api.py
 basistheory/api/reactor_formulas_api.py
 basistheory/api/reactors_api.py
+basistheory/api/sessions_api.py
 basistheory/api/tenants_api.py
 basistheory/api/tokenize_api.py
 basistheory/api/tokens_api.py
@@ -19,11 +20,13 @@ basistheory/model/access_rule.py
 basistheory/model/application.py
 basistheory/model/application_paginated_list.py
 basistheory/model/application_template.py
+basistheory/model/authorize_session_request.py
 basistheory/model/condition.py
 basistheory/model/create_application_request.py
 basistheory/model/create_proxy_request.py
 basistheory/model/create_reactor_formula_request.py
 basistheory/model/create_reactor_request.py
+basistheory/model/create_session_response.py
 basistheory/model/create_tenant_invitation_request.py
 basistheory/model/create_token_request.py
 basistheory/model/create_token_response.py
@@ -86,5 +89,7 @@ basistheory/rest.py
 requirements.txt
 test-requirements.txt
 test/__init__.py
-test/test_proxy_transform.py
+test/test_authorize_session_request.py
+test/test_create_session_response.py
+test/test_sessions_api.py
 tox.ini

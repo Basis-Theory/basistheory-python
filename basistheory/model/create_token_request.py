@@ -64,16 +64,6 @@ class CreateTokenRequest(ModelNormal):
     }
 
     validations = {
-        ('id',): {
-            'max_length': 400,
-            'min_length': 3,
-            'regex': {
-                'pattern': r'^.+$',  # noqa: E501
-            },
-        },
-        ('search_indexes',): {
-            'max_items': 10,
-        },
         ('fingerprint_expression',): {
             'max_length': 400,
             'regex': {

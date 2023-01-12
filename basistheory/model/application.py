@@ -143,7 +143,6 @@ class Application(ModelNormal):
             'created_at': (datetime, none_type,),  # noqa: E501
             'modified_by': (str, none_type,),  # noqa: E501
             'modified_at': (datetime, none_type,),  # noqa: E501
-            'can_create_expiring_applications': (bool, none_type,),  # noqa: E501
             'expires_at': (datetime, none_type,),  # noqa: E501
             'permissions': ([str], none_type,),  # noqa: E501
             'rules': ([AccessRule], none_type,),  # noqa: E501
@@ -164,7 +163,6 @@ class Application(ModelNormal):
         'created_at': 'created_at',  # noqa: E501
         'modified_by': 'modified_by',  # noqa: E501
         'modified_at': 'modified_at',  # noqa: E501
-        'can_create_expiring_applications': 'can_create_expiring_applications',  # noqa: E501
         'expires_at': 'expires_at',  # noqa: E501
         'permissions': 'permissions',  # noqa: E501
         'rules': 'rules',  # noqa: E501
@@ -220,7 +218,6 @@ class Application(ModelNormal):
             created_at (datetime, none_type): [optional]  # noqa: E501
             modified_by (str, none_type): [optional]  # noqa: E501
             modified_at (datetime, none_type): [optional]  # noqa: E501
-            can_create_expiring_applications (bool, none_type): [optional]  # noqa: E501
             expires_at (datetime, none_type): [optional]  # noqa: E501
             permissions ([str], none_type): [optional]  # noqa: E501
             rules ([AccessRule], none_type): [optional]  # noqa: E501
@@ -318,7 +315,6 @@ class Application(ModelNormal):
             created_at (datetime, none_type): [optional]  # noqa: E501
             modified_by (str, none_type): [optional]  # noqa: E501
             modified_at (datetime, none_type): [optional]  # noqa: E501
-            can_create_expiring_applications (bool, none_type): [optional]  # noqa: E501
             expires_at (datetime, none_type): [optional]  # noqa: E501
             permissions ([str], none_type): [optional]  # noqa: E501
             rules ([AccessRule], none_type): [optional]  # noqa: E501
