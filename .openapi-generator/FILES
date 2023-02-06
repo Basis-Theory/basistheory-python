@@ -89,7 +89,4 @@ basistheory/rest.py
 requirements.txt
 test-requirements.txt
 test/__init__.py
-test/test_authorize_session_request.py
-test/test_create_session_response.py
-test/test_sessions_api.py
 tox.ini
