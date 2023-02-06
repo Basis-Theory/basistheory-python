@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.7.0...v1.8.0) (2023-01-12)
+
+
+### Features
+
+* supporting sessions, removing expiring apps support ([#55](https://github.com/Basis-Theory/basistheory-python/issues/55)) ([3f41a9e](https://github.com/Basis-Theory/basistheory-python/commit/3f41a9e0e416868d994be1626165d77ab74bbf73))
+
 # [1.7.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.6.1...v1.7.0) (2022-11-30)
 
 
