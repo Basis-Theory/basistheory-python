@@ -2049,4 +2049,4 @@ def set_request_options(request_options, self):
     if request_options.correlation_id:
         self.api_client.set_default_header('bt-trace-id', request_options.correlation_id)
     if request_options.idempotency_key:
-        self.api_client.set_default_header('bt-idempotency_key', request_options.idempotency_key)
+        self.api_client.set_default_header('bt-idempotency-key', request_options.idempotency_key)
