@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.8.0...v1.9.0) (2023-02-16)
+
+
+### Features
+
+* add idempotency key header ([#57](https://github.com/Basis-Theory/basistheory-python/issues/57)) ([7e43c12](https://github.com/Basis-Theory/basistheory-python/commit/7e43c12224e53c4c5c24bd0ec094a036ef094537))
+
 # [1.8.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.7.0...v1.8.0) (2023-01-12)
 
 
