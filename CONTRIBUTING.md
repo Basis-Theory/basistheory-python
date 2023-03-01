@@ -51,7 +51,7 @@ make generate-sdk
 Copy the `./integration-tests/pytest.ini.example` file to `./integration-tests/pytest.ini` and enter configuration 
 settings for a valid Basis Theory tenant.
 
-- `BT_API_URL` is typically set to point to the dev environment: `https://api-dev.basistheory.com`
+- `BT_API_URL` is typically set to point to the dev environment: `https://api.flock-dev.com`
 - `BT_API_KEY` should be set to an API key for a `private` application that can reveal data on read, search, and use and mask data on create, update, and delete.
 - `BT_MANAGEMENT_API_KEY` should be set to an API key for a `management` application with all permissions.
 - `BT_CARD_REACTOR_ID` should be set to the id of a Stripe card reactor, configured with a valid Stripe API key (either create your own Stripe account, or refer to 1pass for access to a shared account).
