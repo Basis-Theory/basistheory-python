@@ -19,7 +19,7 @@ def setup():
     global tenants_client
 
     configuration = basistheory.Configuration(
-        host=os.environ.get('BT_API_URL') or "https://api-dev.basistheory.com",
+        host=os.environ.get('BT_API_URL') or "https://api.flock-dev.com",
         api_key=os.environ.get('BT_MANAGEMENT_API_KEY')
     )
     options = RequestOptions(api_key=configuration.api_key["apiKey"], correlation_id=uuid.uuid4().__str__())
