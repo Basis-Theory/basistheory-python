@@ -91,7 +91,7 @@ class CreateReactorFormulaRequest(ModelNormal):
             },
         },
         ('code',): {
-            'max_length': 12000,
+            'max_length': 50000,
         },
         ('configuration',): {
             'max_items': 25,

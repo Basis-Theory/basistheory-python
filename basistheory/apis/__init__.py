@@ -25,3 +25,4 @@ from basistheory.api.sessions_api import SessionsApi
 from basistheory.api.tenants_api import TenantsApi
 from basistheory.api.tokenize_api import TokenizeApi
 from basistheory.api.tokens_api import TokensApi
+from basistheory.api.transactions_api import TransactionsApi

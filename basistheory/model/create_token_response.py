@@ -31,7 +31,9 @@ from basistheory.exceptions import ApiAttributeError
 
 def lazy_import():
     from basistheory.model.privacy import Privacy
+    from basistheory.model.token_enrichments import TokenEnrichments
     globals()['Privacy'] = Privacy
+    globals()['TokenEnrichments'] = TokenEnrichments
 
 
 class CreateTokenResponse(ModelNormal):
@@ -119,6 +121,9 @@ class CreateTokenResponse(ModelNormal):
         ('containers',): {
             'max_items': 1,
         },
+        ('aliases',): {
+            'max_items': 1,
+        },
     }
 
     additional_properties_type = None
@@ -145,6 +150,7 @@ class CreateTokenResponse(ModelNormal):
             'mask': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'data': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'metadata': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'enrichments': (TokenEnrichments,),  # noqa: E501
             'privacy': (Privacy,),  # noqa: E501
             'search_indexes': ([str], none_type,),  # noqa: E501
             'created_by': (str, none_type,),  # noqa: E501
@@ -153,6 +159,7 @@ class CreateTokenResponse(ModelNormal):
             'modified_at': (datetime, none_type,),  # noqa: E501
             'expires_at': (datetime, none_type,),  # noqa: E501
             'containers': ([str], none_type,),  # noqa: E501
+            'aliases': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -169,6 +176,7 @@ class CreateTokenResponse(ModelNormal):
         'mask': 'mask',  # noqa: E501
         'data': 'data',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
+        'enrichments': 'enrichments',  # noqa: E501
         'privacy': 'privacy',  # noqa: E501
         'search_indexes': 'search_indexes',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
@@ -177,6 +185,7 @@ class CreateTokenResponse(ModelNormal):
         'modified_at': 'modified_at',  # noqa: E501
         'expires_at': 'expires_at',  # noqa: E501
         'containers': 'containers',  # noqa: E501
+        'aliases': 'aliases',  # noqa: E501
     }
 
     read_only_vars = {
@@ -228,6 +237,7 @@ class CreateTokenResponse(ModelNormal):
             mask (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            enrichments (TokenEnrichments): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501
             search_indexes ([str], none_type): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
@@ -236,6 +246,7 @@ class CreateTokenResponse(ModelNormal):
             modified_at (datetime, none_type): [optional]  # noqa: E501
             expires_at (datetime, none_type): [optional]  # noqa: E501
             containers ([str], none_type): [optional]  # noqa: E501
+            aliases ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -329,6 +340,7 @@ class CreateTokenResponse(ModelNormal):
             mask (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            enrichments (TokenEnrichments): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501
             search_indexes ([str], none_type): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
@@ -337,6 +349,7 @@ class CreateTokenResponse(ModelNormal):
             modified_at (datetime, none_type): [optional]  # noqa: E501
             expires_at (datetime, none_type): [optional]  # noqa: E501
             containers ([str], none_type): [optional]  # noqa: E501
+            aliases ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

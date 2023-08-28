@@ -59,7 +59,7 @@ class ProxyTransform(ModelNormal):
 
     validations = {
         ('code',): {
-            'max_length': 12000,
+            'max_length': 50000,
         },
     }
 

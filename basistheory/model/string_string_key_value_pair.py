@@ -62,11 +62,11 @@ class StringStringKeyValuePair(ModelNormal):
             'max_length': 200,
             'min_length': 1,
             'regex': {
-                'pattern': r'^[A-z0-9][A-z0-9.\-_]*[A-z0-9]$',  # noqa: E501
+                'pattern': r'^[\w-]+$',  # noqa: E501
             },
         },
         ('value',): {
-            'max_length': 500,
+            'max_length': 50000,
             'min_length': 1,
         },
     }

@@ -158,6 +158,7 @@ class Proxy(ModelNormal):
             'response_transform': (ProxyTransform,),  # noqa: E501
             'application_id': (str, none_type,),  # noqa: E501
             'configuration': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'proxy_host': (str, none_type,),  # noqa: E501
             'created_by': (str, none_type,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'modified_by': (str, none_type,),  # noqa: E501
@@ -182,6 +183,7 @@ class Proxy(ModelNormal):
         'response_transform': 'response_transform',  # noqa: E501
         'application_id': 'application_id',  # noqa: E501
         'configuration': 'configuration',  # noqa: E501
+        'proxy_host': 'proxy_host',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'modified_by': 'modified_by',  # noqa: E501
@@ -242,6 +244,7 @@ class Proxy(ModelNormal):
             response_transform (ProxyTransform): [optional]  # noqa: E501
             application_id (str, none_type): [optional]  # noqa: E501
             configuration ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            proxy_host (str, none_type): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
             modified_by (str, none_type): [optional]  # noqa: E501
@@ -343,6 +346,7 @@ class Proxy(ModelNormal):
             response_transform (ProxyTransform): [optional]  # noqa: E501
             application_id (str, none_type): [optional]  # noqa: E501
             configuration ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            proxy_host (str, none_type): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
             modified_by (str, none_type): [optional]  # noqa: E501

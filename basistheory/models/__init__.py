@@ -14,6 +14,10 @@ from basistheory.model.application import Application
 from basistheory.model.application_paginated_list import ApplicationPaginatedList
 from basistheory.model.application_template import ApplicationTemplate
 from basistheory.model.authorize_session_request import AuthorizeSessionRequest
+from basistheory.model.bin_details import BinDetails
+from basistheory.model.bin_details_bank import BinDetailsBank
+from basistheory.model.bin_details_country import BinDetailsCountry
+from basistheory.model.bin_details_product import BinDetailsProduct
 from basistheory.model.condition import Condition
 from basistheory.model.create_application_request import CreateApplicationRequest
 from basistheory.model.create_proxy_request import CreateProxyRequest
@@ -23,6 +27,7 @@ from basistheory.model.create_session_response import CreateSessionResponse
 from basistheory.model.create_tenant_invitation_request import CreateTenantInvitationRequest
 from basistheory.model.create_token_request import CreateTokenRequest
 from basistheory.model.create_token_response import CreateTokenResponse
+from basistheory.model.create_transaction_response import CreateTransactionResponse
 from basistheory.model.encryption_key import EncryptionKey
 from basistheory.model.encryption_metadata import EncryptionMetadata
 from basistheory.model.get_applications import GetApplications
@@ -39,6 +44,8 @@ from basistheory.model.log_entity_type import LogEntityType
 from basistheory.model.log_paginated_list import LogPaginatedList
 from basistheory.model.monthly_active_token_history import MonthlyActiveTokenHistory
 from basistheory.model.pagination import Pagination
+from basistheory.model.patch_proxy_request import PatchProxyRequest
+from basistheory.model.patch_reactor_request import PatchReactorRequest
 from basistheory.model.permission import Permission
 from basistheory.model.privacy import Privacy
 from basistheory.model.problem_details import ProblemDetails
@@ -63,6 +70,7 @@ from basistheory.model.tenant_member_response import TenantMemberResponse
 from basistheory.model.tenant_member_response_paginated_list import TenantMemberResponsePaginatedList
 from basistheory.model.tenant_usage_report import TenantUsageReport
 from basistheory.model.token import Token
+from basistheory.model.token_enrichments import TokenEnrichments
 from basistheory.model.token_metrics import TokenMetrics
 from basistheory.model.token_paginated_list import TokenPaginatedList
 from basistheory.model.token_report import TokenReport

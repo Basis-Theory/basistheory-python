@@ -85,7 +85,7 @@ class UpdateReactorFormulaRequest(ModelNormal):
             },
         },
         ('code',): {
-            'max_length': 4000,
+            'max_length': 50000,
             'regex': {
                 'pattern': r'^[\S\s]*$',  # noqa: E501
             },
