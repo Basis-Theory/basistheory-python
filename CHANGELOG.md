@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.9.0...v1.10.0) (2023-08-29)
+
+
+### Features
+
+* adds bin details and removes token associations ([#61](https://github.com/Basis-Theory/basistheory-python/issues/61)) ([8193e10](https://github.com/Basis-Theory/basistheory-python/commit/8193e10796832c2bc1d339269c037ef0db2d6dde))
+
 # [1.9.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.8.0...v1.9.0) (2023-02-16)
 
 
