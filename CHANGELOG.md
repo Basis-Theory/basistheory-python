@@ -1,3 +1,10 @@
+## [1.10.2](https://github.com/Basis-Theory/basistheory-python/compare/v1.10.1...v1.10.2) (2023-08-29)
+
+
+### Bug Fixes
+
+* stop building .egg files that PyPI rejects ([#63](https://github.com/Basis-Theory/basistheory-python/issues/63)) ([b487994](https://github.com/Basis-Theory/basistheory-python/commit/b48799462ff2a8ecb48a86dab1881633a34e7759))
+
 ## [1.10.1](https://github.com/Basis-Theory/basistheory-python/compare/v1.10.0...v1.10.1) (2023-08-29)
 
 
