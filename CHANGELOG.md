@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/Basis-Theory/basistheory-python/compare/v1.10.0...v1.10.1) (2023-08-29)
+
+
+### Bug Fixes
+
+* trigger release ([#62](https://github.com/Basis-Theory/basistheory-python/issues/62)) ([5c3da85](https://github.com/Basis-Theory/basistheory-python/commit/5c3da859f9816d114b85824d25b134c75e0993c6))
+
 # [1.10.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.9.0...v1.10.0) (2023-08-29)
 
 
