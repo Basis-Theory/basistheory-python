@@ -11,6 +11,7 @@ basistheory/api/sessions_api.py
 basistheory/api/tenants_api.py
 basistheory/api/tokenize_api.py
 basistheory/api/tokens_api.py
+basistheory/api/transactions_api.py
 basistheory/api_client.py
 basistheory/apis/__init__.py
 basistheory/configuration.py
@@ -21,6 +22,10 @@ basistheory/model/application.py
 basistheory/model/application_paginated_list.py
 basistheory/model/application_template.py
 basistheory/model/authorize_session_request.py
+basistheory/model/bin_details.py
+basistheory/model/bin_details_bank.py
+basistheory/model/bin_details_country.py
+basistheory/model/bin_details_product.py
 basistheory/model/condition.py
 basistheory/model/create_application_request.py
 basistheory/model/create_proxy_request.py
@@ -30,6 +35,7 @@ basistheory/model/create_session_response.py
 basistheory/model/create_tenant_invitation_request.py
 basistheory/model/create_token_request.py
 basistheory/model/create_token_response.py
+basistheory/model/create_transaction_response.py
 basistheory/model/encryption_key.py
 basistheory/model/encryption_metadata.py
 basistheory/model/get_applications.py
@@ -46,6 +52,8 @@ basistheory/model/log_entity_type.py
 basistheory/model/log_paginated_list.py
 basistheory/model/monthly_active_token_history.py
 basistheory/model/pagination.py
+basistheory/model/patch_proxy_request.py
+basistheory/model/patch_reactor_request.py
 basistheory/model/permission.py
 basistheory/model/privacy.py
 basistheory/model/problem_details.py
@@ -70,6 +78,7 @@ basistheory/model/tenant_member_response.py
 basistheory/model/tenant_member_response_paginated_list.py
 basistheory/model/tenant_usage_report.py
 basistheory/model/token.py
+basistheory/model/token_enrichments.py
 basistheory/model/token_metrics.py
 basistheory/model/token_paginated_list.py
 basistheory/model/token_report.py
@@ -89,4 +98,13 @@ basistheory/rest.py
 requirements.txt
 test-requirements.txt
 test/__init__.py
+test/test_bin_details.py
+test/test_bin_details_bank.py
+test/test_bin_details_country.py
+test/test_bin_details_product.py
+test/test_create_transaction_response.py
+test/test_patch_proxy_request.py
+test/test_patch_reactor_request.py
+test/test_token_enrichments.py
+test/test_transactions_api.py
 tox.ini

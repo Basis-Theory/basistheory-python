@@ -69,6 +69,8 @@ class UpdateReactorRequest(ModelNormal):
                 'pattern': r'^.+$',  # noqa: E501
             },
         },
+        ('configuration',): {
+        },
     }
 
     additional_properties_type = None

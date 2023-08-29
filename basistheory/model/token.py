@@ -32,8 +32,10 @@ from basistheory.exceptions import ApiAttributeError
 def lazy_import():
     from basistheory.model.encryption_metadata import EncryptionMetadata
     from basistheory.model.privacy import Privacy
+    from basistheory.model.token_enrichments import TokenEnrichments
     globals()['EncryptionMetadata'] = EncryptionMetadata
     globals()['Privacy'] = Privacy
+    globals()['TokenEnrichments'] = TokenEnrichments
 
 
 class Token(ModelNormal):
@@ -121,6 +123,9 @@ class Token(ModelNormal):
         ('containers',): {
             'max_items': 1,
         },
+        ('aliases',): {
+            'max_items': 1,
+        },
     }
 
     additional_properties_type = None
@@ -144,6 +149,7 @@ class Token(ModelNormal):
             'tenant_id': (str,),  # noqa: E501
             'data': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'metadata': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'enrichments': (TokenEnrichments,),  # noqa: E501
             'encryption': (EncryptionMetadata,),  # noqa: E501
             'created_by': (str, none_type,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
@@ -156,6 +162,7 @@ class Token(ModelNormal):
             'search_indexes': ([str], none_type,),  # noqa: E501
             'expires_at': (datetime, none_type,),  # noqa: E501
             'containers': ([str], none_type,),  # noqa: E501
+            'aliases': ([str], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -169,6 +176,7 @@ class Token(ModelNormal):
         'tenant_id': 'tenant_id',  # noqa: E501
         'data': 'data',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
+        'enrichments': 'enrichments',  # noqa: E501
         'encryption': 'encryption',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
@@ -181,6 +189,7 @@ class Token(ModelNormal):
         'search_indexes': 'search_indexes',  # noqa: E501
         'expires_at': 'expires_at',  # noqa: E501
         'containers': 'containers',  # noqa: E501
+        'aliases': 'aliases',  # noqa: E501
     }
 
     read_only_vars = {
@@ -229,6 +238,7 @@ class Token(ModelNormal):
             tenant_id (str): [optional]  # noqa: E501
             data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            enrichments (TokenEnrichments): [optional]  # noqa: E501
             encryption (EncryptionMetadata): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
@@ -241,6 +251,7 @@ class Token(ModelNormal):
             search_indexes ([str], none_type): [optional]  # noqa: E501
             expires_at (datetime, none_type): [optional]  # noqa: E501
             containers ([str], none_type): [optional]  # noqa: E501
+            aliases ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -331,6 +342,7 @@ class Token(ModelNormal):
             tenant_id (str): [optional]  # noqa: E501
             data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            enrichments (TokenEnrichments): [optional]  # noqa: E501
             encryption (EncryptionMetadata): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
@@ -343,6 +355,7 @@ class Token(ModelNormal):
             search_indexes ([str], none_type): [optional]  # noqa: E501
             expires_at (datetime, none_type): [optional]  # noqa: E501
             containers ([str], none_type): [optional]  # noqa: E501
+            aliases ([str], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

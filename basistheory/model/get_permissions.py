@@ -64,10 +64,6 @@ class GetPermissions(ModelNormal):
                 'pattern': r'^[A-z_]+$',  # noqa: E501
             },
         },
-        ('version',): {
-            'inclusive_maximum': 2147483647,
-            'inclusive_minimum': 0,
-        },
     }
 
     additional_properties_type = None
@@ -86,7 +82,6 @@ class GetPermissions(ModelNormal):
         """
         return {
             'application_type': (str, none_type,),  # noqa: E501
-            'version': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -96,7 +91,6 @@ class GetPermissions(ModelNormal):
 
     attribute_map = {
         'application_type': 'application_type',  # noqa: E501
-        'version': 'version',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,7 +135,6 @@ class GetPermissions(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             application_type (str, none_type): [optional]  # noqa: E501
-            version (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,7 +221,6 @@ class GetPermissions(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             application_type (str, none_type): [optional]  # noqa: E501
-            version (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
