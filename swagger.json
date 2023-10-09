@@ -3994,7 +3994,8 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "deprecated": true
       },
       "CreateReactorRequest": {
         "required": [
@@ -4010,6 +4011,12 @@
           },
           "formula": {
             "$ref": "#/components/schemas/ReactorFormula"
+          },
+          "code": {
+            "maxLength": 50000,
+            "pattern": "^[\\S\\s]*$",
+            "type": "string",
+            "nullable": true
           },
           "application": {
             "$ref": "#/components/schemas/Application"
@@ -4682,29 +4689,6 @@
         },
         "additionalProperties": false
       },
-      "MonthlyActiveTokenHistory": {
-        "type": "object",
-        "properties": {
-          "year": {
-            "maximum": 9999,
-            "minimum": 1000,
-            "type": "integer",
-            "format": "int32"
-          },
-          "month": {
-            "maximum": 12,
-            "minimum": 1,
-            "type": "integer",
-            "format": "int32"
-          },
-          "count": {
-            "minimum": 0,
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
       "Pagination": {
         "type": "object",
         "properties": {
@@ -4776,6 +4760,12 @@
           },
           "application": {
             "$ref": "#/components/schemas/Application"
+          },
+          "code": {
+            "maxLength": 50000,
+            "pattern": "^[\\S\\s]*$",
+            "type": "string",
+            "nullable": true
           },
           "configuration": {
             "maxLength": 25,
@@ -4879,8 +4869,7 @@
             "maxLength": 100,
             "pattern": "^[A-z0-9]+$",
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "tenant_id": {
             "maxLength": 36,
@@ -5061,6 +5050,10 @@
           "formula": {
             "$ref": "#/components/schemas/ReactorFormula"
           },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
           "application": {
             "$ref": "#/components/schemas/Application"
           },
@@ -5189,7 +5182,8 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "deprecated": true
       },
       "ReactorFormulaConfiguration": {
         "required": [
@@ -5729,13 +5723,6 @@
               "$ref": "#/components/schemas/TokenMetrics"
             },
             "nullable": true
-          },
-          "monthly_active_token_history": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MonthlyActiveTokenHistory"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -5894,7 +5881,8 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "deprecated": true
       },
       "UpdateReactorRequest": {
         "required": [
@@ -5910,6 +5898,12 @@
           },
           "application": {
             "$ref": "#/components/schemas/Application"
+          },
+          "code": {
+            "maxLength": 50000,
+            "pattern": "^[\\S\\s]*$",
+            "type": "string",
+            "nullable": true
           },
           "configuration": {
             "maxLength": 25,

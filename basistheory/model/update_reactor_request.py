@@ -69,6 +69,12 @@ class UpdateReactorRequest(ModelNormal):
                 'pattern': r'^.+$',  # noqa: E501
             },
         },
+        ('code',): {
+            'max_length': 50000,
+            'regex': {
+                'pattern': r'^[\S\s]*$',  # noqa: E501
+            },
+        },
         ('configuration',): {
         },
     }
@@ -91,6 +97,7 @@ class UpdateReactorRequest(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'application': (Application,),  # noqa: E501
+            'code': (str, none_type,),  # noqa: E501
             'configuration': ({str: (str, none_type)}, none_type,),  # noqa: E501
         }
 
@@ -102,6 +109,7 @@ class UpdateReactorRequest(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'application': 'application',  # noqa: E501
+        'code': 'code',  # noqa: E501
         'configuration': 'configuration',  # noqa: E501
     }
 
@@ -150,6 +158,7 @@ class UpdateReactorRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             application (Application): [optional]  # noqa: E501
+            code (str, none_type): [optional]  # noqa: E501
             configuration ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
@@ -241,6 +250,7 @@ class UpdateReactorRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             application (Application): [optional]  # noqa: E501
+            code (str, none_type): [optional]  # noqa: E501
             configuration ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
 

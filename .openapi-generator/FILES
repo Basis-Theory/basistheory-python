@@ -50,7 +50,6 @@ basistheory/model/get_tokens.py
 basistheory/model/log.py
 basistheory/model/log_entity_type.py
 basistheory/model/log_paginated_list.py
-basistheory/model/monthly_active_token_history.py
 basistheory/model/pagination.py
 basistheory/model/patch_proxy_request.py
 basistheory/model/patch_reactor_request.py
@@ -98,13 +97,4 @@ basistheory/rest.py
 requirements.txt
 test-requirements.txt
 test/__init__.py
-test/test_bin_details.py
-test/test_bin_details_bank.py
-test/test_bin_details_country.py
-test/test_bin_details_product.py
-test/test_create_transaction_response.py
-test/test_patch_proxy_request.py
-test/test_patch_reactor_request.py
-test/test_token_enrichments.py
-test/test_transactions_api.py
 tox.ini
