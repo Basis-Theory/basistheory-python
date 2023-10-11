@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.10.2...v1.11.0) (2023-10-11)
+
+
+### Features
+
+* remove MATs from token report, add code to reactors ([#64](https://github.com/Basis-Theory/basistheory-python/issues/64)) ([3fad933](https://github.com/Basis-Theory/basistheory-python/commit/3fad93319a4a0964f35c9557120860b2bffeabb1))
+
 ## [1.10.2](https://github.com/Basis-Theory/basistheory-python/compare/v1.10.1...v1.10.2) (2023-08-29)
 
 
