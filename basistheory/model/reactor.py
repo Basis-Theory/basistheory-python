@@ -122,6 +122,7 @@ class Reactor(ModelNormal):
             'tenant_id': (str,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'formula': (ReactorFormula,),  # noqa: E501
+            'code': (str, none_type,),  # noqa: E501
             'application': (Application,),  # noqa: E501
             'created_by': (str, none_type,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
@@ -140,6 +141,7 @@ class Reactor(ModelNormal):
         'tenant_id': 'tenant_id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'formula': 'formula',  # noqa: E501
+        'code': 'code',  # noqa: E501
         'application': 'application',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
@@ -193,6 +195,7 @@ class Reactor(ModelNormal):
             tenant_id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             formula (ReactorFormula): [optional]  # noqa: E501
+            code (str, none_type): [optional]  # noqa: E501
             application (Application): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
@@ -288,6 +291,7 @@ class Reactor(ModelNormal):
             tenant_id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             formula (ReactorFormula): [optional]  # noqa: E501
+            code (str, none_type): [optional]  # noqa: E501
             application (Application): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501

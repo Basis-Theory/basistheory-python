@@ -42,7 +42,6 @@ from basistheory.model.get_tokens import GetTokens
 from basistheory.model.log import Log
 from basistheory.model.log_entity_type import LogEntityType
 from basistheory.model.log_paginated_list import LogPaginatedList
-from basistheory.model.monthly_active_token_history import MonthlyActiveTokenHistory
 from basistheory.model.pagination import Pagination
 from basistheory.model.patch_proxy_request import PatchProxyRequest
 from basistheory.model.patch_reactor_request import PatchReactorRequest

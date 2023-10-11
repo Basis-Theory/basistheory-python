@@ -30,9 +30,7 @@ from basistheory.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from basistheory.model.monthly_active_token_history import MonthlyActiveTokenHistory
     from basistheory.model.token_metrics import TokenMetrics
-    globals()['MonthlyActiveTokenHistory'] = MonthlyActiveTokenHistory
     globals()['TokenMetrics'] = TokenMetrics
 
 
@@ -92,7 +90,6 @@ class TokenReport(ModelNormal):
             'included_monthly_active_tokens': (int,),  # noqa: E501
             'monthly_active_tokens': (int,),  # noqa: E501
             'metrics_by_type': ({str: (TokenMetrics,)}, none_type,),  # noqa: E501
-            'monthly_active_token_history': ([MonthlyActiveTokenHistory], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -104,7 +101,6 @@ class TokenReport(ModelNormal):
         'included_monthly_active_tokens': 'included_monthly_active_tokens',  # noqa: E501
         'monthly_active_tokens': 'monthly_active_tokens',  # noqa: E501
         'metrics_by_type': 'metrics_by_type',  # noqa: E501
-        'monthly_active_token_history': 'monthly_active_token_history',  # noqa: E501
     }
 
     read_only_vars = {
@@ -151,7 +147,6 @@ class TokenReport(ModelNormal):
             included_monthly_active_tokens (int): [optional]  # noqa: E501
             monthly_active_tokens (int): [optional]  # noqa: E501
             metrics_by_type ({str: (TokenMetrics,)}, none_type): [optional]  # noqa: E501
-            monthly_active_token_history ([MonthlyActiveTokenHistory], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -240,7 +235,6 @@ class TokenReport(ModelNormal):
             included_monthly_active_tokens (int): [optional]  # noqa: E501
             monthly_active_tokens (int): [optional]  # noqa: E501
             metrics_by_type ({str: (TokenMetrics,)}, none_type): [optional]  # noqa: E501
-            monthly_active_token_history ([MonthlyActiveTokenHistory], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

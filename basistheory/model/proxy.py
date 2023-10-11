@@ -191,7 +191,6 @@ class Proxy(ModelNormal):
     }
 
     read_only_vars = {
-        'key',  # noqa: E501
     }
 
     _composed_schemas = {}
