@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/Basis-Theory/basistheory-python/compare/v1.11.0...v1.11.1) (2024-01-11)
+
+
+### Bug Fixes
+
+* fixing integration test ([#65](https://github.com/Basis-Theory/basistheory-python/issues/65)) ([4b78998](https://github.com/Basis-Theory/basistheory-python/commit/4b78998d5c7e79f445a31d8e5b9b44909e64898c))
+
 # [1.11.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.10.2...v1.11.0) (2023-10-11)
 
 
