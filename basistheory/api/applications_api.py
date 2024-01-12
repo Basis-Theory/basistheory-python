@@ -169,6 +169,7 @@ class ApplicationsApi(object):
                     'id',
                     'type',
                     'page',
+                    'start',
                     'size',
                     'request_options'
                 ],
@@ -177,6 +178,7 @@ class ApplicationsApi(object):
                     'id',
                     'type',
                     'page',
+                    'start',
                     'size',
                 ],
                 'enum': [
@@ -208,6 +210,8 @@ class ApplicationsApi(object):
                         ([str], none_type,),
                     'page':
                         (int, none_type,),
+                    'start':
+                        (str, none_type,),
                     'size':
                         (int, none_type,),
                 },
@@ -215,12 +219,14 @@ class ApplicationsApi(object):
                     'id': 'id',
                     'type': 'type',
                     'page': 'page',
+                    'start': 'start',
                     'size': 'size',
                 },
                 'location_map': {
                     'id': 'query',
                     'type': 'query',
                     'page': 'query',
+                    'start': 'query',
                     'size': 'query',
                 },
                 'collection_format_map': {
@@ -655,6 +661,7 @@ class ApplicationsApi(object):
             id ([str], none_type): [optional]
             type ([str], none_type): [optional]
             page (int, none_type): [optional]
+            start (str, none_type): [optional]
             size (int, none_type): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status

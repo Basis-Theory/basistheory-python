@@ -57,6 +57,7 @@ class LogsApi(object):
                     'start_date',
                     'end_date',
                     'page',
+                    'start',
                     'size',
                     'request_options'
                 ],
@@ -67,6 +68,7 @@ class LogsApi(object):
                     'start_date',
                     'end_date',
                     'page',
+                    'start',
                     'size',
                 ],
                 'enum': [
@@ -76,7 +78,7 @@ class LogsApi(object):
                     'entity_id',
                     'start_date',
                     'end_date',
-                    'page',
+                    'start',
                     'size',
                 ]
             },
@@ -100,14 +102,15 @@ class LogsApi(object):
                     ('end_date',): {
                         'max_length': 40,
                     },
-                    ('page',): {
-
-                        'inclusive_maximum': 2147483647,
-                        'exclusive_minimum': 0,
+                    ('start',): {
+                        'max_length': 500,
+                        'regex': {
+                            'pattern': r'^.+$',  # noqa: E501
+                        },
                     },
                     ('size',): {
 
-                        'inclusive_maximum': 10000,
+                        'inclusive_maximum': 5000,
                         'inclusive_minimum': 0,
                     },
                 },
@@ -124,6 +127,8 @@ class LogsApi(object):
                         (datetime, none_type,),
                     'page':
                         (int, none_type,),
+                    'start':
+                        (str, none_type,),
                     'size':
                         (int, none_type,),
                 },
@@ -133,6 +138,7 @@ class LogsApi(object):
                     'start_date': 'start_date',
                     'end_date': 'end_date',
                     'page': 'page',
+                    'start': 'start',
                     'size': 'size',
                 },
                 'location_map': {
@@ -141,6 +147,7 @@ class LogsApi(object):
                     'start_date': 'query',
                     'end_date': 'query',
                     'page': 'query',
+                    'start': 'query',
                     'size': 'query',
                 },
                 'collection_format_map': {
@@ -219,6 +226,7 @@ class LogsApi(object):
             start_date (datetime, none_type): [optional]
             end_date (datetime, none_type): [optional]
             page (int, none_type): [optional]
+            start (str, none_type): [optional]
             size (int, none_type): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status

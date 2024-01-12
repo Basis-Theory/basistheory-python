@@ -120,6 +120,7 @@ class Log(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'id': (str, none_type,),  # noqa: E501
             'tenant_id': (str,),  # noqa: E501
             'actor_id': (str, none_type,),  # noqa: E501
             'actor_type': (str, none_type,),  # noqa: E501
@@ -136,6 +137,7 @@ class Log(ModelNormal):
 
 
     attribute_map = {
+        'id': 'id',  # noqa: E501
         'tenant_id': 'tenant_id',  # noqa: E501
         'actor_id': 'actor_id',  # noqa: E501
         'actor_type': 'actor_type',  # noqa: E501
@@ -187,6 +189,7 @@ class Log(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id (str, none_type): [optional]  # noqa: E501
             tenant_id (str): [optional]  # noqa: E501
             actor_id (str, none_type): [optional]  # noqa: E501
             actor_type (str, none_type): [optional]  # noqa: E501
@@ -280,6 +283,7 @@ class Log(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            id (str, none_type): [optional]  # noqa: E501
             tenant_id (str): [optional]  # noqa: E501
             actor_id (str, none_type): [optional]  # noqa: E501
             actor_type (str, none_type): [optional]  # noqa: E501

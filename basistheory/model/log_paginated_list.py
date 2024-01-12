@@ -65,7 +65,7 @@ class LogPaginatedList(ModelNormal):
 
     validations = {
         ('data',): {
-            'max_items': 10000,
+            'max_items': 5000,
         },
     }
 

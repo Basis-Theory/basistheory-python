@@ -76,12 +76,14 @@ class GetLogs(ModelNormal):
         ('end_date',): {
             'max_length': 40,
         },
-        ('page',): {
-            'inclusive_maximum': 2147483647,
-            'exclusive_minimum''inclusive_minimum': 0,
+        ('start',): {
+            'max_length': 500,
+            'regex': {
+                'pattern': r'^.+$',  # noqa: E501
+            },
         },
         ('size',): {
-            'inclusive_maximum': 10000,
+            'inclusive_maximum': 5000,
             'inclusive_minimum': 0,
         },
     }
@@ -106,6 +108,7 @@ class GetLogs(ModelNormal):
             'start_date': (datetime, none_type,),  # noqa: E501
             'end_date': (datetime, none_type,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
+            'start': (str, none_type,),  # noqa: E501
             'size': (int, none_type,),  # noqa: E501
         }
 
@@ -120,6 +123,7 @@ class GetLogs(ModelNormal):
         'start_date': 'start_date',  # noqa: E501
         'end_date': 'end_date',  # noqa: E501
         'page': 'page',  # noqa: E501
+        'start': 'start',  # noqa: E501
         'size': 'size',  # noqa: E501
     }
 
@@ -169,6 +173,7 @@ class GetLogs(ModelNormal):
             start_date (datetime, none_type): [optional]  # noqa: E501
             end_date (datetime, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
+            start (str, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
 
@@ -260,6 +265,7 @@ class GetLogs(ModelNormal):
             start_date (datetime, none_type): [optional]  # noqa: E501
             end_date (datetime, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
+            start (str, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
 
