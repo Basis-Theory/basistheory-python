@@ -1,3 +1,15 @@
+## [1.11.2](https://github.com/Basis-Theory/basistheory-python/compare/v1.11.1...v1.11.2) (2024-01-16)
+
+
+### Code Refactoring
+
+* support logs cursor pagination ([#66](https://github.com/Basis-Theory/basistheory-python/issues/66)) ([5018a97](https://github.com/Basis-Theory/basistheory-python/commit/5018a978e2146aa12af4952a457cd9e414a3ad5c))
+
+
+### BREAKING CHANGES
+
+* logs api changed from offset pagination to cursor pagination
+
 ## [1.11.1](https://github.com/Basis-Theory/basistheory-python/compare/v1.11.0...v1.11.1) (2024-01-11)
 
 
