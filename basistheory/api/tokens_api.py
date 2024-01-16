@@ -23,7 +23,6 @@ from basistheory.model_utils import (  # noqa: F401
     set_request_options
 )
 from basistheory.model.create_token_request import CreateTokenRequest
-from basistheory.model.create_token_response import CreateTokenResponse
 from basistheory.model.problem_details import ProblemDetails
 from basistheory.model.search_tokens_request import SearchTokensRequest
 from basistheory.model.token import Token
@@ -45,7 +44,7 @@ class TokensApi(object):
         self.api_client = api_client
         self.create_endpoint = _Endpoint(
             settings={
-                'response_type': (CreateTokenResponse,),
+                'response_type': (Token,),
                 'auth': [
                     'apiKey'
                 ],
@@ -172,6 +171,7 @@ class TokensApi(object):
                     'id',
                     'metadata',
                     'page',
+                    'start',
                     'size',
                     'request_options'
                 ],
@@ -181,6 +181,7 @@ class TokensApi(object):
                     'id',
                     'metadata',
                     'page',
+                    'start',
                     'size',
                 ],
                 'enum': [
@@ -214,6 +215,8 @@ class TokensApi(object):
                         ({str: (str,)}, none_type,),
                     'page':
                         (int, none_type,),
+                    'start':
+                        (str, none_type,),
                     'size':
                         (int, none_type,),
                 },
@@ -222,6 +225,7 @@ class TokensApi(object):
                     'id': 'id',
                     'metadata': 'metadata',
                     'page': 'page',
+                    'start': 'start',
                     'size': 'size',
                 },
                 'location_map': {
@@ -229,6 +233,7 @@ class TokensApi(object):
                     'id': 'query',
                     'metadata': 'query',
                     'page': 'query',
+                    'start': 'query',
                     'size': 'query',
                 },
                 'collection_format_map': {
@@ -474,7 +479,7 @@ class TokensApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            CreateTokenResponse
+            Token
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -614,6 +619,7 @@ class TokensApi(object):
             id ([str], none_type): [optional]
             metadata ({str: (str,)}, none_type): [optional]
             page (int, none_type): [optional]
+            start (str, none_type): [optional]
             size (int, none_type): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status

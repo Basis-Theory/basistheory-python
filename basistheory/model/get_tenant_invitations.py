@@ -90,6 +90,7 @@ class GetTenantInvitations(ModelNormal):
         return {
             'status': (TenantInvitationStatus,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
+            'start': (str, none_type,),  # noqa: E501
             'size': (int, none_type,),  # noqa: E501
         }
 
@@ -101,6 +102,7 @@ class GetTenantInvitations(ModelNormal):
     attribute_map = {
         'status': 'status',  # noqa: E501
         'page': 'page',  # noqa: E501
+        'start': 'start',  # noqa: E501
         'size': 'size',  # noqa: E501
     }
 
@@ -147,6 +149,7 @@ class GetTenantInvitations(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             status (TenantInvitationStatus): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
+            start (str, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
 
@@ -235,6 +238,7 @@ class GetTenantInvitations(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             status (TenantInvitationStatus): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
+            start (str, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
 

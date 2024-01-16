@@ -86,6 +86,7 @@ class GetApplications(ModelNormal):
             'id': ([str], none_type,),  # noqa: E501
             'type': ([str], none_type,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
+            'start': (str, none_type,),  # noqa: E501
             'size': (int, none_type,),  # noqa: E501
         }
 
@@ -98,6 +99,7 @@ class GetApplications(ModelNormal):
         'id': 'id',  # noqa: E501
         'type': 'type',  # noqa: E501
         'page': 'page',  # noqa: E501
+        'start': 'start',  # noqa: E501
         'size': 'size',  # noqa: E501
     }
 
@@ -145,6 +147,7 @@ class GetApplications(ModelNormal):
             id ([str], none_type): [optional]  # noqa: E501
             type ([str], none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
+            start (str, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
 
@@ -234,6 +237,7 @@ class GetApplications(ModelNormal):
             id ([str], none_type): [optional]  # noqa: E501
             type ([str], none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
+            start (str, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
 

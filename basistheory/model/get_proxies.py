@@ -92,6 +92,7 @@ class GetProxies(ModelNormal):
             'id': ([str], none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
+            'start': (str, none_type,),  # noqa: E501
             'size': (int, none_type,),  # noqa: E501
         }
 
@@ -104,6 +105,7 @@ class GetProxies(ModelNormal):
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'page': 'page',  # noqa: E501
+        'start': 'start',  # noqa: E501
         'size': 'size',  # noqa: E501
     }
 
@@ -151,6 +153,7 @@ class GetProxies(ModelNormal):
             id ([str], none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
+            start (str, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
 
@@ -240,6 +243,7 @@ class GetProxies(ModelNormal):
             id ([str], none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
+            start (str, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
 

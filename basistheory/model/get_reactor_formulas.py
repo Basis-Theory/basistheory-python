@@ -91,6 +91,7 @@ class GetReactorFormulas(ModelNormal):
         return {
             'name': (str, none_type,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
+            'start': (str, none_type,),  # noqa: E501
             'size': (int, none_type,),  # noqa: E501
         }
 
@@ -102,6 +103,7 @@ class GetReactorFormulas(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'page': 'page',  # noqa: E501
+        'start': 'start',  # noqa: E501
         'size': 'size',  # noqa: E501
     }
 
@@ -148,6 +150,7 @@ class GetReactorFormulas(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
+            start (str, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
 
@@ -236,6 +239,7 @@ class GetReactorFormulas(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             name (str, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
+            start (str, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
 

@@ -91,6 +91,7 @@ class SearchTokensRequest(ModelNormal):
         return {
             'query': (str, none_type,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
+            'start': (str, none_type,),  # noqa: E501
             'size': (int, none_type,),  # noqa: E501
         }
 
@@ -102,6 +103,7 @@ class SearchTokensRequest(ModelNormal):
     attribute_map = {
         'query': 'query',  # noqa: E501
         'page': 'page',  # noqa: E501
+        'start': 'start',  # noqa: E501
         'size': 'size',  # noqa: E501
     }
 
@@ -148,6 +150,7 @@ class SearchTokensRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             query (str, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
+            start (str, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
 
@@ -236,6 +239,7 @@ class SearchTokensRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             query (str, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
+            start (str, none_type): [optional]  # noqa: E501
             size (int, none_type): [optional]  # noqa: E501
         """
 

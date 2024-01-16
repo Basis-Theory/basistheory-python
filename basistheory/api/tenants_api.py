@@ -321,12 +321,14 @@ class TenantsApi(object):
                 'all': [
                     'status',
                     'page',
+                    'start',
                     'size',
                     'request_options'
                 ],
                 'required': [],
                 'nullable': [
                     'page',
+                    'start',
                     'size',
                 ],
                 'enum': [
@@ -356,17 +358,21 @@ class TenantsApi(object):
                         (TenantInvitationStatus,),
                     'page':
                         (int, none_type,),
+                    'start':
+                        (str, none_type,),
                     'size':
                         (int, none_type,),
                 },
                 'attribute_map': {
                     'status': 'status',
                     'page': 'page',
+                    'start': 'start',
                     'size': 'size',
                 },
                 'location_map': {
                     'status': 'query',
                     'page': 'query',
+                    'start': 'query',
                     'size': 'query',
                 },
                 'collection_format_map': {
@@ -395,6 +401,7 @@ class TenantsApi(object):
                 'all': [
                     'user_id',
                     'page',
+                    'start',
                     'size',
                     'request_options'
                 ],
@@ -402,6 +409,7 @@ class TenantsApi(object):
                 'nullable': [
                     'user_id',
                     'page',
+                    'start',
                     'size',
                 ],
                 'enum': [
@@ -431,17 +439,21 @@ class TenantsApi(object):
                         ([str], none_type,),
                     'page':
                         (int, none_type,),
+                    'start':
+                        (str, none_type,),
                     'size':
                         (int, none_type,),
                 },
                 'attribute_map': {
                     'user_id': 'user_id',
                     'page': 'page',
+                    'start': 'start',
                     'size': 'size',
                 },
                 'location_map': {
                     'user_id': 'query',
                     'page': 'query',
+                    'start': 'query',
                     'size': 'query',
                 },
                 'collection_format_map': {
@@ -1095,6 +1107,7 @@ class TenantsApi(object):
         Keyword Args:
             status (TenantInvitationStatus): [optional]
             page (int, none_type): [optional]
+            start (str, none_type): [optional]
             size (int, none_type): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
@@ -1179,6 +1192,7 @@ class TenantsApi(object):
         Keyword Args:
             user_id ([str], none_type): [optional]
             page (int, none_type): [optional]
+            start (str, none_type): [optional]
             size (int, none_type): [optional]
             request_options(RequestOptions): [optional]
             _return_http_data_only (bool): response data without head status
