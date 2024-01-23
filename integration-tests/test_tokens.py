@@ -112,10 +112,11 @@ def test_delete_token():
         assert error.status == HTTPStatus.NOT_FOUND
 
 
-def test_search_tokens(): 
+def test_search_tokens():
+    randomData = str(uuid.uuid4())
     randomKey = str(uuid.uuid4())
     randomValue = str(uuid.uuid4())
-    request1 = CreateTokenRequest(type="social_security_number", data="123-45-6789", containers=['/general/low/'])
+    request1 = CreateTokenRequest(type="token", data=randomData, containers=['/general/low/'], search_indexes=['{{data}}'])
     request2 = CreateTokenRequest(type="employer_id_number", data="12-3456789", metadata = { randomKey: randomValue }, containers=['/general/low/'])
 
     created_token1 = tokens_client.create(create_token_request=request1, request_options=request_options)
@@ -126,9 +127,11 @@ def test_search_tokens():
     tokens_to_delete.append(created_token1.id)
     tokens_to_delete.append(created_token2.id)
 
-    searchTokensRequest = SearchTokensRequest(query = f'data:6789 AND metadata.{randomKey}:{randomValue}')
+    metadataSearchRequest = SearchTokensRequest(query = f'metadata.{randomKey}:{randomValue}')
+    assert_search_tokens(metadataSearchRequest, created_token2.id)
 
-    assert_search_tokens(searchTokensRequest, created_token2.id)
+    dataSearchRequest = SearchTokensRequest(query = f'data:{randomData}')
+    assert_search_tokens(dataSearchRequest, created_token1.id)
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=1000)
