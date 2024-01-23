@@ -1,3 +1,10 @@
+## [1.11.3](https://github.com/Basis-Theory/basistheory-python/compare/v1.11.2...v1.11.3) (2024-01-23)
+
+
+### Bug Fixes
+
+* removes mixed data and metadata search from integration test ([#67](https://github.com/Basis-Theory/basistheory-python/issues/67)) ([89d8555](https://github.com/Basis-Theory/basistheory-python/commit/89d85554df753e3382027184ac4a0439abb623c5))
+
 ## [1.11.2](https://github.com/Basis-Theory/basistheory-python/compare/v1.11.1...v1.11.2) (2024-01-16)
 
 
