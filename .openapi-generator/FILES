@@ -11,7 +11,6 @@ basistheory/api/sessions_api.py
 basistheory/api/tenants_api.py
 basistheory/api/tokenize_api.py
 basistheory/api/tokens_api.py
-basistheory/api/transactions_api.py
 basistheory/api_client.py
 basistheory/apis/__init__.py
 basistheory/configuration.py
@@ -34,7 +33,6 @@ basistheory/model/create_reactor_request.py
 basistheory/model/create_session_response.py
 basistheory/model/create_tenant_invitation_request.py
 basistheory/model/create_token_request.py
-basistheory/model/create_transaction_response.py
 basistheory/model/encryption_key.py
 basistheory/model/encryption_metadata.py
 basistheory/model/get_applications.py
