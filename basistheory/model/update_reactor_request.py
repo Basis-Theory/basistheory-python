@@ -71,6 +71,7 @@ class UpdateReactorRequest(ModelNormal):
         },
         ('code',): {
             'max_length': 50000,
+            'min_length': 1,
             'regex': {
                 'pattern': r'^[\S\s]*$',  # noqa: E501
             },
@@ -96,8 +97,8 @@ class UpdateReactorRequest(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
+            'code': (str,),  # noqa: E501
             'application': (Application,),  # noqa: E501
-            'code': (str, none_type,),  # noqa: E501
             'configuration': ({str: (str, none_type)}, none_type,),  # noqa: E501
         }
 
@@ -108,8 +109,8 @@ class UpdateReactorRequest(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'application': 'application',  # noqa: E501
         'code': 'code',  # noqa: E501
+        'application': 'application',  # noqa: E501
         'configuration': 'configuration',  # noqa: E501
     }
 
@@ -120,11 +121,12 @@ class UpdateReactorRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, code, *args, **kwargs):  # noqa: E501
         """UpdateReactorRequest - a model defined in OpenAPI
 
         Args:
             name (str):
+            code (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -158,7 +160,6 @@ class UpdateReactorRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             application (Application): [optional]  # noqa: E501
-            code (str, none_type): [optional]  # noqa: E501
             configuration ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
@@ -192,6 +193,7 @@ class UpdateReactorRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
+        self.code = code
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -212,11 +214,12 @@ class UpdateReactorRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, code, *args, **kwargs):  # noqa: E501
         """UpdateReactorRequest - a model defined in OpenAPI
 
         Args:
             name (str):
+            code (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -250,7 +253,6 @@ class UpdateReactorRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             application (Application): [optional]  # noqa: E501
-            code (str, none_type): [optional]  # noqa: E501
             configuration ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
@@ -282,6 +284,7 @@ class UpdateReactorRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
+        self.code = code
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

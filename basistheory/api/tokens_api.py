@@ -167,7 +167,6 @@ class TokensApi(object):
             },
             params_map={
                 'all': [
-                    'type',
                     'id',
                     'metadata',
                     'page',
@@ -177,7 +176,6 @@ class TokensApi(object):
                 ],
                 'required': [],
                 'nullable': [
-                    'type',
                     'id',
                     'metadata',
                     'page',
@@ -207,8 +205,6 @@ class TokensApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'type':
-                        ([str], none_type,),
                     'id':
                         ([str], none_type,),
                     'metadata':
@@ -221,7 +217,6 @@ class TokensApi(object):
                         (int, none_type,),
                 },
                 'attribute_map': {
-                    'type': 'type',
                     'id': 'id',
                     'metadata': 'metadata',
                     'page': 'page',
@@ -229,7 +224,6 @@ class TokensApi(object):
                     'size': 'size',
                 },
                 'location_map': {
-                    'type': 'query',
                     'id': 'query',
                     'metadata': 'query',
                     'page': 'query',
@@ -237,7 +231,6 @@ class TokensApi(object):
                     'size': 'query',
                 },
                 'collection_format_map': {
-                    'type': 'multi',
                     'id': 'multi',
                     'metadata': 'deepObject',
                 }
@@ -615,7 +608,6 @@ class TokensApi(object):
 
 
         Keyword Args:
-            type ([str], none_type): [optional]
             id ([str], none_type): [optional]
             metadata ({str: (str,)}, none_type): [optional]
             page (int, none_type): [optional]

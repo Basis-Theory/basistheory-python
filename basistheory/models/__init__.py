@@ -26,7 +26,6 @@ from basistheory.model.create_reactor_request import CreateReactorRequest
 from basistheory.model.create_session_response import CreateSessionResponse
 from basistheory.model.create_tenant_invitation_request import CreateTenantInvitationRequest
 from basistheory.model.create_token_request import CreateTokenRequest
-from basistheory.model.create_transaction_response import CreateTransactionResponse
 from basistheory.model.encryption_key import EncryptionKey
 from basistheory.model.encryption_metadata import EncryptionMetadata
 from basistheory.model.get_applications import GetApplications

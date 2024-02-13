@@ -83,7 +83,6 @@ class GetTokens(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'type': ([str], none_type,),  # noqa: E501
             'id': ([str], none_type,),  # noqa: E501
             'metadata': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'page': (int, none_type,),  # noqa: E501
@@ -97,7 +96,6 @@ class GetTokens(ModelNormal):
 
 
     attribute_map = {
-        'type': 'type',  # noqa: E501
         'id': 'id',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'page': 'page',  # noqa: E501
@@ -146,7 +144,6 @@ class GetTokens(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            type ([str], none_type): [optional]  # noqa: E501
             id ([str], none_type): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501
@@ -237,7 +234,6 @@ class GetTokens(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            type ([str], none_type): [optional]  # noqa: E501
             id ([str], none_type): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             page (int, none_type): [optional]  # noqa: E501

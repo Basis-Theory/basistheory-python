@@ -31,9 +31,7 @@ from basistheory.exceptions import ApiAttributeError
 
 def lazy_import():
     from basistheory.model.application import Application
-    from basistheory.model.reactor_formula import ReactorFormula
     globals()['Application'] = Application
-    globals()['ReactorFormula'] = ReactorFormula
 
 
 class CreateReactorRequest(ModelNormal):
@@ -73,6 +71,7 @@ class CreateReactorRequest(ModelNormal):
         },
         ('code',): {
             'max_length': 50000,
+            'min_length': 1,
             'regex': {
                 'pattern': r'^[\S\s]*$',  # noqa: E501
             },
@@ -98,8 +97,7 @@ class CreateReactorRequest(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'formula': (ReactorFormula,),  # noqa: E501
-            'code': (str, none_type,),  # noqa: E501
+            'code': (str,),  # noqa: E501
             'application': (Application,),  # noqa: E501
             'configuration': ({str: (str, none_type)}, none_type,),  # noqa: E501
         }
@@ -111,7 +109,6 @@ class CreateReactorRequest(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'formula': 'formula',  # noqa: E501
         'code': 'code',  # noqa: E501
         'application': 'application',  # noqa: E501
         'configuration': 'configuration',  # noqa: E501
@@ -124,11 +121,12 @@ class CreateReactorRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, code, *args, **kwargs):  # noqa: E501
         """CreateReactorRequest - a model defined in OpenAPI
 
         Args:
             name (str):
+            code (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -161,8 +159,6 @@ class CreateReactorRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            formula (ReactorFormula): [optional]  # noqa: E501
-            code (str, none_type): [optional]  # noqa: E501
             application (Application): [optional]  # noqa: E501
             configuration ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
@@ -197,6 +193,7 @@ class CreateReactorRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
+        self.code = code
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -217,11 +214,12 @@ class CreateReactorRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, code, *args, **kwargs):  # noqa: E501
         """CreateReactorRequest - a model defined in OpenAPI
 
         Args:
             name (str):
+            code (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -254,8 +252,6 @@ class CreateReactorRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            formula (ReactorFormula): [optional]  # noqa: E501
-            code (str, none_type): [optional]  # noqa: E501
             application (Application): [optional]  # noqa: E501
             configuration ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
         """
@@ -288,6 +284,7 @@ class CreateReactorRequest(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
+        self.code = code
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
