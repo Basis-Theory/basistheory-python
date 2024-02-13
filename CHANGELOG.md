@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.11.3...v2.0.0) (2024-02-13)
+
+
+* feat!: removing transactions (#69) ([d35eb88](https://github.com/Basis-Theory/basistheory-python/commit/d35eb88def36106e66b34846854b1c4793af059c)), closes [#69](https://github.com/Basis-Theory/basistheory-python/issues/69)
+
+
+### BREAKING CHANGES
+
+* removing transactions
+
 ## [1.11.3](https://github.com/Basis-Theory/basistheory-python/compare/v1.11.2...v1.11.3) (2024-01-23)
 
 
