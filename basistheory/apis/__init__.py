@@ -23,5 +23,6 @@ from basistheory.api.reactor_formulas_api import ReactorFormulasApi
 from basistheory.api.reactors_api import ReactorsApi
 from basistheory.api.sessions_api import SessionsApi
 from basistheory.api.tenants_api import TenantsApi
+from basistheory.api.three_ds_api import ThreeDSApi
 from basistheory.api.tokenize_api import TokenizeApi
 from basistheory.api.tokens_api import TokensApi

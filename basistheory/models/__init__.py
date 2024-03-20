@@ -13,6 +13,7 @@ from basistheory.model.access_rule import AccessRule
 from basistheory.model.application import Application
 from basistheory.model.application_paginated_list import ApplicationPaginatedList
 from basistheory.model.application_template import ApplicationTemplate
+from basistheory.model.authenticate_three_ds_session_request import AuthenticateThreeDSSessionRequest
 from basistheory.model.authorize_session_request import AuthorizeSessionRequest
 from basistheory.model.bin_details import BinDetails
 from basistheory.model.bin_details_bank import BinDetailsBank
@@ -66,6 +67,19 @@ from basistheory.model.tenant_invitation_status import TenantInvitationStatus
 from basistheory.model.tenant_member_response import TenantMemberResponse
 from basistheory.model.tenant_member_response_paginated_list import TenantMemberResponsePaginatedList
 from basistheory.model.tenant_usage_report import TenantUsageReport
+from basistheory.model.three_ds_acs_rendering_type import ThreeDSAcsRenderingType
+from basistheory.model.three_ds_address import ThreeDSAddress
+from basistheory.model.three_ds_authentication import ThreeDSAuthentication
+from basistheory.model.three_ds_cardholder_account_info import ThreeDSCardholderAccountInfo
+from basistheory.model.three_ds_cardholder_authentication_info import ThreeDSCardholderAuthenticationInfo
+from basistheory.model.three_ds_cardholder_info import ThreeDSCardholderInfo
+from basistheory.model.three_ds_cardholder_phone_number import ThreeDSCardholderPhoneNumber
+from basistheory.model.three_ds_merchant_info import ThreeDSMerchantInfo
+from basistheory.model.three_ds_merchant_risk_info import ThreeDSMerchantRiskInfo
+from basistheory.model.three_ds_message_extension import ThreeDSMessageExtension
+from basistheory.model.three_ds_prior_authentication_info import ThreeDSPriorAuthenticationInfo
+from basistheory.model.three_ds_purchase_info import ThreeDSPurchaseInfo
+from basistheory.model.three_ds_requestor_info import ThreeDSRequestorInfo
 from basistheory.model.token import Token
 from basistheory.model.token_enrichments import TokenEnrichments
 from basistheory.model.token_metrics import TokenMetrics
