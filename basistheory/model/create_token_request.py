@@ -30,9 +30,7 @@ from basistheory.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from basistheory.model.encryption_metadata import EncryptionMetadata
     from basistheory.model.privacy import Privacy
-    globals()['EncryptionMetadata'] = EncryptionMetadata
     globals()['Privacy'] = Privacy
 
 
@@ -88,7 +86,6 @@ class CreateTokenRequest(ModelNormal):
             'data': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'id': (str, none_type,),  # noqa: E501
             'type': (str, none_type,),  # noqa: E501
-            'encryption': (EncryptionMetadata,),  # noqa: E501
             'privacy': (Privacy,),  # noqa: E501
             'metadata': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'search_indexes': ([str], none_type,),  # noqa: E501
@@ -108,7 +105,6 @@ class CreateTokenRequest(ModelNormal):
         'data': 'data',  # noqa: E501
         'id': 'id',  # noqa: E501
         'type': 'type',  # noqa: E501
-        'encryption': 'encryption',  # noqa: E501
         'privacy': 'privacy',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'search_indexes': 'search_indexes',  # noqa: E501
@@ -165,7 +161,6 @@ class CreateTokenRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
-            encryption (EncryptionMetadata): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             search_indexes ([str], none_type): [optional]  # noqa: E501
@@ -265,7 +260,6 @@ class CreateTokenRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
-            encryption (EncryptionMetadata): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             search_indexes ([str], none_type): [optional]  # noqa: E501

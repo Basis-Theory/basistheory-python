@@ -76,6 +76,12 @@ class Tenant(ModelNormal):
                 'pattern': r'^.+$',  # noqa: E501
             },
         },
+        ('type',): {
+            'max_length': 50,
+            'regex': {
+                'pattern': r'^(?:test|production)$',  # noqa: E501
+            },
+        },
         ('created_by',): {
             'max_length': 36,
             'regex': {
@@ -114,6 +120,7 @@ class Tenant(ModelNormal):
             'id': (str,),  # noqa: E501
             'owner_id': (str,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
+            'type': (str, none_type,),  # noqa: E501
             'created_by': (str, none_type,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
             'modified_by': (str, none_type,),  # noqa: E501
@@ -130,6 +137,7 @@ class Tenant(ModelNormal):
         'id': 'id',  # noqa: E501
         'owner_id': 'owner_id',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'modified_by': 'modified_by',  # noqa: E501
@@ -181,6 +189,7 @@ class Tenant(ModelNormal):
             id (str): [optional]  # noqa: E501
             owner_id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
             modified_by (str, none_type): [optional]  # noqa: E501
@@ -274,6 +283,7 @@ class Tenant(ModelNormal):
             id (str): [optional]  # noqa: E501
             owner_id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
             modified_by (str, none_type): [optional]  # noqa: E501

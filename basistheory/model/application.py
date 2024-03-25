@@ -31,7 +31,9 @@ from basistheory.exceptions import ApiAttributeError
 
 def lazy_import():
     from basistheory.model.access_rule import AccessRule
+    from basistheory.model.application_key import ApplicationKey
     globals()['AccessRule'] = AccessRule
+    globals()['ApplicationKey'] = ApplicationKey
 
 
 class Application(ModelNormal):
@@ -86,6 +88,9 @@ class Application(ModelNormal):
                 'pattern': r'^[A-z0-9_]*$',  # noqa: E501
             },
         },
+        ('keys',): {
+            'max_items': 3,
+        },
         ('type',): {
             'max_length': 50,
             'regex': {
@@ -138,6 +143,7 @@ class Application(ModelNormal):
             'tenant_id': (str,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'key': (str, none_type,),  # noqa: E501
+            'keys': ([ApplicationKey], none_type,),  # noqa: E501
             'type': (str, none_type,),  # noqa: E501
             'created_by': (str, none_type,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
@@ -158,6 +164,7 @@ class Application(ModelNormal):
         'tenant_id': 'tenant_id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'key': 'key',  # noqa: E501
+        'keys': 'keys',  # noqa: E501
         'type': 'type',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
@@ -213,6 +220,7 @@ class Application(ModelNormal):
             tenant_id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             key (str, none_type): [optional]  # noqa: E501
+            keys ([ApplicationKey], none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
@@ -310,6 +318,7 @@ class Application(ModelNormal):
             tenant_id (str): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             key (str, none_type): [optional]  # noqa: E501
+            keys ([ApplicationKey], none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
