@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/Basis-Theory/basistheory-python/compare/v2.0.0...v2.1.0) (2024-03-26)
+
+
+### Features
+
+* adds 3DS and application keys endpoints ([#71](https://github.com/Basis-Theory/basistheory-python/issues/71)) ([25b3a78](https://github.com/Basis-Theory/basistheory-python/commit/25b3a78b67de8108c8eed9b7959b198801c6a3d5))
+
 # [2.0.0](https://github.com/Basis-Theory/basistheory-python/compare/v1.11.3...v2.0.0) (2024-02-13)
 
 
