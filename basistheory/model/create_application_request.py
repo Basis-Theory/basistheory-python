@@ -102,6 +102,7 @@ class CreateApplicationRequest(ModelNormal):
             'expires_at': (str, none_type,),  # noqa: E501
             'permissions': ([str], none_type,),  # noqa: E501
             'rules': ([AccessRule], none_type,),  # noqa: E501
+            'create_key': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -115,6 +116,7 @@ class CreateApplicationRequest(ModelNormal):
         'expires_at': 'expires_at',  # noqa: E501
         'permissions': 'permissions',  # noqa: E501
         'rules': 'rules',  # noqa: E501
+        'create_key': 'create_key',  # noqa: E501
     }
 
     read_only_vars = {
@@ -165,6 +167,7 @@ class CreateApplicationRequest(ModelNormal):
             expires_at (str, none_type): [optional]  # noqa: E501
             permissions ([str], none_type): [optional]  # noqa: E501
             rules ([AccessRule], none_type): [optional]  # noqa: E501
+            create_key (bool, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -259,6 +262,7 @@ class CreateApplicationRequest(ModelNormal):
             expires_at (str, none_type): [optional]  # noqa: E501
             permissions ([str], none_type): [optional]  # noqa: E501
             rules ([AccessRule], none_type): [optional]  # noqa: E501
+            create_key (bool, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

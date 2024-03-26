@@ -58,10 +58,6 @@ class ReactRequest(ModelNormal):
     }
 
     validations = {
-        ('timeout_ms',): {
-            'inclusive_maximum': 210000,
-            'inclusive_minimum': 10000,
-        },
     }
 
     additional_properties_type = None
@@ -81,7 +77,6 @@ class ReactRequest(ModelNormal):
         return {
             'args': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'callback_url': (str, none_type,),  # noqa: E501
-            'timeout_ms': (int, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -92,7 +87,6 @@ class ReactRequest(ModelNormal):
     attribute_map = {
         'args': 'args',  # noqa: E501
         'callback_url': 'callback_url',  # noqa: E501
-        'timeout_ms': 'timeout_ms',  # noqa: E501
     }
 
     read_only_vars = {
@@ -138,7 +132,6 @@ class ReactRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             args (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             callback_url (str, none_type): [optional]  # noqa: E501
-            timeout_ms (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,7 +219,6 @@ class ReactRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             args (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             callback_url (str, none_type): [optional]  # noqa: E501
-            timeout_ms (int, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -833,11 +833,11 @@ class Endpoint(object):
         """ This method is invoked when endpoints are called
         Example:
 
-        api_instance = ApplicationTemplatesApi()
-        api_instance.get  # this is an instance of the class Endpoint
-        api_instance.get()  # this invokes api_instance.get.__call__()
+        api_instance = ApplicationKeysApi()
+        api_instance.create  # this is an instance of the class Endpoint
+        api_instance.create()  # this invokes api_instance.create.__call__()
         which then invokes the callable functions stored in that endpoint at
-        api_instance.get.callable or self.callable in this class
+        api_instance.create.callable or self.callable in this class
 
         """
         return self.callable(self, *args, **kwargs)
