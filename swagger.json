@@ -3312,6 +3312,7 @@
         "tags": [
           "ThreeDS"
         ],
+        "operationId": "ThreeDS.GetSessionById",
         "parameters": [
           {
             "name": "id",
