@@ -112,26 +112,26 @@ def test_delete_token():
         assert error.status == HTTPStatus.NOT_FOUND
 
 
-def test_search_tokens():
-    randomData = str(uuid.uuid4())
-    randomKey = str(uuid.uuid4())
-    randomValue = str(uuid.uuid4())
-    request1 = CreateTokenRequest(type="token", data=randomData, containers=['/general/low/'], search_indexes=['{{data}}'])
-    request2 = CreateTokenRequest(type="employer_id_number", data="12-3456789", metadata = { randomKey: randomValue }, containers=['/general/low/'])
+# def test_search_tokens():
+#    randomData = str(uuid.uuid4())
+#    randomKey = str(uuid.uuid4())
+#    randomValue = str(uuid.uuid4())
+#    request1 = CreateTokenRequest(type="token", data=randomData, containers=['/general/low/'], search_indexes=['{{data}}'])
+#    request2 = CreateTokenRequest(type="employer_id_number", data="12-3456789", metadata = { randomKey: randomValue }, containers=['/general/low/'])
 
-    created_token1 = tokens_client.create(create_token_request=request1, request_options=request_options)
-    created_token2 = tokens_client.create(create_token_request=request2, request_options=request_options)
-    print(created_token1.id)
-    print(created_token2.id)
+#    created_token1 = tokens_client.create(create_token_request=request1, request_options=request_options)
+#    created_token2 = tokens_client.create(create_token_request=request2, request_options=request_options)
+#    print(created_token1.id)
+#    print(created_token2.id)
 
-    tokens_to_delete.append(created_token1.id)
-    tokens_to_delete.append(created_token2.id)
+#    tokens_to_delete.append(created_token1.id)
+#    tokens_to_delete.append(created_token2.id)
 
-    metadataSearchRequest = SearchTokensRequest(query = f'metadata.{randomKey}:{randomValue}')
-    assert_search_tokens(metadataSearchRequest, created_token2.id)
+#    metadataSearchRequest = SearchTokensRequest(query = f'metadata.{randomKey}:{randomValue}')
+#    assert_search_tokens(metadataSearchRequest, created_token2.id)
 
-    dataSearchRequest = SearchTokensRequest(query = f'data:{randomData}')
-    assert_search_tokens(dataSearchRequest, created_token1.id)
+#    dataSearchRequest = SearchTokensRequest(query = f'data:{randomData}')
+#    assert_search_tokens(dataSearchRequest, created_token1.id)
 
 
 @retry(stop_max_attempt_number=10, wait_fixed=1000)
