@@ -69,6 +69,9 @@ class TokenReport(ModelNormal):
         ('monthly_active_tokens',): {
             'inclusive_minimum': 0,
         },
+        ('total_tokens',): {
+            'inclusive_minimum': 0,
+        },
     }
 
     additional_properties_type = None
@@ -90,6 +93,7 @@ class TokenReport(ModelNormal):
             'included_monthly_active_tokens': (int,),  # noqa: E501
             'monthly_active_tokens': (int,),  # noqa: E501
             'metrics_by_type': ({str: (TokenMetrics,)}, none_type,),  # noqa: E501
+            'total_tokens': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -101,6 +105,7 @@ class TokenReport(ModelNormal):
         'included_monthly_active_tokens': 'included_monthly_active_tokens',  # noqa: E501
         'monthly_active_tokens': 'monthly_active_tokens',  # noqa: E501
         'metrics_by_type': 'metrics_by_type',  # noqa: E501
+        'total_tokens': 'total_tokens',  # noqa: E501
     }
 
     read_only_vars = {
@@ -147,6 +152,7 @@ class TokenReport(ModelNormal):
             included_monthly_active_tokens (int): [optional]  # noqa: E501
             monthly_active_tokens (int): [optional]  # noqa: E501
             metrics_by_type ({str: (TokenMetrics,)}, none_type): [optional]  # noqa: E501
+            total_tokens (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -235,6 +241,7 @@ class TokenReport(ModelNormal):
             included_monthly_active_tokens (int): [optional]  # noqa: E501
             monthly_active_tokens (int): [optional]  # noqa: E501
             metrics_by_type ({str: (TokenMetrics,)}, none_type): [optional]  # noqa: E501
+            total_tokens (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

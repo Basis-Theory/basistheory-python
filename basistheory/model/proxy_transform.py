@@ -78,7 +78,11 @@ class ProxyTransform(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'type': (str, none_type,),  # noqa: E501
             'code': (str, none_type,),  # noqa: E501
+            'matcher': (str, none_type,),  # noqa: E501
+            'expression': (str, none_type,),  # noqa: E501
+            'replacement': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -87,7 +91,11 @@ class ProxyTransform(ModelNormal):
 
 
     attribute_map = {
+        'type': 'type',  # noqa: E501
         'code': 'code',  # noqa: E501
+        'matcher': 'matcher',  # noqa: E501
+        'expression': 'expression',  # noqa: E501
+        'replacement': 'replacement',  # noqa: E501
     }
 
     read_only_vars = {
@@ -131,7 +139,11 @@ class ProxyTransform(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            type (str, none_type): [optional]  # noqa: E501
             code (str, none_type): [optional]  # noqa: E501
+            matcher (str, none_type): [optional]  # noqa: E501
+            expression (str, none_type): [optional]  # noqa: E501
+            replacement (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -217,7 +229,11 @@ class ProxyTransform(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            type (str, none_type): [optional]  # noqa: E501
             code (str, none_type): [optional]  # noqa: E501
+            matcher (str, none_type): [optional]  # noqa: E501
+            expression (str, none_type): [optional]  # noqa: E501
+            replacement (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

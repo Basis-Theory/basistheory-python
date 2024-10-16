@@ -101,6 +101,8 @@ class User(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
+            'provider': (str, none_type,),  # noqa: E501
+            'mfa_enrolled': (bool,),  # noqa: E501
             'first_name': (str, none_type,),  # noqa: E501
             'last_name': (str, none_type,),  # noqa: E501
             'picture': (str, none_type,),  # noqa: E501
@@ -114,6 +116,8 @@ class User(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'email': 'email',  # noqa: E501
+        'provider': 'provider',  # noqa: E501
+        'mfa_enrolled': 'mfa_enrolled',  # noqa: E501
         'first_name': 'first_name',  # noqa: E501
         'last_name': 'last_name',  # noqa: E501
         'picture': 'picture',  # noqa: E501
@@ -162,6 +166,8 @@ class User(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
+            provider (str, none_type): [optional]  # noqa: E501
+            mfa_enrolled (bool): [optional]  # noqa: E501
             first_name (str, none_type): [optional]  # noqa: E501
             last_name (str, none_type): [optional]  # noqa: E501
             picture (str, none_type): [optional]  # noqa: E501
@@ -252,6 +258,8 @@ class User(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
+            provider (str, none_type): [optional]  # noqa: E501
+            mfa_enrolled (bool): [optional]  # noqa: E501
             first_name (str, none_type): [optional]  # noqa: E501
             last_name (str, none_type): [optional]  # noqa: E501
             picture (str, none_type): [optional]  # noqa: E501

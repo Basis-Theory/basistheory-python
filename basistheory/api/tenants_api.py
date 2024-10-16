@@ -22,14 +22,18 @@ from basistheory.model_utils import (  # noqa: F401
     validate_and_convert_types,
     set_request_options
 )
+from basistheory.model.create_tenant_connection_request import CreateTenantConnectionRequest
+from basistheory.model.create_tenant_connection_response import CreateTenantConnectionResponse
 from basistheory.model.create_tenant_invitation_request import CreateTenantInvitationRequest
 from basistheory.model.problem_details import ProblemDetails
 from basistheory.model.tenant import Tenant
 from basistheory.model.tenant_invitation_response import TenantInvitationResponse
 from basistheory.model.tenant_invitation_response_paginated_list import TenantInvitationResponsePaginatedList
 from basistheory.model.tenant_invitation_status import TenantInvitationStatus
+from basistheory.model.tenant_member_response import TenantMemberResponse
 from basistheory.model.tenant_member_response_paginated_list import TenantMemberResponsePaginatedList
 from basistheory.model.tenant_usage_report import TenantUsageReport
+from basistheory.model.update_tenant_member_request import UpdateTenantMemberRequest
 from basistheory.model.update_tenant_request import UpdateTenantRequest
 from basistheory.model.validation_problem_details import ValidationProblemDetails
 
@@ -45,6 +49,59 @@ class TenantsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+        self.create_connection_endpoint = _Endpoint(
+            settings={
+                'response_type': (CreateTenantConnectionResponse,),
+                'auth': [
+                    'apiKey'
+                ],
+                'endpoint_path': '/tenants/self/connections',
+                'operation_id': 'create_connection',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'create_tenant_connection_request',
+                    'request_options'
+                ],
+                'required': [
+                    'create_tenant_connection_request',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'create_tenant_connection_request':
+                        (CreateTenantConnectionRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'create_tenant_connection_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
         self.create_invitation_endpoint = _Endpoint(
             settings={
                 'response_type': (TenantInvitationResponse,),
@@ -106,6 +163,51 @@ class TenantsApi(object):
                 ],
                 'endpoint_path': '/tenants/self',
                 'operation_id': 'delete',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'request_options'
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.delete_connection_endpoint = _Endpoint(
+            settings={
+                'response_type': (CreateTenantConnectionResponse,),
+                'auth': [
+                    'apiKey'
+                ],
+                'endpoint_path': '/tenants/self/connections',
+                'operation_id': 'delete_connection',
                 'http_method': 'DELETE',
                 'servers': None,
             },
@@ -513,6 +615,51 @@ class TenantsApi(object):
             },
             api_client=api_client
         )
+        self.owner_get_endpoint = _Endpoint(
+            settings={
+                'response_type': (TenantMemberResponse,),
+                'auth': [
+                    'apiKey'
+                ],
+                'endpoint_path': '/tenants/self/owner',
+                'operation_id': 'owner_get',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'request_options'
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.resend_invitation_endpoint = _Endpoint(
             settings={
                 'response_type': (TenantInvitationResponse,),
@@ -625,6 +772,163 @@ class TenantsApi(object):
             },
             api_client=api_client
         )
+        self.update_member_endpoint = _Endpoint(
+            settings={
+                'response_type': (TenantMemberResponse,),
+                'auth': [
+                    'apiKey'
+                ],
+                'endpoint_path': '/tenants/self/members/{memberId}',
+                'operation_id': 'update_member',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'member_id',
+                    'update_tenant_member_request',
+                    'request_options'
+                ],
+                'required': [
+                    'member_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                    'member_id',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('member_id',): {
+                        'max_length': 36,
+                        'regex': {
+                            'pattern': r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',  # noqa: E501
+                        },
+                    },
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'member_id':
+                        (str,),
+                    'update_tenant_member_request':
+                        (UpdateTenantMemberRequest,),
+                },
+                'attribute_map': {
+                    'member_id': 'memberId',
+                },
+                'location_map': {
+                    'member_id': 'path',
+                    'update_tenant_member_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json-patch+json',
+                    'application/json',
+                    'text/json',
+                    'application/*+json',
+                    'application/xml',
+                    'text/xml',
+                    'application/*+xml'
+                ]
+            },
+            api_client=api_client
+        )
+
+    def create_connection(
+        self,
+        create_tenant_connection_request,
+        **kwargs
+    ):
+        """create_connection  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_connection(create_tenant_connection_request, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            create_tenant_connection_request (CreateTenantConnectionRequest):
+
+        Keyword Args:
+            request_options(RequestOptions): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CreateTenantConnectionResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        if kwargs.get('request_options'):
+            set_request_options(kwargs.pop('request_options'), self)
+        
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['create_tenant_connection_request'] = \
+            create_tenant_connection_request
+        return self.create_connection_endpoint.call_with_http_info(**kwargs)
 
     def create_invitation(
         self,
@@ -792,6 +1096,87 @@ class TenantsApi(object):
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.delete_endpoint.call_with_http_info(**kwargs)
+
+    def delete_connection(
+        self,
+        **kwargs
+    ):
+        """delete_connection  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_connection(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            request_options(RequestOptions): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            CreateTenantConnectionResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        if kwargs.get('request_options'):
+            set_request_options(kwargs.pop('request_options'), self)
+        
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.delete_connection_endpoint.call_with_http_info(**kwargs)
 
     def delete_invitation(
         self,
@@ -1297,6 +1682,87 @@ class TenantsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.get_tenant_usage_report_endpoint.call_with_http_info(**kwargs)
 
+    def owner_get(
+        self,
+        **kwargs
+    ):
+        """owner_get  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.owner_get(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            request_options(RequestOptions): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TenantMemberResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        if kwargs.get('request_options'):
+            set_request_options(kwargs.pop('request_options'), self)
+        
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        return self.owner_get_endpoint.call_with_http_info(**kwargs)
+
     def resend_invitation(
         self,
         invitation_id,
@@ -1468,4 +1934,91 @@ class TenantsApi(object):
         kwargs['update_tenant_request'] = \
             update_tenant_request
         return self.update_endpoint.call_with_http_info(**kwargs)
+
+    def update_member(
+        self,
+        member_id,
+        **kwargs
+    ):
+        """update_member  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_member(member_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            member_id (str):
+
+        Keyword Args:
+            update_tenant_member_request (UpdateTenantMemberRequest): [optional]
+            request_options(RequestOptions): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            TenantMemberResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        if kwargs.get('request_options'):
+            set_request_options(kwargs.pop('request_options'), self)
+        
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['member_id'] = \
+            member_id
+        return self.update_member_endpoint.call_with_http_info(**kwargs)
 

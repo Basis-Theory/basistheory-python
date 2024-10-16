@@ -119,6 +119,7 @@ class TenantInvitationResponse(ModelNormal):
             'id': (str,),  # noqa: E501
             'tenant_id': (str,),  # noqa: E501
             'email': (str, none_type,),  # noqa: E501
+            'role': (str, none_type,),  # noqa: E501
             'status': (TenantInvitationStatus,),  # noqa: E501
             'expires_at': (datetime,),  # noqa: E501
             'created_by': (str, none_type,),  # noqa: E501
@@ -136,6 +137,7 @@ class TenantInvitationResponse(ModelNormal):
         'id': 'id',  # noqa: E501
         'tenant_id': 'tenant_id',  # noqa: E501
         'email': 'email',  # noqa: E501
+        'role': 'role',  # noqa: E501
         'status': 'status',  # noqa: E501
         'expires_at': 'expires_at',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
@@ -188,6 +190,7 @@ class TenantInvitationResponse(ModelNormal):
             id (str): [optional]  # noqa: E501
             tenant_id (str): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
+            role (str, none_type): [optional]  # noqa: E501
             status (TenantInvitationStatus): [optional]  # noqa: E501
             expires_at (datetime): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
@@ -282,6 +285,7 @@ class TenantInvitationResponse(ModelNormal):
             id (str): [optional]  # noqa: E501
             tenant_id (str): [optional]  # noqa: E501
             email (str, none_type): [optional]  # noqa: E501
+            role (str, none_type): [optional]  # noqa: E501
             status (TenantInvitationStatus): [optional]  # noqa: E501
             expires_at (datetime): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501

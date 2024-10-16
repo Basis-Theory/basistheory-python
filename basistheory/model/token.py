@@ -32,8 +32,10 @@ from basistheory.exceptions import ApiAttributeError
 def lazy_import():
     from basistheory.model.privacy import Privacy
     from basistheory.model.token_enrichments import TokenEnrichments
+    from basistheory.model.token_extras import TokenExtras
     globals()['Privacy'] = Privacy
     globals()['TokenEnrichments'] = TokenEnrichments
+    globals()['TokenExtras'] = TokenExtras
 
 
 class Token(ModelNormal):
@@ -160,6 +162,7 @@ class Token(ModelNormal):
             'expires_at': (datetime, none_type,),  # noqa: E501
             'containers': ([str], none_type,),  # noqa: E501
             'aliases': ([str], none_type,),  # noqa: E501
+            'extras': (TokenExtras,),  # noqa: E501
         }
 
     @cached_property
@@ -186,6 +189,7 @@ class Token(ModelNormal):
         'expires_at': 'expires_at',  # noqa: E501
         'containers': 'containers',  # noqa: E501
         'aliases': 'aliases',  # noqa: E501
+        'extras': '_extras',  # noqa: E501
     }
 
     read_only_vars = {
@@ -247,6 +251,7 @@ class Token(ModelNormal):
             expires_at (datetime, none_type): [optional]  # noqa: E501
             containers ([str], none_type): [optional]  # noqa: E501
             aliases ([str], none_type): [optional]  # noqa: E501
+            extras (TokenExtras): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -350,6 +355,7 @@ class Token(ModelNormal):
             expires_at (datetime, none_type): [optional]  # noqa: E501
             containers ([str], none_type): [optional]  # noqa: E501
             aliases ([str], none_type): [optional]  # noqa: E501
+            extras (TokenExtras): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

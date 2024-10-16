@@ -31,7 +31,9 @@ from basistheory.exceptions import ApiAttributeError
 
 def lazy_import():
     from basistheory.model.bin_details import BinDetails
+    from basistheory.model.card_details import CardDetails
     globals()['BinDetails'] = BinDetails
+    globals()['CardDetails'] = CardDetails
 
 
 class TokenEnrichments(ModelNormal):
@@ -81,6 +83,7 @@ class TokenEnrichments(ModelNormal):
         lazy_import()
         return {
             'bin_details': (BinDetails,),  # noqa: E501
+            'card_details': (CardDetails,),  # noqa: E501
         }
 
     @cached_property
@@ -90,6 +93,7 @@ class TokenEnrichments(ModelNormal):
 
     attribute_map = {
         'bin_details': 'bin_details',  # noqa: E501
+        'card_details': 'card_details',  # noqa: E501
     }
 
     read_only_vars = {
@@ -134,6 +138,7 @@ class TokenEnrichments(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             bin_details (BinDetails): [optional]  # noqa: E501
+            card_details (CardDetails): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -220,6 +225,7 @@ class TokenEnrichments(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             bin_details (BinDetails): [optional]  # noqa: E501
+            card_details (CardDetails): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
