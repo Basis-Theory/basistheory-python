@@ -66,7 +66,7 @@ class StringStringKeyValuePair(ModelNormal):
             },
         },
         ('value',): {
-            'max_length': 1000,
+            'max_length': 200,
             'min_length': 1,
         },
     }

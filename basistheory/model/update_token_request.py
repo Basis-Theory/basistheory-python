@@ -30,9 +30,7 @@ from basistheory.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from basistheory.model.encryption_metadata import EncryptionMetadata
     from basistheory.model.update_privacy import UpdatePrivacy
-    globals()['EncryptionMetadata'] = EncryptionMetadata
     globals()['UpdatePrivacy'] = UpdatePrivacy
 
 
@@ -65,7 +63,7 @@ class UpdateTokenRequest(ModelNormal):
 
     validations = {
         ('search_indexes',): {
-            'max_items': 10,
+            'max_items': 5,
         },
         ('fingerprint_expression',): {
             'max_length': 400,
@@ -95,7 +93,6 @@ class UpdateTokenRequest(ModelNormal):
         lazy_import()
         return {
             'data': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'encryption': (EncryptionMetadata,),  # noqa: E501
             'privacy': (UpdatePrivacy,),  # noqa: E501
             'metadata': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'search_indexes': ([str], none_type,),  # noqa: E501
@@ -113,7 +110,6 @@ class UpdateTokenRequest(ModelNormal):
 
     attribute_map = {
         'data': 'data',  # noqa: E501
-        'encryption': 'encryption',  # noqa: E501
         'privacy': 'privacy',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'search_indexes': 'search_indexes',  # noqa: E501
@@ -166,7 +162,6 @@ class UpdateTokenRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            encryption (EncryptionMetadata): [optional]  # noqa: E501
             privacy (UpdatePrivacy): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             search_indexes ([str], none_type): [optional]  # noqa: E501
@@ -261,7 +256,6 @@ class UpdateTokenRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            encryption (EncryptionMetadata): [optional]  # noqa: E501
             privacy (UpdatePrivacy): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             search_indexes ([str], none_type): [optional]  # noqa: E501

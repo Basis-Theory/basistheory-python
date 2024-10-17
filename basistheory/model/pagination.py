@@ -80,6 +80,7 @@ class Pagination(ModelNormal):
             'page_size': (int, none_type,),  # noqa: E501
             'total_pages': (int, none_type,),  # noqa: E501
             'after': (str, none_type,),  # noqa: E501
+            'next': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -93,6 +94,7 @@ class Pagination(ModelNormal):
         'page_size': 'page_size',  # noqa: E501
         'total_pages': 'total_pages',  # noqa: E501
         'after': 'after',  # noqa: E501
+        'next': 'next',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,6 +143,7 @@ class Pagination(ModelNormal):
             page_size (int, none_type): [optional]  # noqa: E501
             total_pages (int, none_type): [optional]  # noqa: E501
             after (str, none_type): [optional]  # noqa: E501
+            next (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -231,6 +234,7 @@ class Pagination(ModelNormal):
             page_size (int, none_type): [optional]  # noqa: E501
             total_pages (int, none_type): [optional]  # noqa: E501
             after (str, none_type): [optional]  # noqa: E501
+            next (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

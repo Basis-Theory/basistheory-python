@@ -92,6 +92,7 @@ class ApplicationKey(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'key': (str, none_type,),  # noqa: E501
+            'version': (str, none_type,),  # noqa: E501
             'created_by': (str, none_type,),  # noqa: E501
             'created_at': (datetime, none_type,),  # noqa: E501
         }
@@ -104,6 +105,7 @@ class ApplicationKey(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'key': 'key',  # noqa: E501
+        'version': 'version',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
     }
@@ -151,6 +153,7 @@ class ApplicationKey(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             key (str, none_type): [optional]  # noqa: E501
+            version (str, none_type): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
         """
@@ -240,6 +243,7 @@ class ApplicationKey(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
             key (str, none_type): [optional]  # noqa: E501
+            version (str, none_type): [optional]  # noqa: E501
             created_by (str, none_type): [optional]  # noqa: E501
             created_at (datetime, none_type): [optional]  # noqa: E501
         """

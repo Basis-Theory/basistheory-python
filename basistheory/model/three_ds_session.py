@@ -120,6 +120,7 @@ class ThreeDSSession(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
+            'type': (str, none_type,),  # noqa: E501
             'tenant_id': (str,),  # noqa: E501
             'pan_token_id': (str, none_type,),  # noqa: E501
             'card_brand': (str, none_type,),  # noqa: E501
@@ -142,6 +143,7 @@ class ThreeDSSession(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'tenant_id': 'tenant_id',  # noqa: E501
         'pan_token_id': 'pan_token_id',  # noqa: E501
         'card_brand': 'card_brand',  # noqa: E501
@@ -199,6 +201,7 @@ class ThreeDSSession(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
             tenant_id (str): [optional]  # noqa: E501
             pan_token_id (str, none_type): [optional]  # noqa: E501
             card_brand (str, none_type): [optional]  # noqa: E501
@@ -298,6 +301,7 @@ class ThreeDSSession(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             id (str): [optional]  # noqa: E501
+            type (str, none_type): [optional]  # noqa: E501
             tenant_id (str): [optional]  # noqa: E501
             pan_token_id (str, none_type): [optional]  # noqa: E501
             card_brand (str, none_type): [optional]  # noqa: E501

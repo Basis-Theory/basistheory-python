@@ -76,7 +76,7 @@ class ThreeDSVersion(ModelNormal):
         """
         return {
             'recommended_version': (str, none_type,),  # noqa: E501
-            'available_version': ([str], none_type,),  # noqa: E501
+            'available_versions': ([str], none_type,),  # noqa: E501
             'earliest_acs_supported_version': (str, none_type,),  # noqa: E501
             'earliest_ds_supported_version': (str, none_type,),  # noqa: E501
             'latest_acs_supported_version': (str, none_type,),  # noqa: E501
@@ -91,7 +91,7 @@ class ThreeDSVersion(ModelNormal):
 
     attribute_map = {
         'recommended_version': 'recommended_version',  # noqa: E501
-        'available_version': 'available_version',  # noqa: E501
+        'available_versions': 'available_versions',  # noqa: E501
         'earliest_acs_supported_version': 'earliest_acs_supported_version',  # noqa: E501
         'earliest_ds_supported_version': 'earliest_ds_supported_version',  # noqa: E501
         'latest_acs_supported_version': 'latest_acs_supported_version',  # noqa: E501
@@ -141,7 +141,7 @@ class ThreeDSVersion(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             recommended_version (str, none_type): [optional]  # noqa: E501
-            available_version ([str], none_type): [optional]  # noqa: E501
+            available_versions ([str], none_type): [optional]  # noqa: E501
             earliest_acs_supported_version (str, none_type): [optional]  # noqa: E501
             earliest_ds_supported_version (str, none_type): [optional]  # noqa: E501
             latest_acs_supported_version (str, none_type): [optional]  # noqa: E501
@@ -233,7 +233,7 @@ class ThreeDSVersion(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             recommended_version (str, none_type): [optional]  # noqa: E501
-            available_version ([str], none_type): [optional]  # noqa: E501
+            available_versions ([str], none_type): [optional]  # noqa: E501
             earliest_acs_supported_version (str, none_type): [optional]  # noqa: E501
             earliest_ds_supported_version (str, none_type): [optional]  # noqa: E501
             latest_acs_supported_version (str, none_type): [optional]  # noqa: E501

@@ -100,6 +100,7 @@ class ThreeDSAuthentication(ModelNormal):
         """
         lazy_import()
         return {
+            'pan_token_id': (str, none_type,),  # noqa: E501
             'threeds_version': (str, none_type,),  # noqa: E501
             'acs_transaction_id': (str, none_type,),  # noqa: E501
             'ds_transaction_id': (str, none_type,),  # noqa: E501
@@ -108,6 +109,7 @@ class ThreeDSAuthentication(ModelNormal):
             'ds_reference_number': (str, none_type,),  # noqa: E501
             'authentication_value': (str, none_type,),  # noqa: E501
             'authentication_status': (str, none_type,),  # noqa: E501
+            'authentication_status_code': (str, none_type,),  # noqa: E501
             'authentication_status_reason': (str, none_type,),  # noqa: E501
             'eci': (str, none_type,),  # noqa: E501
             'acs_challenge_mandated': (str, none_type,),  # noqa: E501
@@ -130,6 +132,7 @@ class ThreeDSAuthentication(ModelNormal):
 
 
     attribute_map = {
+        'pan_token_id': 'pan_token_id',  # noqa: E501
         'threeds_version': 'threeds_version',  # noqa: E501
         'acs_transaction_id': 'acs_transaction_id',  # noqa: E501
         'ds_transaction_id': 'ds_transaction_id',  # noqa: E501
@@ -138,6 +141,7 @@ class ThreeDSAuthentication(ModelNormal):
         'ds_reference_number': 'ds_reference_number',  # noqa: E501
         'authentication_value': 'authentication_value',  # noqa: E501
         'authentication_status': 'authentication_status',  # noqa: E501
+        'authentication_status_code': 'authentication_status_code',  # noqa: E501
         'authentication_status_reason': 'authentication_status_reason',  # noqa: E501
         'eci': 'eci',  # noqa: E501
         'acs_challenge_mandated': 'acs_challenge_mandated',  # noqa: E501
@@ -195,6 +199,7 @@ class ThreeDSAuthentication(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pan_token_id (str, none_type): [optional]  # noqa: E501
             threeds_version (str, none_type): [optional]  # noqa: E501
             acs_transaction_id (str, none_type): [optional]  # noqa: E501
             ds_transaction_id (str, none_type): [optional]  # noqa: E501
@@ -203,6 +208,7 @@ class ThreeDSAuthentication(ModelNormal):
             ds_reference_number (str, none_type): [optional]  # noqa: E501
             authentication_value (str, none_type): [optional]  # noqa: E501
             authentication_status (str, none_type): [optional]  # noqa: E501
+            authentication_status_code (str, none_type): [optional]  # noqa: E501
             authentication_status_reason (str, none_type): [optional]  # noqa: E501
             eci (str, none_type): [optional]  # noqa: E501
             acs_challenge_mandated (str, none_type): [optional]  # noqa: E501
@@ -302,6 +308,7 @@ class ThreeDSAuthentication(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pan_token_id (str, none_type): [optional]  # noqa: E501
             threeds_version (str, none_type): [optional]  # noqa: E501
             acs_transaction_id (str, none_type): [optional]  # noqa: E501
             ds_transaction_id (str, none_type): [optional]  # noqa: E501
@@ -310,6 +317,7 @@ class ThreeDSAuthentication(ModelNormal):
             ds_reference_number (str, none_type): [optional]  # noqa: E501
             authentication_value (str, none_type): [optional]  # noqa: E501
             authentication_status (str, none_type): [optional]  # noqa: E501
+            authentication_status_code (str, none_type): [optional]  # noqa: E501
             authentication_status_reason (str, none_type): [optional]  # noqa: E501
             eci (str, none_type): [optional]  # noqa: E501
             acs_challenge_mandated (str, none_type): [optional]  # noqa: E501
