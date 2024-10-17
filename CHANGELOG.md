@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/Basis-Theory/basistheory-python/compare/v2.1.0...v2.2.0) (2024-10-17)
+
+
+### Features
+
+* add tenant connections, detokenize api, updates to reactors, 3d and more ([#73](https://github.com/Basis-Theory/basistheory-python/issues/73)) ([b7514ce](https://github.com/Basis-Theory/basistheory-python/commit/b7514ce603afd831b043c214bc0ad7c00189ba7d))
+
 # [2.1.0](https://github.com/Basis-Theory/basistheory-python/compare/v2.0.0...v2.1.0) (2024-03-26)
 
 
