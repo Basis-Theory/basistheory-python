@@ -7,12 +7,13 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    environment: PROD
     
     steps:
       - name: "Checkout repo"
         uses: actions/checkout@v2
         with:
-          token: ${{ secrets.SEMANTIC_RELEASE_PAT }}
+          token: ${{ secrets.GH_SEMANTIC_RELEASE_PAT }}
       
       - name: Setup Node
         uses: actions/setup-node@v2
@@ -39,8 +40,8 @@ jobs:
     
       - name: "Release"
         env:
-          GH_TOKEN: ${{ secrets.SEMANTIC_RELEASE_PAT }}
-          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_SEMANTIC_RELEASE_PAT }}
+          PYPI_TOKEN: ${{ secrets.GH_PYPI_TOKEN }}
         run: |
           yarn install --frozen-lockfile
           yarn release
