@@ -8,40 +8,54 @@ jobs:
   release:
     runs-on: ubuntu-latest
     environment: PROD
-    
+
     steps:
+      - name: Start Deploy Message
+        uses: Basis-Theory/github-actions/deploy-slack-action@master
+        with:
+          slack-api-token: ${{ secrets.SLACK_DUCKBOT_API_KEY }}
+          channel: ${{ vars.SLACK_DUCKBOT_PRODUCT_DEPLOY_CHANNEL }}
+
       - name: "Checkout repo"
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.GH_SEMANTIC_RELEASE_PAT }}
-      
+
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
-          cache: 'yarn'
+          node-version: "14"
+          cache: "yarn"
 
       # Set up Python 3
       - uses: actions/setup-python@v2
         with:
           python-version: 3.8
-      
+
       - name: "Upgrade pip"
         run: python3 -m pip install --upgrade pip
-      
+
       - name: "Install base dependencies"
         run: python3 -m pip install setuptools wheel twine
-      
+
       - name: "Install additional dependencies"
         run: if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: "Build"
         run: python3 setup.py sdist bdist_wheel
-    
+
       - name: "Release"
         env:
           GH_TOKEN: ${{ secrets.GH_SEMANTIC_RELEASE_PAT }}
-          PYPI_TOKEN: ${{ secrets.GH_PYPI_TOKEN }}
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
         run: |
           yarn install --frozen-lockfile
           yarn release
+
+      - name: Stop Deploy Message
+        if: always()
+        uses: Basis-Theory/github-actions/deploy-slack-action@master
+        with:
+          slack-api-token: ${{ secrets.SLACK_DUCKBOT_API_KEY }}
+          channel: ${{ vars.SLACK_DUCKBOT_PRODUCT_DEPLOY_CHANNEL }}
+          status: "done"
