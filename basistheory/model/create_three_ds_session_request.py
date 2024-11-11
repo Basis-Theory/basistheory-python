@@ -64,7 +64,12 @@ class CreateThreeDSSessionRequest(ModelNormal):
     validations = {
         ('pan',): {
             'max_length': 36,
-            'min_length': 1,
+        },
+        ('token_id',): {
+            'max_length': 36,
+        },
+        ('token_intent_id',): {
+            'max_length': 36,
         },
     }
 
@@ -84,7 +89,9 @@ class CreateThreeDSSessionRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'pan': (str,),  # noqa: E501
+            'pan': (str, none_type,),  # noqa: E501
+            'token_id': (str, none_type,),  # noqa: E501
+            'token_intent_id': (str, none_type,),  # noqa: E501
             'type': (str, none_type,),  # noqa: E501
             'device': (str, none_type,),  # noqa: E501
             'device_info': (ThreeDSDeviceInfo,),  # noqa: E501
@@ -97,6 +104,8 @@ class CreateThreeDSSessionRequest(ModelNormal):
 
     attribute_map = {
         'pan': 'pan',  # noqa: E501
+        'token_id': 'token_id',  # noqa: E501
+        'token_intent_id': 'token_intent_id',  # noqa: E501
         'type': 'type',  # noqa: E501
         'device': 'device',  # noqa: E501
         'device_info': 'device_info',  # noqa: E501
@@ -109,11 +118,8 @@ class CreateThreeDSSessionRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, pan, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """CreateThreeDSSessionRequest - a model defined in OpenAPI
-
-        Args:
-            pan (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -146,6 +152,9 @@ class CreateThreeDSSessionRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pan (str, none_type): [optional]  # noqa: E501
+            token_id (str, none_type): [optional]  # noqa: E501
+            token_intent_id (str, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             device (str, none_type): [optional]  # noqa: E501
             device_info (ThreeDSDeviceInfo): [optional]  # noqa: E501
@@ -180,7 +189,6 @@ class CreateThreeDSSessionRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.pan = pan
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -201,11 +209,8 @@ class CreateThreeDSSessionRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, pan, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """CreateThreeDSSessionRequest - a model defined in OpenAPI
-
-        Args:
-            pan (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -238,6 +243,9 @@ class CreateThreeDSSessionRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            pan (str, none_type): [optional]  # noqa: E501
+            token_id (str, none_type): [optional]  # noqa: E501
+            token_intent_id (str, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             device (str, none_type): [optional]  # noqa: E501
             device_info (ThreeDSDeviceInfo): [optional]  # noqa: E501
@@ -270,7 +278,6 @@ class CreateThreeDSSessionRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.pan = pan
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

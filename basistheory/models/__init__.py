@@ -16,6 +16,7 @@ from basistheory.model.application_paginated_list import ApplicationPaginatedLis
 from basistheory.model.application_template import ApplicationTemplate
 from basistheory.model.authenticate_three_ds_session_request import AuthenticateThreeDSSessionRequest
 from basistheory.model.authorize_session_request import AuthorizeSessionRequest
+from basistheory.model.bank_verification_request import BankVerificationRequest
 from basistheory.model.bin_details import BinDetails
 from basistheory.model.bin_details_bank import BinDetailsBank
 from basistheory.model.bin_details_country import BinDetailsCountry

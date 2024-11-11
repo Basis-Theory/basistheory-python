@@ -18,6 +18,7 @@ from basistheory.api.application_keys_api import ApplicationKeysApi
 from basistheory.api.application_templates_api import ApplicationTemplatesApi
 from basistheory.api.applications_api import ApplicationsApi
 from basistheory.api.detokenize_api import DetokenizeApi
+from basistheory.api.enrichments_api import EnrichmentsApi
 from basistheory.api.logs_api import LogsApi
 from basistheory.api.permissions_api import PermissionsApi
 from basistheory.api.proxies_api import ProxiesApi

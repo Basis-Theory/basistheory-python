@@ -123,6 +123,8 @@ class ThreeDSSession(ModelNormal):
             'type': (str, none_type,),  # noqa: E501
             'tenant_id': (str,),  # noqa: E501
             'pan_token_id': (str, none_type,),  # noqa: E501
+            'token_id': (str, none_type,),  # noqa: E501
+            'token_intent_id': (str, none_type,),  # noqa: E501
             'card_brand': (str, none_type,),  # noqa: E501
             'expiration_date': (datetime,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
@@ -146,6 +148,8 @@ class ThreeDSSession(ModelNormal):
         'type': 'type',  # noqa: E501
         'tenant_id': 'tenant_id',  # noqa: E501
         'pan_token_id': 'pan_token_id',  # noqa: E501
+        'token_id': 'token_id',  # noqa: E501
+        'token_intent_id': 'token_intent_id',  # noqa: E501
         'card_brand': 'card_brand',  # noqa: E501
         'expiration_date': 'expiration_date',  # noqa: E501
         'created_date': 'created_date',  # noqa: E501
@@ -204,6 +208,8 @@ class ThreeDSSession(ModelNormal):
             type (str, none_type): [optional]  # noqa: E501
             tenant_id (str): [optional]  # noqa: E501
             pan_token_id (str, none_type): [optional]  # noqa: E501
+            token_id (str, none_type): [optional]  # noqa: E501
+            token_intent_id (str, none_type): [optional]  # noqa: E501
             card_brand (str, none_type): [optional]  # noqa: E501
             expiration_date (datetime): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
@@ -304,6 +310,8 @@ class ThreeDSSession(ModelNormal):
             type (str, none_type): [optional]  # noqa: E501
             tenant_id (str): [optional]  # noqa: E501
             pan_token_id (str, none_type): [optional]  # noqa: E501
+            token_id (str, none_type): [optional]  # noqa: E501
+            token_intent_id (str, none_type): [optional]  # noqa: E501
             card_brand (str, none_type): [optional]  # noqa: E501
             expiration_date (datetime): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
