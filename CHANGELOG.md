@@ -1,3 +1,13 @@
+# [3.0.0](https://github.com/Basis-Theory/basistheory-python/compare/v2.2.0...v3.0.0) (2024-11-14)
+
+
+* feat!: add token intents, enrichments api, 3ds changes and more (#75) ([eb9684c](https://github.com/Basis-Theory/basistheory-python/commit/eb9684c146ef3d995220eeaee0b8b9860749f1b0)), closes [#75](https://github.com/Basis-Theory/basistheory-python/issues/75)
+
+
+### BREAKING CHANGES
+
+* Cant pass data directly on CreateTokenRequest constructor, data is. nullable
+
 # [2.2.0](https://github.com/Basis-Theory/basistheory-python/compare/v2.1.0...v2.2.0) (2024-10-17)
 
 
