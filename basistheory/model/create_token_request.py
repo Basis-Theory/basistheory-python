@@ -83,9 +83,9 @@ class CreateTokenRequest(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'id': (str, none_type,),  # noqa: E501
             'type': (str, none_type,),  # noqa: E501
+            'data': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'privacy': (Privacy,),  # noqa: E501
             'metadata': ({str: (str, none_type)}, none_type,),  # noqa: E501
             'search_indexes': ([str], none_type,),  # noqa: E501
@@ -94,6 +94,7 @@ class CreateTokenRequest(ModelNormal):
             'deduplicate_token': (bool, none_type,),  # noqa: E501
             'expires_at': (str, none_type,),  # noqa: E501
             'containers': ([str], none_type,),  # noqa: E501
+            'token_intent_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -102,9 +103,9 @@ class CreateTokenRequest(ModelNormal):
 
 
     attribute_map = {
-        'data': 'data',  # noqa: E501
         'id': 'id',  # noqa: E501
         'type': 'type',  # noqa: E501
+        'data': 'data',  # noqa: E501
         'privacy': 'privacy',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'search_indexes': 'search_indexes',  # noqa: E501
@@ -113,6 +114,7 @@ class CreateTokenRequest(ModelNormal):
         'deduplicate_token': 'deduplicate_token',  # noqa: E501
         'expires_at': 'expires_at',  # noqa: E501
         'containers': 'containers',  # noqa: E501
+        'token_intent_id': 'token_intent_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -122,11 +124,8 @@ class CreateTokenRequest(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, data, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """CreateTokenRequest - a model defined in OpenAPI
-
-        Args:
-            data (bool, date, datetime, dict, float, int, list, str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -161,6 +160,7 @@ class CreateTokenRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
+            data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             search_indexes ([str], none_type): [optional]  # noqa: E501
@@ -169,6 +169,7 @@ class CreateTokenRequest(ModelNormal):
             deduplicate_token (bool, none_type): [optional]  # noqa: E501
             expires_at (str, none_type): [optional]  # noqa: E501
             containers ([str], none_type): [optional]  # noqa: E501
+            token_intent_id (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -200,7 +201,6 @@ class CreateTokenRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.data = data
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -221,11 +221,8 @@ class CreateTokenRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, data, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """CreateTokenRequest - a model defined in OpenAPI
-
-        Args:
-            data (bool, date, datetime, dict, float, int, list, str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -260,6 +257,7 @@ class CreateTokenRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             id (str, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
+            data (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             privacy (Privacy): [optional]  # noqa: E501
             metadata ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
             search_indexes ([str], none_type): [optional]  # noqa: E501
@@ -268,6 +266,7 @@ class CreateTokenRequest(ModelNormal):
             deduplicate_token (bool, none_type): [optional]  # noqa: E501
             expires_at (str, none_type): [optional]  # noqa: E501
             containers ([str], none_type): [optional]  # noqa: E501
+            token_intent_id (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -297,7 +296,6 @@ class CreateTokenRequest(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.data = data
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

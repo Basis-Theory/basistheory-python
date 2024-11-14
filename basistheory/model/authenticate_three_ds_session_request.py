@@ -98,6 +98,8 @@ class AuthenticateThreeDSSessionRequest(ModelNormal):
             'authentication_type': (str,),  # noqa: E501
             'requestor_info': (ThreeDSRequestorInfo,),  # noqa: E501
             'challenge_preference': (str, none_type,),  # noqa: E501
+            'request_decoupled_challenge': (bool,),  # noqa: E501
+            'decoupled_challenge_max_time': (int, none_type,),  # noqa: E501
             'purchase_info': (ThreeDSPurchaseInfo,),  # noqa: E501
             'merchant_info': (ThreeDSMerchantInfo,),  # noqa: E501
             'cardholder_info': (ThreeDSCardholderInfo,),  # noqa: E501
@@ -115,6 +117,8 @@ class AuthenticateThreeDSSessionRequest(ModelNormal):
         'authentication_type': 'authentication_type',  # noqa: E501
         'requestor_info': 'requestor_info',  # noqa: E501
         'challenge_preference': 'challenge_preference',  # noqa: E501
+        'request_decoupled_challenge': 'request_decoupled_challenge',  # noqa: E501
+        'decoupled_challenge_max_time': 'decoupled_challenge_max_time',  # noqa: E501
         'purchase_info': 'purchase_info',  # noqa: E501
         'merchant_info': 'merchant_info',  # noqa: E501
         'cardholder_info': 'cardholder_info',  # noqa: E501
@@ -169,6 +173,8 @@ class AuthenticateThreeDSSessionRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             challenge_preference (str, none_type): [optional]  # noqa: E501
+            request_decoupled_challenge (bool): [optional]  # noqa: E501
+            decoupled_challenge_max_time (int, none_type): [optional]  # noqa: E501
             purchase_info (ThreeDSPurchaseInfo): [optional]  # noqa: E501
             merchant_info (ThreeDSMerchantInfo): [optional]  # noqa: E501
             cardholder_info (ThreeDSCardholderInfo): [optional]  # noqa: E501
@@ -268,6 +274,8 @@ class AuthenticateThreeDSSessionRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             challenge_preference (str, none_type): [optional]  # noqa: E501
+            request_decoupled_challenge (bool): [optional]  # noqa: E501
+            decoupled_challenge_max_time (int, none_type): [optional]  # noqa: E501
             purchase_info (ThreeDSPurchaseInfo): [optional]  # noqa: E501
             merchant_info (ThreeDSMerchantInfo): [optional]  # noqa: E501
             cardholder_info (ThreeDSCardholderInfo): [optional]  # noqa: E501
