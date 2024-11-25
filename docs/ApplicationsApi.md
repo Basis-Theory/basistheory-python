@@ -1,21 +1,20 @@
-# basistheory.TokensApi
+# basistheory.ApplicationsApi
 
 All URIs are relative to *https://api.basistheory.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create**](TokensApi.md#create) | **POST** /tokens | 
-[**delete**](TokensApi.md#delete) | **DELETE** /tokens/{id} | 
-[**get**](TokensApi.md#get) | **GET** /tokens | 
-[**get_by_id**](TokensApi.md#get_by_id) | **GET** /tokens/{id} | 
-[**get_v2**](TokensApi.md#get_v2) | **GET** /v2/tokens | 
-[**search**](TokensApi.md#search) | **POST** /tokens/search | 
-[**search_v2**](TokensApi.md#search_v2) | **POST** /v2/tokens/search | 
-[**update**](TokensApi.md#update) | **PATCH** /tokens/{id} | 
+[**create**](ApplicationsApi.md#create) | **POST** /applications | 
+[**delete**](ApplicationsApi.md#delete) | **DELETE** /applications/{id} | 
+[**get**](ApplicationsApi.md#get) | **GET** /applications | 
+[**get_by_id**](ApplicationsApi.md#get_by_id) | **GET** /applications/{id} | 
+[**get_by_key**](ApplicationsApi.md#get_by_key) | **GET** /applications/key | 
+[**regenerate_key**](ApplicationsApi.md#regenerate_key) | **POST** /applications/{id}/regenerate | 
+[**update**](ApplicationsApi.md#update) | **PUT** /applications/{id} | 
 
 
 # **create**
-> Token create(create_token_request)
+> Application create(create_application_request)
 
 
 
@@ -26,11 +25,11 @@ Method | HTTP request | Description
 ```python
 import time
 import basistheory
-from basistheory.api import tokens_api
-from basistheory.model.create_token_request import CreateTokenRequest
+from basistheory.api import applications_api
 from basistheory.model.validation_problem_details import ValidationProblemDetails
-from basistheory.model.token import Token
 from basistheory.model.problem_details import ProblemDetails
+from basistheory.model.create_application_request import CreateApplicationRequest
+from basistheory.model.application import Application
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.basistheory.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -52,38 +51,41 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with basistheory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tokens_api.TokensApi(api_client)
-    create_token_request = CreateTokenRequest(
-        id="id_example",
-        type="type_example",
-        data=None,
-        privacy=Privacy(
-            classification="OaWnCKaqioxZAoGYzjxaYN",
-            impact_level="high",
-            restriction_policy="redact",
-        ),
-        metadata={
-            "key": "key_example",
-        },
-        search_indexes=[
-            "search_indexes_example",
-        ],
-        fingerprint_expression="fingerprint_expression_example",
-        mask=None,
-        deduplicate_token=True,
+    api_instance = applications_api.ApplicationsApi(api_client)
+    create_application_request = CreateApplicationRequest(
+        name="j",
+        type="O",
         expires_at="expires_at_example",
-        containers=[
-            "containers_example",
+        permissions=[
+            "permissions_example",
         ],
-        token_intent_id="token_intent_id_example",
-    ) # CreateTokenRequest | 
+        rules=[
+            AccessRule(
+                description="description_example",
+                priority=1,
+                container="container_example",
+                transform="transform_example",
+                conditions=[
+                    Condition(
+                        attribute="attribute_example",
+                        operator="operator_example",
+                        value="value_example",
+                    ),
+                ],
+                permissions=[
+                    "permissions_example",
+                ],
+            ),
+        ],
+        create_key=True,
+    ) # CreateApplicationRequest | 
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.create(create_token_request)
+        api_response = api_instance.create(create_application_request)
         pprint(api_response)
     except basistheory.ApiException as e:
-        print("Exception when calling TokensApi->create: %s\n" % e)
+        print("Exception when calling ApplicationsApi->create: %s\n" % e)
 ```
 
 
@@ -91,11 +93,11 @@ with basistheory.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **create_token_request** | [**CreateTokenRequest**](CreateTokenRequest.md)|  |
+ **create_application_request** | [**CreateApplicationRequest**](CreateApplicationRequest.md)|  |
 
 ### Return type
 
-[**Token**](Token.md)
+[**Application**](Application.md)
 
 ### Authorization
 
@@ -115,7 +117,6 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
-**409** | Conflict |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -131,8 +132,7 @@ Name | Type | Description  | Notes
 ```python
 import time
 import basistheory
-from basistheory.api import tokens_api
-from basistheory.model.validation_problem_details import ValidationProblemDetails
+from basistheory.api import applications_api
 from basistheory.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.basistheory.com
@@ -155,14 +155,14 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with basistheory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tokens_api.TokensApi(api_client)
-    id = "j" # str | 
+    api_instance = applications_api.ApplicationsApi(api_client)
+    id = "62ECB020-8429-30cc-01FF-CCfeEe150AC3" # str | 
 
     # example passing only required values which don't have defaults set
     try:
         api_instance.delete(id)
     except basistheory.ApiException as e:
-        print("Exception when calling TokensApi->delete: %s\n" % e)
+        print("Exception when calling ApplicationsApi->delete: %s\n" % e)
 ```
 
 
@@ -191,15 +191,14 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
-**400** | Bad Request |  -  |
+**404** | Not Found |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
-**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get**
-> TokenPaginatedList get()
+> ApplicationPaginatedList get()
 
 
 
@@ -210,8 +209,8 @@ void (empty response body)
 ```python
 import time
 import basistheory
-from basistheory.api import tokens_api
-from basistheory.model.token_paginated_list import TokenPaginatedList
+from basistheory.api import applications_api
+from basistheory.model.application_paginated_list import ApplicationPaginatedList
 from basistheory.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.basistheory.com
@@ -234,13 +233,13 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with basistheory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tokens_api.TokensApi(api_client)
+    api_instance = applications_api.ApplicationsApi(api_client)
     id = [
-        "id_example",
+        "62ECB020-8429-30cc-01FF-CCfeEe150AC3",
     ] # [str], none_type |  (optional)
-    metadata = {
-        "key": "key_example",
-    } # {str: (str,)}, none_type |  (optional)
+    type = [
+        "type_example",
+    ] # [str], none_type |  (optional)
     page = 0 # int, none_type |  (optional)
     start = "start_example" # str, none_type |  (optional)
     size = 0 # int, none_type |  (optional)
@@ -248,10 +247,10 @@ with basistheory.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.get(id=id, metadata=metadata, page=page, start=start, size=size)
+        api_response = api_instance.get(id=id, type=type, page=page, start=start, size=size)
         pprint(api_response)
     except basistheory.ApiException as e:
-        print("Exception when calling TokensApi->get: %s\n" % e)
+        print("Exception when calling ApplicationsApi->get: %s\n" % e)
 ```
 
 
@@ -260,14 +259,14 @@ with basistheory.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **[str], none_type**|  | [optional]
- **metadata** | **{str: (str,)}, none_type**|  | [optional]
+ **type** | **[str], none_type**|  | [optional]
  **page** | **int, none_type**|  | [optional]
  **start** | **str, none_type**|  | [optional]
  **size** | **int, none_type**|  | [optional]
 
 ### Return type
 
-[**TokenPaginatedList**](TokenPaginatedList.md)
+[**ApplicationPaginatedList**](ApplicationPaginatedList.md)
 
 ### Authorization
 
@@ -284,13 +283,14 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
+**404** | Not Found |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_by_id**
-> Token get_by_id(id)
+> Application get_by_id(id)
 
 
 
@@ -301,9 +301,9 @@ Name | Type | Description  | Notes
 ```python
 import time
 import basistheory
-from basistheory.api import tokens_api
-from basistheory.model.token import Token
+from basistheory.api import applications_api
 from basistheory.model.problem_details import ProblemDetails
+from basistheory.model.application import Application
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.basistheory.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -325,15 +325,15 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with basistheory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tokens_api.TokensApi(api_client)
-    id = "j" # str | 
+    api_instance = applications_api.ApplicationsApi(api_client)
+    id = "62ECB020-8429-30cc-01FF-CCfeEe150AC3" # str | 
 
     # example passing only required values which don't have defaults set
     try:
         api_response = api_instance.get_by_id(id)
         pprint(api_response)
     except basistheory.ApiException as e:
-        print("Exception when calling TokensApi->get_by_id: %s\n" % e)
+        print("Exception when calling ApplicationsApi->get_by_id: %s\n" % e)
 ```
 
 
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Token**](Token.md)
+[**Application**](Application.md)
 
 ### Authorization
 
@@ -362,14 +362,14 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**401** | Unauthorized |  -  |
-**403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_v2**
-> TokenCursorPaginatedList get_v2()
+# **get_by_key**
+> Application get_by_key()
 
 
 
@@ -380,9 +380,9 @@ Name | Type | Description  | Notes
 ```python
 import time
 import basistheory
-from basistheory.api import tokens_api
-from basistheory.model.token_cursor_paginated_list import TokenCursorPaginatedList
+from basistheory.api import applications_api
 from basistheory.model.problem_details import ProblemDetails
+from basistheory.model.application import Application
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.basistheory.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -404,30 +404,23 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with basistheory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tokens_api.TokensApi(api_client)
-    start = "j" # str, none_type |  (optional)
-    size = 0 # int, none_type |  (optional)
+    api_instance = applications_api.ApplicationsApi(api_client)
 
-    # example passing only required values which don't have defaults set
-    # and optional values
+    # example, this endpoint has no required or optional parameters
     try:
-        api_response = api_instance.get_v2(start=start, size=size)
+        api_response = api_instance.get_by_key()
         pprint(api_response)
     except basistheory.ApiException as e:
-        print("Exception when calling TokensApi->get_v2: %s\n" % e)
+        print("Exception when calling ApplicationsApi->get_by_key: %s\n" % e)
 ```
 
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start** | **str, none_type**|  | [optional]
- **size** | **int, none_type**|  | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**TokenCursorPaginatedList**](TokenCursorPaginatedList.md)
+[**Application**](Application.md)
 
 ### Authorization
 
@@ -444,13 +437,13 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
+**404** | Not Found |  -  |
 **401** | Unauthorized |  -  |
-**403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **search**
-> TokenPaginatedList search(search_tokens_request)
+# **regenerate_key**
+> Application regenerate_key(id)
 
 
 
@@ -461,11 +454,9 @@ Name | Type | Description  | Notes
 ```python
 import time
 import basistheory
-from basistheory.api import tokens_api
-from basistheory.model.search_tokens_request import SearchTokensRequest
-from basistheory.model.validation_problem_details import ValidationProblemDetails
-from basistheory.model.token_paginated_list import TokenPaginatedList
+from basistheory.api import applications_api
 from basistheory.model.problem_details import ProblemDetails
+from basistheory.model.application import Application
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.basistheory.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -487,20 +478,15 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with basistheory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tokens_api.TokensApi(api_client)
-    search_tokens_request = SearchTokensRequest(
-        query="jUR,rZ#UM/?R,Fp^l6$ARj",
-        page=0,
-        start="start_example",
-        size=0,
-    ) # SearchTokensRequest | 
+    api_instance = applications_api.ApplicationsApi(api_client)
+    id = "62ECB020-8429-30cc-01FF-CCfeEe150AC3" # str | 
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.search(search_tokens_request)
+        api_response = api_instance.regenerate_key(id)
         pprint(api_response)
     except basistheory.ApiException as e:
-        print("Exception when calling TokensApi->search: %s\n" % e)
+        print("Exception when calling ApplicationsApi->regenerate_key: %s\n" % e)
 ```
 
 
@@ -508,11 +494,11 @@ with basistheory.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search_tokens_request** | [**SearchTokensRequest**](SearchTokensRequest.md)|  |
+ **id** | **str**|  |
 
 ### Return type
 
-[**TokenPaginatedList**](TokenPaginatedList.md)
+[**Application**](Application.md)
 
 ### Authorization
 
@@ -520,7 +506,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -529,99 +515,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**400** | Bad Request |  -  |
+**404** | Not Found |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **search_v2**
-> TokenCursorPaginatedList search_v2(search_tokens_request_v2)
-
-
-
-### Example
-
-* Api Key Authentication (ApiKey):
-
-```python
-import time
-import basistheory
-from basistheory.api import tokens_api
-from basistheory.model.token_cursor_paginated_list import TokenCursorPaginatedList
-from basistheory.model.search_tokens_request_v2 import SearchTokensRequestV2
-from basistheory.model.validation_problem_details import ValidationProblemDetails
-from basistheory.model.problem_details import ProblemDetails
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.basistheory.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = basistheory.Configuration(
-    host = "https://api.basistheory.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: ApiKey
-configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['ApiKey'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with basistheory.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = tokens_api.TokensApi(api_client)
-    search_tokens_request_v2 = SearchTokensRequestV2(
-        query="jUR,rZ#UM/?R,Fp^l6$ARj",
-        start="j",
-        size=0,
-    ) # SearchTokensRequestV2 | 
-
-    # example passing only required values which don't have defaults set
-    try:
-        api_response = api_instance.search_v2(search_tokens_request_v2)
-        pprint(api_response)
-    except basistheory.ApiException as e:
-        print("Exception when calling TokensApi->search_v2: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **search_tokens_request_v2** | [**SearchTokensRequestV2**](SearchTokensRequestV2.md)|  |
-
-### Return type
-
-[**TokenCursorPaginatedList**](TokenCursorPaginatedList.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success |  -  |
-**400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
-**403** | Forbidden |  -  |
+**422** | Client Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update**
-> Token update(id, update_token_request)
+> Application update(id, update_application_request)
 
 
 
@@ -632,11 +534,11 @@ Name | Type | Description  | Notes
 ```python
 import time
 import basistheory
-from basistheory.api import tokens_api
-from basistheory.model.update_token_request import UpdateTokenRequest
+from basistheory.api import applications_api
+from basistheory.model.update_application_request import UpdateApplicationRequest
 from basistheory.model.validation_problem_details import ValidationProblemDetails
-from basistheory.model.token import Token
 from basistheory.model.problem_details import ProblemDetails
+from basistheory.model.application import Application
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.basistheory.com
 # See configuration.py for a list of all supported configuration parameters.
@@ -658,35 +560,39 @@ configuration.api_key['ApiKey'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with basistheory.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = tokens_api.TokensApi(api_client)
-    id = "j" # str | 
-    update_token_request = UpdateTokenRequest(
-        data=None,
-        privacy=UpdatePrivacy(
-            impact_level="impact_level_example",
-            restriction_policy="restriction_policy_example",
-        ),
-        metadata={
-            "key": "key_example",
-        },
-        search_indexes=[
-            "search_indexes_example",
+    api_instance = applications_api.ApplicationsApi(api_client)
+    id = "62ECB020-8429-30cc-01FF-CCfeEe150AC3" # str | 
+    update_application_request = UpdateApplicationRequest(
+        name="j",
+        permissions=[
+            "permissions_example",
         ],
-        fingerprint_expression="jUR,rZ#UM/?R,Fp^l6$ARj",
-        mask=None,
-        expires_at="expires_at_example",
-        deduplicate_token=True,
-        containers=[
-            "containers_example",
+        rules=[
+            AccessRule(
+                description="description_example",
+                priority=1,
+                container="container_example",
+                transform="transform_example",
+                conditions=[
+                    Condition(
+                        attribute="attribute_example",
+                        operator="operator_example",
+                        value="value_example",
+                    ),
+                ],
+                permissions=[
+                    "permissions_example",
+                ],
+            ),
         ],
-    ) # UpdateTokenRequest | 
+    ) # UpdateApplicationRequest | 
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.update(id, update_token_request)
+        api_response = api_instance.update(id, update_application_request)
         pprint(api_response)
     except basistheory.ApiException as e:
-        print("Exception when calling TokensApi->update: %s\n" % e)
+        print("Exception when calling ApplicationsApi->update: %s\n" % e)
 ```
 
 
@@ -695,11 +601,11 @@ with basistheory.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**|  |
- **update_token_request** | [**UpdateTokenRequest**](UpdateTokenRequest.md)|  |
+ **update_application_request** | [**UpdateApplicationRequest**](UpdateApplicationRequest.md)|  |
 
 ### Return type
 
-[**Token**](Token.md)
+[**Application**](Application.md)
 
 ### Authorization
 
@@ -707,7 +613,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/merge-patch+json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -717,10 +623,9 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Success |  -  |
 **400** | Bad Request |  -  |
+**404** | Not Found |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
-**404** | Not Found |  -  |
-**409** | Conflict |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -22,8 +22,8 @@
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
 
-docs/*.md
-README.md
+#docs/*.md
+#README.md
 setup.py
 setup.cfg
 git_push.sh
