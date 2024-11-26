@@ -1,5 +1,12 @@
 # Basis Theory Python SDK
 
+> [!CAUTION]
+> This SDK has been deprecated.
+>
+> Our new SDK can be found at https://github.com/Basis-Theory/python-sdk
+>
+> See our documentation site for more information. https://developers.basistheory.com/docs/sdks/server-side/python
+
 [![Release](https://github.com/Basis-Theory/basistheory-python/actions/workflows/release.yml/badge.svg)](https://github.com/Basis-Theory/basistheory-python/actions/workflows/release.yml)
 
 The [Basis Theory](https://basistheory.com/) Python SDK for Python >=3.7
