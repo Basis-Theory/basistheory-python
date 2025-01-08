@@ -66,7 +66,8 @@ def test_get_members():
 
 #     assert tenant_report.token_report is not None
 
-def test_create_invitation():
+
+def test_create_delete_invitation():
     request = CreateTenantInvitationRequest(email="test@basistheory.com")
 
     invitation = tenants_client.create_invitation(create_tenant_invitation_request=request)
@@ -78,12 +79,6 @@ def test_create_invitation():
     assert invitation.created_by is not None
     assert invitation.created_at is not None
     assert invitation.expires_at is not None
-
-
-def test_delete_invitation():
-    request = CreateTenantInvitationRequest(email="test@basistheory.com")
-
-    invitation = tenants_client.create_invitation(create_tenant_invitation_request=request)
 
     tenants_client.delete_invitation(invitation_id=invitation.id)
 
