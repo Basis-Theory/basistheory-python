@@ -80,7 +80,7 @@ class TenantUsageReport(ModelNormal):
         """
         lazy_import()
         return {
-            'token_report': (TokenReport,),  # noqa: E501
+            'total_tokens': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -89,7 +89,7 @@ class TenantUsageReport(ModelNormal):
 
 
     attribute_map = {
-        'token_report': 'token_report',  # noqa: E501
+        'total_tokens': int,  # noqa: E501
     }
 
     read_only_vars = {
