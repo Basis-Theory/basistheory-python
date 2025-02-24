@@ -45,7 +45,7 @@ def test_get():
 def test_get_tenant_usage_report():
     tenant_report = tenants_client.get_tenant_usage_report(request_options=options)
 
-    assert tenant_report.token_report is not None
+    assert tenant_report.total_tokens is not None
 
 
 def test_get_invitations():
