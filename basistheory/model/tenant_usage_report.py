@@ -73,7 +73,6 @@ class TenantUsageReport(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
-        lazy_import()
         return {
             'total_tokens': (int,),  # noqa: E501
         }
