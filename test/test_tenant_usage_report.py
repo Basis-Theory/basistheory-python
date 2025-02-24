@@ -12,8 +12,6 @@ import sys
 import unittest
 
 import basistheory
-from basistheory.model.token_report import TokenReport
-globals()['TokenReport'] = TokenReport
 from basistheory.model.tenant_usage_report import TenantUsageReport
 
 

@@ -14,7 +14,6 @@ import unittest
 import basistheory
 from basistheory.model.token_metrics import TokenMetrics
 globals()['TokenMetrics'] = TokenMetrics
-from basistheory.model.token_report import TokenReport
 
 
 class TestTokenReport(unittest.TestCase):
